@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class = "main" >
-        Nichty Partfofh
+        <h1>Nighty Party</h1>
     </div > 
     <?php 
         // Code PHP

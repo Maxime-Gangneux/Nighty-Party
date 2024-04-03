@@ -1,8 +1,7 @@
 .main{
-    color: rgb(210, 141, 141);
-    justify-content: center;
+    text-align: center;
 }
 
 body{
-    background-color: blue;
+    background-color: rgb(63, 63, 64);
 }
