@@ -1,7 +1,56 @@
-.main{
+h1{
     text-align: center;
 }
 
 body{
     background-color: rgb(63, 63, 64);
+}
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+li{
+    color: white;
+    font-size: 3vh;
+    margin-bottom: 10vh;
+}
+.menu{
+    position: relative;
+    width: 3vw;
+    height: 5vh;
+    display: block;
+}
+.menu span{
+    position: absolute;
+    margin: 0  auto;
+    left: 0;
+    right: 0;
+    width: 90%;
+    height: 1vh;
+    background-color: white;
+}
+.menu span:nth-child(1){
+    top: 0;
+}
+.menu span:nth-child(2){
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu span:nth-child(3){
+    bottom: 0;
+}
+.menu span div{
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    border-radius: 50%;
+    background-color: white;
+}
+.menu span div:nth-child(1){
+    left: -0.3vw;
+}
+.menu span div:nth-child(2){
+    right: -0.3vw;
 }

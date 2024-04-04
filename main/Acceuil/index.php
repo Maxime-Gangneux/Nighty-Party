@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <div class = "main" >
+    <div class="main">
         <h1>Nighty Party</h1>
-    </div > 
-    <?php 
-        // Code PHP
-        echo "Bonjour, monde!";
-    ?>
+        <?php
+            include '../nav_barre/nav_barre.php';
+        ?>
+    </div>
 </body>
 </html>
