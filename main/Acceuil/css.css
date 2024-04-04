@@ -10,7 +10,10 @@ li{
     margin-bottom: 10vh;
 }
 .menu{
-    position: relative;
+    position: absolute;
+    margin: 10px;
+    left: 0;
+    top: 0;
     width: 25px;
     height: 3vh;
     display: block;
@@ -20,7 +23,7 @@ li{
     margin: 0  auto;
     left: 0;
     right: 0;
-    width: 90%;
+    width: 100%;
     height: 3px;
     background-color: white;
 }
@@ -45,7 +48,7 @@ li{
     left: -0.2vw;
 }
 .menu span div:nth-child(2){
-    right: -0.3vw;}
+    right: -0.2vw;}
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
