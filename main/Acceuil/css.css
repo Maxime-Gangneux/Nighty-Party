@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 h1{
     text-align: center;
 }
@@ -53,4 +54,49 @@ li{
 }
 .menu span div:nth-child(2){
     right: -0.3vw;
+=======
+/* Styles de base pour le body */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+/*Stylisation du titre principale */
+.title_home{
+    display: block;
+    text-align: center;
+    margin-top: 1%;
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 700;
+    text-shadow: 0.2em 0.2em 0.2em rgba(147, 131, 131, 0.753);
+    font-size: 3em;
+    width: 100vw;
+}
+
+.container{
+    display: inline-block;
+    border: 0.2em solid white;
+    width: 95%;
+    height: auto;
+    margin: 2%;
+    padding-bottom: 2%;
+}
+
+.container_tendance{
+    border: 0.2em solid white;
+    width: calc(31.33% ); /* 10px de marge entre les carrés */
+    height: 40vh; /* Hauteur des carrés */
+    margin-left: 1%; /* Marge entre les carrés */
+    margin-top:2%;
+    display: inline-block;
+}
+
+.container_tendance:last-child{
+    margin-right: 0;
+>>>>>>> Stashed changes
 }
