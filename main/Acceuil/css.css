@@ -17,6 +17,7 @@ li{
     width: 25px;
     height: 3vh;
     display: block;
+    cursor: pointer;
 }
 .menu span{
     position: absolute;

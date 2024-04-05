@@ -2,7 +2,7 @@
 
 echo
 '
-<div class = "menu">
+<div class = "menu" id = "menu" onclick = "open_menu()">
     <span>
         <div></div>
         <div></div>
@@ -16,11 +16,12 @@ echo
         <div></div>
     </span>
 </div> 
-<ul>
+<ul id = "nav">
     <li>Acceuil</li>
     <li>Recherche</li>
     <li>Mes soiree</li>
     <li>Créer une soiree</li>
-</ul>'
+</ul>
+<div class = "deroulan '
 
 ?>
