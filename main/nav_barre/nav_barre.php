@@ -2,26 +2,13 @@
 
 echo
 '
-<div class = "menu" id = "menu" onclick = "open_menu()">
-    <span>
-        <div></div>
-        <div></div>
-    </span>
-    <span>
-        <div></div>
-        <div></div>
-    </span>
-    <span>
-        <div></div>
-        <div></div>
-    </span>
-</div> 
 <ul id = "nav">
-    <li>Acceuil</li>
-    <li>Recherche</li>
-    <li>Mes soiree</li>
-    <li>Créer une soiree</li>
-</ul>
-<div class = "deroulan '
+    <li><div></div><a href = "">Acceuil</a></li>
+    <li><div></div><a href = "">Recherches</a></li>
+    <li><div></div><a href = "">Mes soirées</a></li>
+    <li><div></div><a href = "zeub.php">Créer une soirée</a></li>
+    <li><a href="#"><div onclick="window.location.href = "zeub.php";"></div></a></li>
 
+</ul>
+'
 ?>

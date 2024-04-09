@@ -10,34 +10,31 @@
 <body>
     <span class = "title_home" >
         Nighty Party
-    </span > 
-    <div class="main">
-        <?php
+    </span >
+    <?php
             include '../nav_barre/nav_barre.php';
-        ?>
-    </div>
-    <div class="container">
-        <div class ="container_tendance">cvl
-        </div>
-        <div class ="container_tendance">kl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        <div class ="container_tendance">cvl
-        </div>
-        <div class ="container_tendance">kl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        
-
-    </div>
-
-
-
-    <?php 
-        // Code PHP
-        
     ?>
+        <div class ="container_tendance">cvl
+        </div>
+        <div class ="container_tendance">kl
+        </div>
+        <div class ="container_tendance">dl
+        </div>
+        <div class ="container_tendance">cvl
+        </div>
+        <div class ="container_tendance">kl
+        </div>
+        <div class ="container_tendance">dl
+        </div>
+        <div class ="container_tendance">dl
+        </div>
+        <div class ="container_tendance">dl
+        </div>
+        <div class ="container_tendance">dl
+        </div>
+        <div class ="container_tendance">dl
+        </div>
+        <div class ="container_tendance">dl
+        </div>
 </body>
 </html>
