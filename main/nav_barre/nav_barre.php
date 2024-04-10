@@ -75,8 +75,8 @@ li>a{
 
 </style>
 <ul id = "nav">
-    <li><div></div><a href = "">Accueil</a></li>
-    <li><div></div><a href = "">Recherches</a></li>
+    <li><div></div><a href = "../Acceuil/index.php">Accueil</a></li>
+    <li><div></div><a href = "../Recherche/index.php">Recherches</a></li>
     <li><div></div><a href = "">Mes soirées</a></li>
     <li><div></div><a href = "zeub.php">Créer une soirée</a></li>
     <a href = "zeub.php" class = "login"></a>

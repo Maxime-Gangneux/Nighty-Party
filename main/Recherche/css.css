@@ -2,13 +2,14 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     background-color: rgb(0, 0, 0);
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
 .container_input{
     position: relative;
-    margin-top: 1.5vh;
+    margin-top: 15vh;
     display: flex;
     justify-content: center;
 
@@ -18,7 +19,6 @@ body {
     transition: transform 2s ease ;
     height: 5vh;
     width: 50vw;
-    margin-top: 1vh;
     border: 0.3em solid purple ;
     border-radius: 2em;
     text-align: center;
@@ -34,7 +34,7 @@ body {
 
 .container_code{
     position: absolute;
-    top: 3vh;
+    top: 17vh;
     right: -16vw;
     width: 20vw;
     height: 5vh;

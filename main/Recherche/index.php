@@ -8,6 +8,9 @@
     <script src="app.js"></script>
 </head>
 <body>
+    <?php
+        include '../nav_barre/nav_barre.php';
+    ?>
     <div class="container_input">
         <input type="text" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" >
     </div>
