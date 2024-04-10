@@ -1,34 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: white;
-    background-image: url(../../Image/6037288.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-image: url(../../Image/fond.jpg);
+    backdrop-filter: brightness(50%);
     background-size: cover;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: auto;
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+footer{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    margin-top: 2vh;
+    height: 5%;
+    color: white;       
+    text-align: center;
+    justify-content: center;
+    font-family: 'Great Vibes';
+    font-size: 2vw;
 }
 /*Stylisation du titre principale */
 .title_home{
     position: relative;
-    display: flex;
     justify-content: center;
     font-family: 'Playfair Display';
     font-style: italic;
-    margin-top: 8vh;
+    color: white;
+    margin-top: 12vh;
     font-weight: 700;
     text-shadow: 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.753);
     font-size: 6vw;
     width: 100vw;
 }
-
+.container{
+    position: relative;
+    display: grid;
+    width: 96%;
+    height: 100%;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1.5vw;
+    column-gap: 2vw;
+}
 .container_tendance{
-    width: calc(31.33% ); /* 10px de marge entre les carrés */
+    width: 100%;
     height: 40vh; /* Hauteur des carrés */
-    margin-left: 1%; /* Marge entre les carrés */
-    margin-top:2%;
+    max-height: 40vh;
+    min-height: 40vh;
+    border-radius: 1em;
+    color: white;
+    justify-content: center;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
-    display: inline-block;
 }
 
 .container_tendance:last-child{
