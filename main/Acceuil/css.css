@@ -42,25 +42,57 @@ footer{
 .container{
     position: relative;
     display: grid;
-    width: 96%;
+    width: 94%;
     height: 100%;
     margin-top: 4vh;
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     row-gap: 1.5vw;
     column-gap: 2vw;
 }
 .container_tendance{
+    position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 40vh; /* Hauteur des carrés */
-    max-height: 40vh;
-    min-height: 40vh;
-    border-radius: 1em;
+    height: 58vh; /* Hauteur des carrés */
+    border-radius: 1em; 
     color: white;
-    justify-content: center;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+.container_tendance div{
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    line-height: 0.5vh;
+    justify-content: left;
+}
+.container_tendance p{
+    font-size: 1.3vw;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    margin-left: 1vw;
+}
+.container_tendance p:nth-child(1){
+    color: white;
+    font-weight: bold;
+}
+.container_tendance p:nth-child(2){
+    color: rgb(185, 185, 185);
+}
+.container_tendance p:nth-child(3){
+    color: white;
+}
+.image_soiree{
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    border-radius: 1em;
+    width: 100%;
+    height: 45vh;
 }
 
 .container_tendance:last-child{

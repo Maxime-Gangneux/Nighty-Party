@@ -18,11 +18,14 @@ try {
 
     // Ajout des résultats dans la chaîne
     while ($ligne = $resultat->fetch_assoc()) {
-        echo"<div class = 'container_tendance'>" .
-            "Nom : " . $ligne['nom_soiree'] . "<br>" .
-            "Adresse : " . $ligne['adresse_soiree'] . "<br>" .
-            "Date : " . $ligne['date_soiree'] . "<br>" .
-            "</div>";
+        echo "<div class='container_tendance'>
+                <img src='../../Image/soiree.jpg' class = 'image_soiree'>
+                <div>
+                    <p>{$ligne['nom_soiree']}</p>
+                    <p>Adresse : {$ligne['adresse_soiree']}</p>
+                    <p>Date : {$ligne['date_soiree']}</p>
+                </div>
+              </div>";
     }
 
 } catch (Exception $e) {
