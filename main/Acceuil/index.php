@@ -5,36 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nighty Party</title>
     <link rel="stylesheet" href="css.css">
-    <script src = "app.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
-    <span class = "title_home" >
-        Nighty Party
-    </span >
     <?php
-            include '../nav_barre/nav_barre.php';
+        include '../nav_barre/nav_barre.php';
     ?>
-        <div class ="container_tendance">cvl
-        </div>
-        <div class ="container_tendance">kl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        <div class ="container_tendance">cvl
-        </div>
-        <div class ="container_tendance">kl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
-        <div class ="container_tendance">dl
-        </div>
+
+    <div class="title_home">Nighty Party</div>
+    
+    <div class="container">
+        <?php
+            include '../../BDD/soiree.php';
+        ?>
+    </div>
+
+    <footer>
+        <p>Created and designed by Muller Julien & Gangneux Maxime</p>
+    </footer>
 </body>
 </html>

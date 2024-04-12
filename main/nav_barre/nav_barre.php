@@ -15,7 +15,8 @@ ul{
     align-items: center;
     justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.9);
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid white;
+    z-index: 999;
 }
 li {
     display: flex;
