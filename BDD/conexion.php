@@ -13,14 +13,6 @@ function connecterBaseDonnees() {
     if ($connexion->connect_error) {
         die("Échec de la connexion à la base de données : " . $connexion->connect_error);
     }
-
-    // Chemin vers le fichier SQL de sauvegarde
-    $chemin_fichier_sql = '../sql/sql.sql';
-
-    // Générer le fichier SQL de sauvegarde
-    $commande_mysqldump = "mysqldump -u $utilisateur -p$motdepasse $base_de_donnees > $chemin_fichier_sql";
-    exec($commande_mysqldump);
-
     return $connexion;
 }
 ?>
