@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 body {
     background-color: rgb(0, 0, 0);
-    overflow: hidden;
+    overflow: scroll;
     margin: 0;
     padding: 0;
     color: white;
@@ -56,26 +56,31 @@ body {
     background-color: rgba(255, 255, 255, 0);
 }
 
+.logo_send{
+    position: absolute;
+    top: 1vh;
+    left: 18vw;
+    cursor: pointer;
+    background-color: none;
+}
+
 .texte_code{
     transition: opacity 0.8s ease-in;
     transition-delay: 0.2s;
     position: relative;
-
     opacity: 0;
     top:3vh;
     left: 2vw;
     color: rgb(0, 0, 0);
-
 }
-
 
 
 .input_code{
     position: absolute;
-    left: 5.5vw;
+    left: 4vw;
     top: 0;
     height: 2vh;
-    width: 13.5vw;
+    width: 11.5vw;
     margin-top: 1vh;
     border: 0.1em solid rgba(0, 0, 0, 0.82) ;
     border-radius:2em;
