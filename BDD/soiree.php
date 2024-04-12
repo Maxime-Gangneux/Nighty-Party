@@ -19,9 +19,9 @@ try {
     // Ajout des résultats dans la chaîne
     while ($ligne = $resultat->fetch_assoc()) {
         echo "<div class='container_tendance'>
+                <p>{$ligne['nom_soiree']}</p>
                 <img src='../../Image/soiree.jpg' class = 'image_soiree'>
                 <div>
-                    <p>{$ligne['nom_soiree']}</p>
                     <p>Adresse : {$ligne['adresse_soiree']}</p>
                     <p>Date : {$ligne['date_soiree']}</p>
                 </div>
