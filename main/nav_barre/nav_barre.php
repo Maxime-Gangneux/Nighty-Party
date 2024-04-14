@@ -79,7 +79,7 @@ li>a{
     <li><div></div><a href = "../Acceuil/index.php">Accueil</a></li>
     <li><div></div><a href = "../Recherche/index.php">Recherches</a></li>
     <li><div></div><a href = "">Mes soirées</a></li>
-    <li><div></div><a href = "zeub.php">Créer une soirée</a></li>
+    <li><div></div><a href = "../creer/index.php">Créer une soirée</a></li>
     <a href = "zeub.php" class = "login"></a>
 
 </ul>
