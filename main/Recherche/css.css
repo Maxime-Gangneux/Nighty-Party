@@ -3,14 +3,13 @@
 /* Style général du corps de la page */
 body {
     background-color: rgb(0, 0, 0);
-    overflow: hidden;
+    overflow: scroll;
     margin: 0;
     padding: 0;
     color: white;
 }
 
-/* Style du conteneur du champ de recherche */
-.container_input {
+.container_input{
     position: relative;
     margin-top: 15vh;
     display: flex;

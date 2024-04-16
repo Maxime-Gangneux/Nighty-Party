@@ -48,6 +48,7 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
             <p>Avec amour et passion =)</p>
         </div>
     </div>
+
     <section class="soiree_priv">
     <?php 
         if($allcode !== NULL && isset($_GET['s'])){
@@ -65,6 +66,11 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
         }
     ?>
     </section> 
+
+    <footer>
+        <p>Created and designed by Muller Julien & Gangneux Maxime</p>
+    </footer>
+
 
     <!-- Script JavaScript -->
     <script>

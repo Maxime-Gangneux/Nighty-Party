@@ -13,7 +13,6 @@ function connecterBaseDonnees() {
     if ($connexion->connect_error) {
         die("Échec de la connexion à la base de données : " . $connexion->connect_error);
     }
-
     return $connexion;
 }
 ?>
