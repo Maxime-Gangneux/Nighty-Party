@@ -140,6 +140,7 @@ CREATE TABLE IF NOT EXISTS `soiree` (
   `thème_soiree` varchar(50) DEFAULT NULL,
   `type_soiree` varchar(50) DEFAULT NULL,
   `statu_soiree` tinyint(1) NOT NULL,
+  `code_soiree` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_soiree`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 

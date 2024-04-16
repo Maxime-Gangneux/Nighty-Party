@@ -1,39 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Style général du corps de la page */
 body {
     background-color: rgb(0, 0, 0);
-    overflow: scroll;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     color: white;
 }
 
-.container_input{
+/* Style du conteneur du champ de recherche */
+.container_input {
     position: relative;
     margin-top: 15vh;
     display: flex;
     justify-content: center;
 }
 
-.input_soiree{
-    transition: transform 2s ease ;
+/* Style du champ de recherche */
+.input_soiree {
     height: 5vh;
     width: 50vw;
-    border: 0.3em solid purple ;
+    border: 0.3em solid purple;
     border-radius: 2em;
     text-align: center;
+    transition: all 5s ease; /* Animation de zoom */
 }
 
 .input_soiree:hover, .input_soiree:focus {
+    transition: transform 5s ease; /* Animation de zoom */
     transform: scale(1.1); /* Zoom au survol et lorsqu'il est en focus */
     outline: none;
 }
-.input_soiree::placeholder{
+
+.input_soiree::placeholder {
     color: rgba(0, 0, 0, 0.63);
 }
 
-.container_code{
+/* Style du conteneur du code de la soirée */
+.container_code {
     position: absolute;
-    display:flex;
+    display: flex;
     top: 16vh;
     right: -16vw;
     width: 20vw;
@@ -41,51 +48,55 @@ body {
     background-color: rgb(255, 255, 255);
     transition: all 0.8s ease-in;
     border-radius: 2em 0 0 2em;
-    padding: 0;
 }
 
-.logo_code{
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Style du bouton pour ouvrir le conteneur */
+.logo_code {
     height: 5vh;
     width: 5vw;
     cursor: pointer;
     border-radius: 2em;
     border: none;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: transparent;
 }
 
-.logo_send{
+/* Style de l'image pour envoyer le code */
+.logo_send {
     position: absolute;
-    top: 1vh;
-    left: 18vw;
+    top: 0.4vh;
+    left: calc(100% - 2.4vw); /* Ajustement de la position */
     cursor: pointer;
-    background-color: none;
 }
 
-.texte_code{
-    transition: opacity 0.8s ease-in;
-    transition-delay: 0.2s;
+/* Style du texte associé au code de la soirée */
+.texte_code {
+    transition: opacity 0.5s ease-in;
     position: relative;
     opacity: 0;
-    top:3vh;
+    top: 3vh;
     left: 2vw;
     color: rgb(0, 0, 0);
 }
 
-
-.input_code{
+/* Style du champ pour saisir le code */
+.input_code {
     position: absolute;
-    left: 4vw;
+    left: 4.3vw;
     top: 0;
     height: 2vh;
-    width: 11.5vw;
+    width: 12vw;
     margin-top: 1vh;
-    border: 0.1em solid rgba(0, 0, 0, 0.82) ;
-    border-radius:2em;
+    border: 0.1em solid rgba(0, 0, 0, 0.82);
+    border-radius: 2em;
     text-align: center;
 }
+
 .input_code:hover, .input_code:focus {
     outline: none;
+}
+
+.soiree_priv{
+    display: flex;
+    justify-content: center;
+    
 }
