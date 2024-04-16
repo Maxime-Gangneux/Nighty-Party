@@ -12,17 +12,44 @@
         include '../nav_barre/nav_barre.php';
     ?>
     <div class = "container">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <div class = 'container_input'>
+
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="text" placeholder = "Nom de la soirée">
+            </div>
+            <div>
+                <input type="checkbox">
+            </div>
+        
+        <div class = "preview">suce moi</div>
+        </div>
     </div>
     <footer>
         <p>Created and designed by Muller Julien & Gangneux Maxime</p>

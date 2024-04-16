@@ -4,9 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(45deg, rgba(255, 0, 132, 0.8), rgba(184, 29, 186, 0) 70.71%),
-                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    background-image: url(../../Image/fond.jpg);
     backdrop-filter: brightness(50%);
     background-size: cover;
     overflow-y: scroll;
@@ -28,17 +26,26 @@ footer{
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
-
-.container{
+.container {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 10vh;
+    align-items: center;
+}
+.container_input{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 50%;
     height: auto;
-    background-color: aliceblue;
+    text-align: left;
 }
-.container input{
-    width: 30%;
-    margin-top: 1%;
+input {
+    position: relative;
+    margin-top: 3vh;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white;
 }
