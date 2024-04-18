@@ -29,23 +29,47 @@ footer{
 .container {
     position: relative;
     display: flex;
+    justify-content: space-between;
     width: 100vw;
     height: 100vh;
     margin-top: 10vh;
     align-items: center;
 }
+.preview{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 50vh;
+    text-align: center;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.1);
+}
 .container_input{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 45%;
     height: auto;
     text-align: left;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 input {
     position: relative;
-    margin-top: 3vh;
+    margin-top: 4vh;
+    margin-left: 3vw;
     background-color: transparent;
     border: none;
+    border-bottom: solid rgba(255, 255, 255, 0.6);
+    color: white;
+    transition: border-bottom 0.3s ease;
+    padding-left: 0;
+}
+
+input:focus {
+    outline: none;
     border-bottom: solid white;
 }

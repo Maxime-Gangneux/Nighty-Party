@@ -20,7 +20,7 @@ try {
     while ($ligne = $resultat->fetch_assoc()) {
         echo "<div class='container_tendance'>
                 <p>{$ligne['nom_soiree']}</p>
-                <img src='../../Image/soiree.jp' class = 'image_soiree'>
+                <img src='../../Image/soiree.jpg' class = 'image_soiree'>
                 <div>
                     <p>Adresse : {$ligne['adresse_soiree']}</p>
                     <p>Date : {$ligne['date_soiree']}</p>
