@@ -14,8 +14,8 @@ ul{
     list-style-type: none;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-bottom: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.0);
+    border-bottom: 0px solid white;
     z-index: 999;
 }
 li {
@@ -80,8 +80,7 @@ li>a{
     <li><div></div><a href = "../Recherche/index.php">Recherches</a></li>
     <li><div></div><a href = "">Mes soirées</a></li>
     <li><div></div><a href = "../creer/index.php">Créer une soirée</a></li>
-    <a href = "zeub.php" class = "login"></a>
-
+    <a href = "../login/index.php" class = "login"></a>
 </ul>
 '
 ?>
