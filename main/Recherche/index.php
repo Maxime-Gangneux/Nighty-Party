@@ -1,12 +1,15 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=nighty party', 'root', '');
-$allcode = $bdd->query('SELECT nom_soiree, description_soiree, nb_personne_soiree FROM soiree ORDER BY id_soiree DESC');
 
+// Vérifier si le formulaire a été soumis et que le champ n'est pas vide
 if(isset($_GET['s']) && !empty($_GET['s'])){
     $code = htmlspecialchars($_GET['s']);
-    $stmt = $bdd->prepare('SELECT nom_soiree, description_soiree, nb_personne_soiree FROM soiree WHERE code_soiree = :code ORDER BY id_soiree DESC');
+    $stmt = $bdd->prepare('SELECT * FROM soiree WHERE code_soiree = :code ORDER BY id_soiree DESC');
     $stmt->execute(array('code' => $code));
     $allcode = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    // Si le formulaire n'a pas été soumis ou que le champ est vide, initialiser $allcode à NULL
+    $allcode = NULL;
 }
 ?>
 
@@ -51,47 +54,31 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
 
     <section class="soiree_priv">
     <?php 
-        if($allcode !== NULL && isset($_GET['s'])){
-            foreach($allcode as $soiree){
-                ?>
-                <div class="soiree">
-                    <h3>Nom de la soirée: <?= $soiree['nom_soiree']; ?></h3>
-                    <p>Description: <?= $soiree['description_soiree']; ?></p>
-                    <p>Nombre de personnes: <?= $soiree['nb_personne_soiree']; ?></p>
-                </div>
-                <?php
-            }
-        } else {
-            echo "<p>Aucune soirée n'a été trouvée avec votre code.</p>";
+    // Vérifier si $allcode contient des résultats
+    if($allcode !== NULL && isset($_GET['s'])){
+        foreach($allcode as $soiree){
+            echo 
+                "<h3>Voici la soirée trouvée avec le code {$code}</h3>
+                <div class='container_tendance'>
+                    <p>{$soiree['nom_soiree']}</p>
+                    <img src='../../Image/soiree.jp' class='image_soiree'>
+                    <div>
+                        <p>Description : {$soiree['adresse_soiree']}</p>
+                        <p>Nombre de personnes : {$soiree['date_soiree']}</p>
+                    </div>
+                </div>";
         }
-    ?>
-    </section> 
+    } elseif(isset($_GET['s'])) {
+        // Si le formulaire a été soumis mais aucun résultat trouvé
+        echo "<p>Aucune soirée n'a été trouvée avec votre code.</p>";
+    }
+?>
+</section> 
+
 
     <footer>
         <p>Created and designed by Muller Julien & Gangneux Maxime</p>
     </footer>
 
-
-    <!-- Script JavaScript -->
-    <script>
-        // Fonction pour ouvrir/fermer le conteneur du code de la soirée
-        function Ouvrir_container_code() {
-            var container = document.getElementById("container_code");
-            var txt = document.getElementById("texte_code");
-            // Si le conteneur est fermé
-            if (container.style.right === "-16vw") {
-                // Ouvrir le conteneur et afficher le texte
-                container.style.right = "0vw";
-                container.style.height = "20vh";
-                txt.style.opacity = "1";
-            } else {
-                // Fermer le conteneur et masquer le texte
-                container.style.right = "-16vw";
-                container.style.height = "5vh";
-                txt.style.transitionDuration = "0.5s";
-                txt.style.opacity = "0";
-            }
-        }
-    </script>
 </body>
 </html>
