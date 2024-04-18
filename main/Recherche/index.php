@@ -50,7 +50,7 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
     </div>
 
     <section class="soiree_priv">
-    <?php 
+    <?php
         if($allcode !== NULL && isset($_GET['s'])){
             foreach($allcode as $soiree){
                 ?>
