@@ -10,13 +10,18 @@
 <body>
     <?php include '../nav_barre/nav_barre.php'; ?>
     <div>
-        <form method="POST" action="../../BDD/insert_soiree.php">
-            <input type="text" name="" placeholder="e-mail">
-            <input type="password" name="" placeholder="password">
-            <input type="text" name="" placeholder="First name">
-            <input type="text" name="" placeholder="Last name">
-            <input type="range" name="" placeholder="Age">
-            <button type="submit" name="">Enregistrer</button>
+        <form method="POST" action="../../BDD/insert_compte.php">
+            <input type="text" name="indentifiant_compte" placeholder="e-mail">
+            <input type="password" name="mot_de_passe_compte" placeholder="password">
+            <input type="text" name="nom_compte" placeholder="First name">
+            <input type="text" name="prenom_compte" placeholder="Last name">
+            <input type="number" name="age_compte" placeholder="Age">
+            <button type="submit" name="submit_button_compte">Enregistrer</button>
+        </form>
+        <form method="POST" action="../../BDD/login.php">
+            <input type="email" name="email" placeholder="e-mail">
+            <input type="password" name="password" placeholder="password">
+            <button type="submit" name="submit_button_login">Enregistrer</button>
         </form>
     </div>
     <footer>

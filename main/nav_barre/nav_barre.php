@@ -14,7 +14,7 @@ ul{
     list-style-type: none;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0.2);
     border-bottom: 0px solid white;
     z-index: 999;
 }
