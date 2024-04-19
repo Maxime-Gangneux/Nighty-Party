@@ -27,7 +27,7 @@ if(isset($_POST['submit_button_login'])){
             $_SESSION['nom'] = $row['nom_compte'];
             $_SESSION['prenom'] = $row['prenom_compte'];
             // Redirection vers la page de profil ou une autre page protégée
-            header("Location: profile.php");
+            header("Location: ../main/login/index.php");
             exit();
         } else {
             // Mot de passe incorrect
@@ -38,7 +38,12 @@ if(isset($_POST['submit_button_login'])){
         echo "Adresse e-mail non reconnue.";
     }
 }
-
+if(isset($_POST['submit_button_disconnect'])){
+    // Déconnexion de l'utilisateur
+    session_destroy();
+    header("Location: ../main/login/index.php");
+    exit();
+}
 // Fermer la connexion à la base de données
 $connexion->close();
 ?>
