@@ -32,7 +32,7 @@
     <div class="spherelumineuse" id ="spherelumineuse"></div>
     <div class="spherelumineuse" id ="spherelumineuse"></div>
     <div class="spherelumineuse" id ="spherelumineuse"></div>
-    <div>
+    <div class = "formulaire_container">
         <form method='POST' action='../../BDD/insert_compte.php'>
             <input type='text' name='indentifiant_compte' placeholder='e-mail'>
             <input type='password' name='mot_de_passe_compte' placeholder='password'>
