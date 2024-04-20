@@ -178,3 +178,19 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TRIGGER mise_a_jour_code_soiree BEFORE INSERT ON soiree
+FOR EACH ROW
+BEGIN
+    IF NEW.statu_soiree = 0 THEN
+        SET NEW.code_soiree = (
+            SELECT SUBSTRING(
+                MD5(RAND()) FROM 1 FOR 7
+            )
+        );
+    ELSE
+        SET NEW.code_soiree = NULL;
+    END IF;
+END//
+
