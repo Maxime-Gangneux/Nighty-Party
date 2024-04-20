@@ -11,6 +11,7 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
     // Si le formulaire n'a pas été soumis ou que le champ est vide, initialiser $allcode à NULL
     $allcode = NULL;
 }
+include 'api.php';
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +32,11 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
     <?php include '../nav_barre/nav_barre.php'; ?>
 
     <!-- Champ de recherche pour une soirée -->
+    <form method="GET">
     <div class="container_input">
-        <input type="text" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée">
+        <input type="text" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
     </div>
-
+    </form>
     <!-- Conteneur pour le code de la soirée -->
     <div class="container_code" id="container_code">
         <!-- Bouton pour ouvrir le conteneur -->
@@ -47,12 +49,12 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
         </form>
         <!-- Texte associé au code de la soirée -->
         <div class="texte_code" id="texte_code">
-            <p>suce ma bite</p>
-            <p>Avec amour et passion =)</p>
+            suce ma bite
+            Avec amour et passion =)
         </div>
     </div>
 
-    <section class="soiree_priv">
+    <section>
     <?php 
     // Vérifier si $allcode contient des résultats
     if($allcode !== NULL && isset($_GET['s'])){
@@ -61,7 +63,7 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
                 "<h3>Voici la soirée trouvée avec le code {$code}</h3>
                 <div class='container_tendance'>
                     <p>{$soiree['nom_soiree']}</p>
-                    <img src='../../Image/soiree.jp' class='image_soiree'>
+                    <img src='../../Image/soiree.jpg' class='image_soiree'>
                     <div>
                         <p>Description : {$soiree['adresse_soiree']}</p>
                         <p>Nombre de personnes : {$soiree['date_soiree']}</p>
@@ -72,13 +74,35 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
         // Si le formulaire a été soumis mais aucun résultat trouvé
         echo "<p>Aucune soirée n'a été trouvée avec votre code.</p>";
     }
+
+    $result_soiree = verif_input_main();
+    if ($result_soiree !== NULL) {
+        foreach ($result_soiree as $resul) {
+            if ($resul['code_soiree'] !== NULL){
+                continue;
+            }
+            echo "
+            <div class='container_soiree'>
+                <div class = 'soiree'>
+                    <span class = 'titre_soiree'>{$resul['nom_soiree']}</span>
+                    <p><img src ='location_icon.png'>{$resul['adresse_soiree']}</p> 
+                    <p>Description : {$resul['description_soiree']}</p>
+                </div>
+            </div>
+            <div>
+                <p>Nombre de personnes : {$resul['nb_personne_soiree']}</p>
+            </div>";
+        }
+    } else {
+        echo "<div class ='container_tendance'>Aucun résultat trouvé.</div>";
+    }
+
 ?>
 </section> 
 
-
-    <footer>
-        <p>Created and designed by Muller Julien & Gangneux Maxime</p>
-    </footer>
+<footer>
+    <p>Created and designed by Muller Julien & Gangneux Maxime</p>
+</footer>
 
 </body>
 </html>

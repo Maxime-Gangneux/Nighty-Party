@@ -18,6 +18,9 @@ try {
 
     // Ajout des résultats dans la chaîne
     while ($ligne = $resultat->fetch_assoc()) {
+        if ($ligne['code_soiree'] !== NULL){
+            continue;
+        }
         echo "<div class='container_tendance'>
                 <p>{$ligne['nom_soiree']}</p>
                 <img src='../../Image/soiree.jpg' class = 'image_soiree'>

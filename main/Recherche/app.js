@@ -16,3 +16,4 @@
             txt.style.opacity = "0";
         }
     }
+
