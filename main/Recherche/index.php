@@ -61,14 +61,26 @@ include 'api.php';
         foreach($allcode as $soiree){
             echo 
                 "<h3>Voici la soirée trouvée avec le code {$code}</h3>
-                <div class='container_tendance'>
-                    <p>{$soiree['nom_soiree']}</p>
-                    <img src='../../Image/soiree.jpg' class='image_soiree'>
-                    <div>
-                        <p>Description : {$soiree['adresse_soiree']}</p>
-                        <p>Nombre de personnes : {$soiree['date_soiree']}</p>
+                <div class='container_soiree'>
+                <div class = 'soiree'>
+                    <span class = 'titre_soiree'>{$soiree['nom_soiree']}</span>
+                    <img class = 'image_soiree' src='../../Image/soiree.jpg'>
+    
+                    <div class = description>
+                        <h2> Description </h2> 
+                        <p> {$soiree['description_soiree']} </p>
                     </div>
-                </div>";
+                    <div class = 'info_complementaire'>
+                        <p><img src ='localisation_icon.png'> {$soiree['adresse_soiree']}</p>
+                        <p>Nombre de personnes : {$soiree['nb_personne_soiree']}</p>
+                        <p>Date de la soirée : {$soiree['date_soiree']}</p>
+                        <p>thème de la soirée : {$soiree['thème_soiree']}</p>
+                        <p>Type de la soirée : {$soiree['type_soiree']}</p>
+                        <p>Heure debut de la soirée : {$soiree['heure_min_soiree']}</p>
+                        <p>Heure fin de la soirée : {$soiree['heure_max_soiree']}</p>
+                    </div>
+                </div>        
+            </div>";
         }
     } elseif(isset($_GET['s'])) {
         // Si le formulaire a été soumis mais aucun résultat trouvé
@@ -83,14 +95,25 @@ include 'api.php';
             }
             echo "
             <div class='container_soiree'>
+                
                 <div class = 'soiree'>
                     <span class = 'titre_soiree'>{$resul['nom_soiree']}</span>
-                    <p><img src ='location_icon.png'>{$resul['adresse_soiree']}</p> 
-                    <p>Description : {$resul['description_soiree']}</p>
-                </div>
-            </div>
-            <div>
-                <p>Nombre de personnes : {$resul['nb_personne_soiree']}</p>
+                    <img class = 'image_soiree' src='../../Image/soiree.jpg'>
+    
+                    <div class = description>
+                        <h2> Description </h2> 
+                        <p> {$resul['description_soiree']} </p>
+                    </div>
+                    <div class = 'info_complementaire'>
+                        <p><img src ='localisation_icon.png'> {$resul['adresse_soiree']}</p>
+                        <p>Nombre de personnes : {$resul['nb_personne_soiree']}</p>
+                        <p>Date de la soirée : {$resul['date_soiree']}</p>
+                        <p>thème de la soirée : {$resul['thème_soiree']}</p>
+                        <p>Type de la soirée : {$resul['type_soiree']}</p>
+                        <p>Heure debut de la soirée : {$resul['heure_min_soiree']}</p>
+                        <p>Heure fin de la soirée : {$resul['heure_max_soiree']}</p>
+                    </div>
+                </div>        
             </div>";
         }
     } else {
