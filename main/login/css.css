@@ -1,28 +1,17 @@
+/* Définition des polices */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+/* Corps de la page */
 body {
-    display: flex;
-    flex-direction: column;
     margin: auto;
     background-image: url(../../Image/fond.jpg);
     background-size: cover;
     overflow-y: scroll;
     overflow-x: hidden;
 }
-body::-webkit-scrollbar {
-    display: none;
-}
-.fond_cote{
-    background-image: url(../../Image/fond_cote.jpg);
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-footer{
+
+/* Pied de page */
+footer {
     position: relative;
     background-color: rgba(11, 11, 11, 0.5);
     width: 100%;
@@ -34,48 +23,152 @@ footer{
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
-.spherelumineuse{
-    position: absolute;
-top: calc(50% - 50px);
-left: calc(50% - 50px);
-height: 100px;
-width: 100px;
-border-radius: 50%;
-transition: all 5s;
-box-shadow: inset 0 0 10px #ffffff,
-            inset 20px 0 40px #f0f,
-            inset -20px 0 40px #0ff,
-            inset 20px 0 200px #f0f,
-            inset -20px 0 200px #0ff,
-            0 0 10px #fff,
-            10px 0 400px #f0f;
-z-index: -999;
 
+/* Sphère lumineuse */
+.spherelumineuse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    transition: all 5s;
+    box-shadow: inset 0 0 10px #ffffff,
+                inset 20px 0 40px #f0f,
+                inset -20px 0 40px #0ff,
+                inset 20px 0 200px #f0f,
+                inset -20px 0 200px #0ff,
+                0 0 10px #fff,
+                10px 0 400px #f0f;
 }
-.formulaire_container{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    height: 100vh;
-    width: 100vw;
-}
-form{
-    position: relative;
+
+/* Formulaire */
+form {
+    position: absolute;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    height: 40vh;
     padding: 3%;
     background-color: transparent;
     backdrop-filter: blur(10px);
     border: solid 1px rgba(255, 255, 255, 0.5);
     border-radius: 1em;
+    z-index: 1; /* Ajoutez cette ligne */
 }
-input{
+
+/* Zone de connexion */
+.sign_in {
+    top: 50%;
+    left: 50%;
+    height: 30vh;
+    width: 10vw;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ajoutez cette ligne */
+}
+.login {
+    top: 50%;
+    left: 0;
+    height: 30vh;
+    width: 10vw;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* Ajoutez cette ligne */
+}
+
+
+/* Fond latéral */
+.fond_cote {
+    background-image: url(../../Image/fond_cote.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+/* Styles pour les champs de saisie */
+input {
+    position: relative;
     background-color: transparent;
     color: white;
 }
-input::placeholder{
-    color:white;
+
+/* Styles pour le texte de remplacement */
+input::placeholder {
+    color: white;
 }
+.switch{
+    cursor: pointer;
+}
+@keyframes sign_in {
+    0% {
+        left: 0;
+    }
+    5% {
+        left: 5%;
+    }
+    10% {
+        left: 10%;
+    }
+    15% {
+        left: 15%;
+    }
+    20% {
+        left: 20%;
+    }
+    25% {
+        left: 25%;
+    }
+    30% {
+        left: 30%;
+    }
+    35% {
+        left: 35%;
+    }
+    40% {
+        left: 40%;
+    }
+    45% {
+        left: 45%;
+    }
+    50% {
+        left: 50%;
+    }
+    55% {
+        left: 55%;
+    }
+    60% {
+        left: 54%;
+    }
+    65% {
+        left: 53%;
+    }
+    70% {
+        left: 52%;
+    }
+    75% {
+        left: 51%;
+    }
+    80% {
+        left: 50.5%;
+    }
+    85% {
+        left: 50.3%;
+    }
+    90% {
+        left: 50.2%;
+    }
+    95% {
+        left: 50.1%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+
+
+
