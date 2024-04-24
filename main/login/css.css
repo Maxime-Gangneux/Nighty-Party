@@ -23,32 +23,10 @@ footer {
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
-
-/* Sphère lumineuse */
-.spherelumineuse {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    transition: all 5s;
-    box-shadow: inset 0 0 10px #ffffff,
-                inset 20px 0 40px #f0f,
-                inset -20px 0 40px #0ff,
-                inset 20px 0 200px #f0f,
-                inset -20px 0 200px #0ff,
-                0 0 10px #fff,
-                10px 0 400px #f0f;
-}
-
-/* Formulaire */
 form {
     position: absolute;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
+    display: block;
     padding: 3%;
     background-color: transparent;
     backdrop-filter: blur(10px);
@@ -61,17 +39,18 @@ form {
 .sign_in {
     top: 50%;
     left: 50%;
-    height: 30vh;
-    width: 10vw;
+    width: 20vw;
     transform: translate(-50%, -50%);
+    transition: left 1s ease-in-out;
     z-index: 1; /* Ajoutez cette ligne */
 }
 .login {
     top: 50%;
     left: 0;
     height: 30vh;
-    width: 10vw;
+    width: 20vw;
     transform: translate(-50%, -50%);
+    transition: left 1s ease-in-out;
     z-index: 0; /* Ajoutez cette ligne */
 }
 
@@ -92,13 +71,25 @@ form {
 /* Styles pour les champs de saisie */
 input {
     position: relative;
+    width: 100%;
+    height: 15%;
+    margin: 5%;
     background-color: transparent;
     color: white;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.6);
+    
 }
-
-/* Styles pour le texte de remplacement */
+input:focus{
+    outline: none;
+    border-bottom: solid 2px white;
+}
 input::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.6);
+}
+input:-webkit-autofill{
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0 1000px rgb(52, 52, 52) inset;
 }
 .switch{
     cursor: pointer;
