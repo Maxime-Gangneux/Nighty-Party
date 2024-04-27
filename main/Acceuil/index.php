@@ -11,17 +11,18 @@
     <?php
         include '../nav_barre/nav_barre.php';
     ?>
-
-    <div class="title_home">Nighty Party</div>
-    
+    <section>
+        <div>
+            <h2 class="title_home">Nighty Party</h2>
+            <p class="text_presentation">Rejoint toutes les soireés près de chez toi en cliquant sur le bouton en dessous.</p>
+        </div>
+        <img src="../../Image/fond_soiree.png" alt="">
+    </section>
     <div class="container">
         <?php
             include '../../BDD/soiree.php';
         ?>
     </div>
-    <section>
-        <img src = "../../Image/fond_soiree.png">
-    </section>
 
     <footer>
         <p>Created and designed by Muller Julien & Gangneux Maxime</p>
