@@ -10,7 +10,7 @@
 <body>
     <form class = "sign_in" id = "sign_in" method='POST' action='../../BDD/insert_compte.php'>
         <h2>Sign In</h2>
-        <div style = 'display: flex;'>
+        <div style = 'display: flex; justify-content: space-between;'>
             <input type='text' name='nom_compte' placeholder='First name'>
             <input type='text' name='prenom_compte' placeholder='Last name'>
         </div>
@@ -21,6 +21,7 @@
         <div class = "switch" onclick = "switchForms()">connect</div>
     </form>
     <form class = "login" id = "login" method='POST' action='../../BDD/login.php'>
+        <h2>Login</h2>
         <input type='email' name='email' placeholder='e-mail'>
         <input type='password' name='password' placeholder='password'>
         <button type='submit' name='submit_button_login'>Enregistrer</button>
