@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-image: url(../../Image/fond.jpg);
+    background-color: black;
     background-size: contain;
     overflow-y: scroll;
     overflow-x: hidden;
