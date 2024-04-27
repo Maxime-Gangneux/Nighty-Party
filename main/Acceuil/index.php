@@ -19,6 +19,9 @@
             include '../../BDD/soiree.php';
         ?>
     </div>
+    <section>
+        <img src = "../../Image/fond_soiree.png">
+    </section>
 
     <footer>
         <p>Created and designed by Muller Julien & Gangneux Maxime</p>

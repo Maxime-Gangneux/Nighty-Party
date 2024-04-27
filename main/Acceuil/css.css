@@ -98,3 +98,10 @@ footer{
 .container_tendance:last-child{
     margin-right: 0;
 }
+
+section img{
+    position: relative;
+    height: auto;
+    width: auto;
+    object-fit: cover;
+}
