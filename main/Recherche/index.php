@@ -99,8 +99,10 @@ include 'api.php';
                 <div class = 'soiree'>
                     <span class = 'titre_soiree'>{$resul['nom_soiree']}</span>
                     <img class = 'image_soiree' src='../../Image/soiree.jpg'>
-    
                     <div class = description>
+                        <form method = 'POST'>
+                            <button type = 'submit' name = 'button_favoris'></button>
+                        </form>
                         <h2> Description </h2> 
                         <p> {$resul['description_soiree']} </p>
                     </div>

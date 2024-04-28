@@ -65,4 +65,24 @@ function verif_input_main(){
     return NULL;
 }
 
+
+// Démarrez la session
+session_start();
+
+// Vérifiez si l'utilisateur est connecté
+if((isset($_POST['button_favoris'])) && (!isset($_SESSION['connected']) || $_SESSION['connected'] !== true)){
+    // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: ../login/index.php");
+    exit();
+}
+
+if (isset($_POST['button_favoris'])){
+    $id_compte = $_SESSION['id_compte'];
+    $id_soiree = $_POST['id_soiree'];
+    global $connexion;
+    $requete = $connexion->prepare('INSERT INTO favoris (id_compte, id_soiree) VALUES (:id_compte, :id_soiree)');
+    $requete->execute(array('id_compte' => $id_compte, 'id_soiree' => $id_soiree));
+    exit();
+}
+
 ?>

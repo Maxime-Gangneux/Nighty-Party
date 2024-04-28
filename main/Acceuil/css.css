@@ -9,6 +9,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     margin: auto;
+    background-color: #0e0011;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -48,6 +49,7 @@ footer{
     grid-template-columns: repeat(4, 1fr);
     row-gap: 1.5vw;
     column-gap: 2vw;
+
 }
 .container_tendance{
     position: relative;
@@ -108,6 +110,16 @@ section{
     display: flex;
     width: 100vw;
     height: 100vh;
+    margin-bottom: 50px;
+}
+section::before{
+    content: '';
+    position:absolute;
+    height: 150px;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to top,#0e0011 , transparent);
+    z-index: 1000;
 }
 section img{
     size: cover;
