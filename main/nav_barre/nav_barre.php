@@ -2,85 +2,70 @@
 
 echo
 '
+
 <style>
-ul{
-    display: flex;
-    position: fixed;
-    height: 10vh;
+*{
     margin: 0;
-    left: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    position: fixed;
     top: 0;
-    width: 100%;
-    list-style-type: none;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-bottom: 0px solid white;
+    left: 0;
+    width: 100vw;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between; 
+    align-item: center;
     z-index: 999;
 }
-li {
+header .logo{
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header ul{
     display: flex;
+    justify-content: center;
     align-items: center;
-    max-width: calc(100% / 4);
-    flex-grow: 1;
 }
-li div, li a {
-    position: absolute;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 2vw;
+header ul li{
+    list-style: none;
+    margin-left: 50px;
 }
-li:nth-child(1){
-    background-image: url(../../Image/accueil.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 1.3vw;
-    height: 1.3vw;
+header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: white;
+    border-radius: 20px;
 }
-li:nth-child(2){
-    background-image: url(../../Image/icon_recherche.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 2.1vw;
-    height: 2.1vw;
+header ul li a:hover{
+    background: white;
+    color: #2b1055;
 }
-li:nth-child(3){
-    background-image: url(../../Image/icon_soirée.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 1.4vw;
-    height: 1.4vw;
-}
-li:nth-child(4){
-    background-image: url(../../Image/icon_créer.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 1.4vw;
-    height: 1.4vw;
-}
-.login{
-    background-image: url(../../Image/login.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    cursor: pointer;
-    right: 5vw;
+
+header ul li:nth-child(4) img{
+
     width: 3vw;
     height: 3vw;
 }
-li>a{
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 1.6vw;
-}
+
 
 </style>
-<ul id = "nav">
-    <li><div></div><a href = "../Acceuil/index.php">Accueil</a></li>
-    <li><div></div><a href = "../Recherche/index.php">Recherches</a></li>
-    <li><div></div><a href = "">Mes soirées</a></li>
-    <li><div></div><a href = "../creer/index.php">Créer une soirée</a></li>
-    <a href = "../login/index.php" class = "login"></a>
-</ul>
+<header>
+    <a href="../Acceuil/index.php" class="logo">Logo</a>
+    <ul>
+        <li><a href = "../Recherche/index.php" >Search</a></li>
+        <li><a href = "">My party</a></li>
+        <li><a href = "../creer/index.php">Create party</a></li>
+        <li><a href = "../login/index.php" class = "login">Login</a></li>
+    </ul>
+
+</header>
 '
 ?>
