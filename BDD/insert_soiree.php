@@ -13,7 +13,7 @@ if(isset($_POST['submit_button'])){
     $heure_max_soiree = date("H:i:s", strtotime(trim($_POST['heure_max_soiree'])));
     $nb_personne_soiree = trim($_POST['nb_personne_soiree']);
     // Utilisation de la fonction addslashes pour échapper les caractères spéciaux
-    $theme_soiree = addslashes(trim($_POST['theme_soiree']));
+    $theme_soiree = addslashes(trim($_POST['thème_soiree']));
     $type_soiree = trim($_POST['type_soiree']);
     $statu_soiree = trim($_POST['statu_soiree']);
 
@@ -22,7 +22,7 @@ if(isset($_POST['submit_button'])){
         echo "Veuillez remplir tous les champs.";
     } else {
         // Préparation de la requête SQL
-        $sql = "INSERT INTO soiree (nom_soiree, description_soiree, adresse_soiree, date_soiree, heure_min_soiree, heure_max_soiree, nb_personne_soiree, theme_soiree, type_soiree, statu_soiree) VALUES ('$nom_soiree', '$description_soiree', '$adresse_soiree', '$date_soiree', '$heure_min_soiree', '$heure_max_soiree', '$nb_personne_soiree', '$theme_soiree', '$type_soiree', '$statu_soiree')";
+        $sql = "INSERT INTO soiree (nom_soiree, description_soiree, adresse_soiree, date_soiree, heure_min_soiree, heure_max_soiree, nb_personne_soiree, thème_soiree, type_soiree, statu_soiree) VALUES ('$nom_soiree', '$description_soiree', '$adresse_soiree', '$date_soiree', '$heure_min_soiree', '$heure_max_soiree', '$nb_personne_soiree', '$theme_soiree', '$type_soiree', '$statu_soiree')";
 
         // Exécution de la requête
         if ($connexion->query($sql) === TRUE) {

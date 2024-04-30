@@ -123,7 +123,7 @@ section::before{
     width: 100%;
     bottom: 0;
     background: linear-gradient(to top,#0e0011 , transparent);
-    z-index: 1000;
+    z-index: 2;
 }
 section img{
     size: cover;

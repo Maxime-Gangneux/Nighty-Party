@@ -1,15 +1,3 @@
-<?php
-// Démarrez la session
-session_start();
-
-// Vérifiez si l'utilisateur est connecté
-if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
-    // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
-    header("Location: ../login/index.php");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +8,7 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
     <script src="app.js"></script>
 </head>
 <body>
-    <?php include '../nav_barre/nav_barre.php'; ?>
+<?php include '../nav_barre/nav_barre.php'; ?>
     <div class="container">
         <div class='container_input'>
             <form method="POST" action="../../BDD/insert_soiree.php">
