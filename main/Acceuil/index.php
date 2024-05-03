@@ -15,11 +15,7 @@
         <div>
             <h2 class="title_home">Nighty Party</h2>
             <p class="text_presentation">Rejoint toutes les soireés près de chez toi en cliquant sur le bouton en dessous.</p>
-            <button>trouver une soireés</button>
-        </div>
-        <div class="icons">
-            <a href=""></a>
-            <a href=""></a>
+            <a href = "../creer/index.php">trouver une soireés</a>
         </div>
         <img src="../../Image/fond_soiree.png" alt="">
     </section>

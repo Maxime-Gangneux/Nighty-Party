@@ -48,14 +48,6 @@ header ul li a:hover{
     background: white;
     color: #2b1055;
 }
-
-header ul li:nth-child(4) img{
-
-    width: 3vw;
-    height: 3vw;
-}
-
-
 </style>
 <header>
     <a href="../Acceuil/index.php" class="logo">Logo</a>
@@ -63,7 +55,7 @@ header ul li:nth-child(4) img{
         <li><a href = "../Recherche/index.php" >Search</a></li>
         <li><a href = "">My party</a></li>
         <li><a href = "../creer/index.php">Create party</a></li>
-        <li><a href = "../login/index.php" class = "login">Login</a></li>
+        <li><a href = "../login/index.php">Login</a></li>
     </ul>
 
 </header>
