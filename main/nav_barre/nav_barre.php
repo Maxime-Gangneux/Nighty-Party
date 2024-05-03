@@ -50,11 +50,11 @@ header ul li a:hover{
 }
 </style>
 <header>
-    <a href="../Acceuil/index.php" class="logo">Logo</a>
+    <a href="../home/index.php" class="logo">Logo</a>
     <ul>
-        <li><a href = "../Recherche/index.php" >Search</a></li>
-        <li><a href = "">My party</a></li>
-        <li><a href = "../creer/index.php">Create party</a></li>
+        <li><a href = "../search/index.php" >Search</a></li>
+        <li><a href = "../my_party/index.php">My party</a></li>
+        <li><a href = "../create_party/index.php">Create party</a></li>
         <li><a href = "../login/index.php">Login</a></li>
     </ul>
 
