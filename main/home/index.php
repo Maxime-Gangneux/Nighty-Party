@@ -38,7 +38,6 @@
         </p>
     </main>
     </div>
-
     <footer>
         <p>Created and designed by Muller Julien & Gangneux Maxime</p>
     </footer>

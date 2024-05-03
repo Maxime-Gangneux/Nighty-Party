@@ -12,6 +12,7 @@ if(isset($_GET['s']) && !empty($_GET['s'])){
     $allcode = NULL;
 }
 include 'api.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -32,21 +33,19 @@ include 'api.php';
     <?php include '../nav_barre/nav_barre.php'; ?>
 
     <!-- Champ de recherche pour une soirée -->
-    <form method="GET">
-    <div class="container_input">
-        <input type="text" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
-    </div>
-    </form>
+
     <!-- Conteneur pour le code de la soirée -->
     <div class="container_code" id="container_code">
         <!-- Bouton pour ouvrir le conteneur -->
-        <button onclick="Ouvrir_container_code()" class="logo_code"><\></button>
+
         <form method="GET">
+
             <!-- Champ pour saisir le code de la soirée -->
             <input type="text" name="s" class="input_code" placeholder="Code de la soirée">
             <!-- Image pour envoyer le code -->
             <input type="image" name="envoyer" src="../../Image/logo_send.png" class="logo_send">
         </form>
+        <button onclick="Ouvrir_container_code()" class="logo_code"><\></button>
         <!-- Texte associé au code de la soirée -->
         <div class="texte_code" id="texte_code">
             suce ma bite
@@ -88,20 +87,24 @@ include 'api.php';
     }
 
     $result_soiree = verif_input_main();
+
     if ($result_soiree !== NULL) {
         foreach ($result_soiree as $resul) {
             if ($resul['code_soiree'] !== NULL){
                 continue;
             }
+
             echo "
             <div class='container_soiree'>
-                
                 <div class = 'soiree'>
                     <span class = 'titre_soiree'>{$resul['nom_soiree']}</span>
                     <img class = 'image_soiree' src='../../Image/soiree.jpg'>
                     <div class = description>
-                        <form method = 'POST'>
-                            <button type = 'submit' name = 'button_favoris'></button>
+                        <form method='POST'>
+                            <!-- Champ pour l'ID de la soirée -->
+                            <input type='hidden' name='id_soiree' value='{$resul['id_soiree']}'>
+                            <!-- Bouton pour ajouter aux favoris -->
+                            <button  name='button_favoris'>Ajouter aux favoris</button>
                         </form>
                         <h2> Description </h2> 
                         <p> {$resul['description_soiree']} </p>
@@ -119,7 +122,7 @@ include 'api.php';
             </div>";
         }
     } else {
-        echo "<div class ='container_tendance'>Aucun résultat trouvé.</div>";
+        echo "Aucun résultat trouvé.";
     }
 
 ?>

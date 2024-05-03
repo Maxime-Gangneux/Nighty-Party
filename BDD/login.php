@@ -39,8 +39,12 @@ if(isset($_POST['submit_button_login'])){
     }
 }
 if(isset($_POST['submit_button_disconnect'])){
-    // Déconnexion de l'utilisateur
-    session_destroy();
+    // Supprimez les éléments de session spécifiques
+    unset($_SESSION['connected']);
+    unset($_SESSION['email']);
+    unset($_SESSION['nom']);
+    unset($_SESSION['prenom']);
+    
     header("Location: ../main/login/index.php");
     exit();
 }

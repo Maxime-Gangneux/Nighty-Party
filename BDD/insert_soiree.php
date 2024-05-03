@@ -13,7 +13,7 @@ if(isset($_POST['submit_button'])){
     $heure_max_soiree = date("H:i:s", strtotime(trim($_POST['heure_max_soiree'])));
     $nb_personne_soiree = trim($_POST['nb_personne_soiree']);
     // Utilisation de la fonction addslashes pour échapper les caractères spéciaux
-    $theme_soiree = addslashes(trim($_POST['thème_soiree']));
+    $theme_soiree = addslashes(trim($_POST['theme_soiree']));
     $type_soiree = trim($_POST['type_soiree']);
     $statu_soiree = trim($_POST['statu_soiree']);
 
@@ -35,4 +35,5 @@ if(isset($_POST['submit_button'])){
         $connexion->close();
     }
 }
+
 ?>

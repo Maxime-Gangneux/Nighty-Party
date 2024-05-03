@@ -19,8 +19,11 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
     <script src="app.js"></script>
 </head>
 <body>
+    <?php
+        include '../nav_barre/nav_barre.php';
+    ?>
     <form class = "disconnect" method= 'POST' action='../../BDD/login.php'>
-        <button type='submit' name='submit_button_disconnect'>disconnect</button>
+        <button type='submit' name='submit_button_disconnect' class="disconnect">disconnect</button>
     </form>
 </body>
 </html>
