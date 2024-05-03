@@ -21,14 +21,16 @@ include 'api.php';
     <!-- Définition de l'encodage et de la vue -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Titre de la pript JavaScript -->
+    <!-- Titre de la page -->
+    <title>Nighty Party</title>
+    <!-- Lien vers la feuille de style CSS -->
     <link rel="stylesheet" href="css.css">
+    <!-- Script JavaScript -->
     <script src="app.js"></script>
 </head>
 <body>
-    <div class ="main">
-        <!-- Inclusion de la barre de navigation -->
-        <?php include '../nav_barre/nav_barre.php'; ?>
+    <!-- Inclusion de la barre de navigation -->
+    <?php include '../nav_barre/nav_barre.php'; ?>
 
     <!-- Champ de recherche pour une soirée -->
 
@@ -49,6 +51,7 @@ include 'api.php';
             suce ma bite
             Avec amour et passion =)
         </div>
+    </div>
 
     <section>
     <?php 
@@ -119,49 +122,12 @@ include 'api.php';
             </div>";
         }
     } else {
-        echo "Aucun résultat trouvé.";
+        echo "<div class ='container_tendance'>Aucun résultat trouvé.</div>";
     }
 
 ?>
 </section> 
 
-        $result_soiree = verif_input_main();
-        if ($result_soiree !== NULL) {
-            foreach ($result_soiree as $resul) {
-                if ($resul['code_soiree'] !== NULL){
-                    continue;
-                }
-                echo "
-                <div class='container_soiree'>
-                    
-                    <div class = 'soiree'>
-                        <span class = 'titre_soiree'>{$resul['nom_soiree']}</span>
-                        <img class = 'image_soiree' src='../../Image/soiree.jpg'>
-                        <div class = description>
-                            <form method = 'POST'>
-                                <button type = 'submit' name = 'button_favoris'></button>
-                            </form>
-                            <h2> Description </h2> 
-                            <p> {$resul['description_soiree']} </p>
-                        </div>
-                        <div class = 'info_complementaire'>
-                            <p><img src ='localisation_icon.png'> {$resul['adresse_soiree']}</p>
-                            <p>Nombre de personnes : {$resul['nb_personne_soiree']}</p>
-                            <p>Date de la soirée : {$resul['date_soiree']}</p>
-                            <p>thème de la soirée : {$resul['theme_soiree']}</p>
-                            <p>Type de la soirée : {$resul['type_soiree']}</p>
-                            <p>Heure debut de la soirée : {$resul['heure_min_soiree']}</p>
-                            <p>Heure fin de la soirée : {$resul['heure_max_soiree']}</p>
-                        </div>
-                    </div>        
-                </div>";
-            }
-        } else {
-            echo "<div class ='container_tendance'>Aucun résultat trouvé.</div>";
-        }
-        ?>
-        </section> 
-    </div>
 <footer>
     <p>Created and designed by Muller Julien & Gangneux Maxime</p>
 </footer>
