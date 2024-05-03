@@ -22,10 +22,10 @@ footer{
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     margin-top: 2vh;
-    height: 5%;
+    height: 10vh;
     color: white;       
     text-align: center;
-    justify-content: center;
+    align-content: center;
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
@@ -190,8 +190,9 @@ footer{
     border-bottom-right-radius: 15px;
     z-index: -2;
     left: 61%;
-    height: 26.2%;
+    height: auto;
     width: 12.5%;
+    padding: 10px;
     padding-right: 1.5%;
     transition: all 0.7s ease-in-out; /* Ajouter une transition pour l'opacité */
 }

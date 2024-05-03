@@ -140,7 +140,7 @@ header .mobile_menu{
         <li><a href = "../create_party/index.php" onclick="ajouter_active(this, event)">Create party</a></li>
         <li><a href = "../login/index.php" class = "login" onclick="ajouter_active(this, event)">Login</a></li>
     </ul>
-    <img src="../../Image/menu.png" class="menu" alt="">
+
 </header>
 <script>
 const menu = document.querySelector(".menu")

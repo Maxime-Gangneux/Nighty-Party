@@ -22,7 +22,7 @@ if(isset($_POST['submit_button'])){
         echo "Veuillez remplir tous les champs.";
     } else {
         // Préparation de la requête SQL
-        $sql = "INSERT INTO soiree (nom_soiree, description_soiree, adresse_soiree, date_soiree, heure_min_soiree, heure_max_soiree, nb_personne_soiree, thème_soiree, type_soiree, statu_soiree) VALUES ('$nom_soiree', '$description_soiree', '$adresse_soiree', '$date_soiree', '$heure_min_soiree', '$heure_max_soiree', '$nb_personne_soiree', '$theme_soiree', '$type_soiree', '$statu_soiree')";
+        $sql = "INSERT INTO soiree (nom_soiree, description_soiree, adresse_soiree, date_soiree, heure_min_soiree, heure_max_soiree, nb_personne_soiree, theme_soiree, type_soiree, statu_soiree) VALUES ('$nom_soiree', '$description_soiree', '$adresse_soiree', '$date_soiree', '$heure_min_soiree', '$heure_max_soiree', '$nb_personne_soiree', '$theme_soiree', '$type_soiree', '$statu_soiree')";
 
         // Exécution de la requête
         if ($connexion->query($sql) === TRUE) {
