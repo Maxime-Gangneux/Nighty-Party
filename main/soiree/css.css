@@ -1,0 +1,72 @@
+/* Définition des polices */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Corps de la page */
+body {
+    margin: auto;
+    background-image: url(../../Image/fond.jpg);
+    background-size: cover;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* Pied de page */
+footer {
+    position: absolute;
+    background-color: rgba(11, 11, 11, 0.5);
+    width: 100%;
+    top: 100%;
+    height: 10vh;
+    color: white;       
+    text-align: center;
+    align-content: center;
+    font-family: 'Great Vibes';
+    font-size: 2vw;
+}
+section{
+    position: relative;
+    display: flex;
+    height: 85vh;
+    margin-top: 15vh;
+    background-color: aqua;
+}
+.image{
+    position: relative;
+    height: 80vh;
+    width: 40vw;
+    margin: auto 5vw auto 5vh;
+    background-color: aliceblue;
+}
+.info_container{
+    position: relative;
+    height: 80vh;
+    width: 40vw;
+    margin: auto 5vw auto 5vh;
+    background-color: brown;
+}
+.infos_general{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background-color: violet;
+}
+.contenue{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    background-color: red;
+}
+.personnes{
+    position: relative;
+    width: 50%;
+    height: 80%;
+    background-color: blue;
+}
+.boissons{
+    position: relative;
+    width: 50%;
+    height: 80%;
+    background-color: green;
+}
