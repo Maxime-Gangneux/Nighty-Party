@@ -69,7 +69,7 @@ function verif_input_main(){
 session_start();
 
 // Vérifiez si le formulaire a été soumis
-if(isset($_POST['button_favoris'])) {
+if(isset($_POST['button_favorite'])) {
     // Vérifiez si l'utilisateur est connecté
     if(isset($_SESSION['id_compte']) && isset($_SESSION['connected'])) {
         // Récupérez l'ID de la soirée à partir du formulaire
@@ -102,7 +102,6 @@ if(isset($_POST['button_favoris'])) {
         echo "Erreur : Vous devez être connecté pour ajouter une soirée aux favoris.";
     }
 }
-
 
 
 

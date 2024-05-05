@@ -53,7 +53,7 @@ include 'api.php';
         </div>
     </div>
 
-    <section>
+    <main>
     <?php 
     // Vérifier si $allcode contient des résultats
     if($allcode !== NULL && isset($_GET['s'])){
@@ -86,47 +86,46 @@ include 'api.php';
         echo "<p>Aucune soirée n'a été trouvée avec votre code.</p>";
     }
 
-    $result_soiree = verif_input_main();
+    $all_soiree = verif_input_main();
 
-    if ($result_soiree !== NULL) {
-        foreach ($result_soiree as $resul) {
-            if ($resul['code_soiree'] !== NULL){
+    if ($all_soiree !== NULL) {
+        foreach ($all_soiree as $soiree) {
+            if ($soiree['code_soiree'] !== NULL){
                 continue;
             }
-
+            $date = date("l j F", strtotime($soiree['date_soiree']));
             echo "
-            <div class='container_soiree'>
-                <div class = 'soiree'>
-                    <span class = 'titre_soiree'>{$resul['nom_soiree']}</span>
-                    <img class = 'image_soiree' src='../../Image/soiree.jpg'>
-                    <div class = description>
-                        <form method='POST'>
-                            <!-- Champ pour l'ID de la soirée -->
-                            <input type='hidden' name='id_soiree' value='{$resul['id_soiree']}'>
-                            <!-- Bouton pour ajouter aux favoris -->
-                            <button  name='button_favoris'>Ajouter aux favoris</button>
-                        </form>
-                        <h2> Description </h2> 
-                        <p> {$resul['description_soiree']} </p>
+            <section>
+                <div class='content'>
+                    <div class='info_soiree'>
+                        <h1>{$soiree['nom_soiree']}</h1>
+
+                        <h5>{$date}</h5>
+
+                        <div class='description'>
+                            <p>{$soiree['description_soiree']}ufgsyufhusdfudshfd</p>
+                        </div>
+
+                        <button><h4>Learn more</h4></button>
+                        
+                            <form method='POST'>
+                                <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
+                                <button  name='button_favorite'><h4>Add to favorites</h4></button>
+                            </form>
                     </div>
-                    <div class = 'info_complementaire'>
-                        <p><img src ='localisation_icon.png'> {$resul['adresse_soiree']}</p>
-                        <p>Nombre de personnes : {$resul['nb_personne_soiree']}</p>
-                        <p>Date de la soirée : {$resul['date_soiree']}</p>
-                        <p>thème de la soirée : {$resul['theme_soiree']}</p>
-                        <p>Type de la soirée : {$resul['type_soiree']}</p>
-                        <p>Heure debut de la soirée : {$resul['heure_min_soiree']}</p>
-                        <p>Heure fin de la soirée : {$resul['heure_max_soiree']}</p>
+                    <div class='container_image'>
+                        <img src='../../Image/soiree.jpg' alt='Image de la soirée'>
                     </div>
-                </div>        
-            </div>";
+                </div>
+            </section>
+            ";
         }
     } else {
         echo "<div class ='container_tendance'>Aucun résultat trouvé.</div>";
     }
 
 ?>
-</section> 
+</main> 
 
 <footer>
     <p>Created and designed by Muller Julien & Gangneux Maxime</p>
