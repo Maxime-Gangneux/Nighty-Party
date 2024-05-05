@@ -74,7 +74,7 @@ header ul li a.active{
     height: 30px;
     width: 50vw;
     border: solid 2px black;
-    border-radius: 2rem;
+
 }
 
 header ul li:nth-child(4) img{
@@ -130,10 +130,11 @@ header .mobile_menu{
 </style>
 <header>
     <a href="../home/index.php" class="logo" onclick="reset()" >Logo</a>
-    <form method="GET">
-    <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
-    </form>
+
     <ul>
+        <form method="GET">
+            <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
+        </form>
         <li><a href = "../search/index.php" class="search" onclick="ajouter_active(this, event)">Search</a></li>
         <li><a href = "../my_party/index.php" onclick="ajouter_active(this, event)">My party</a></li>
         <li><a href = "../create_party/index.php" onclick="ajouter_active(this, event)">Create party</a></li>

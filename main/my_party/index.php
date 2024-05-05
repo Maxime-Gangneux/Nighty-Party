@@ -2,12 +2,13 @@
 include '../../BDD/conexion.php';
 $connexion = connecterBaseDonnees();
 session_start();
-$id_compte = $_SESSION['id_compte'];
-$requete = $connexion->prepare('SELECT id_soiree FROM favoris WHERE id_compte = ?');
-$requete->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
-$requete->execute();
-$resultat = $requete->get_result();
-
+if (isset($_SESSION['connected'])){
+    $id_compte = $_SESSION['id_compte'];
+    $requete = $connexion->prepare('SELECT id_soiree FROM favoris WHERE id_compte = ?');
+    $requete->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
+    $requete->execute();
+    $resultat = $requete->get_result();
+}
 
 // Vérifier si le formulaire de suppression a été soumis
 if (isset($_POST['button_suprimer_favoris'])){
