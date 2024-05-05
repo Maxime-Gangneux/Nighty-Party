@@ -19,14 +19,20 @@ try {
     // Ajout des résultats dans la chaîne
     while ($ligne = $resultat->fetch_assoc()) {
         echo"<h1> Bienvenue {$ligne['nom_compte']} {$ligne['prenom_compte']} </h1>
-            <div class = 'compte_info'>
-                <p> email : {$ligne['identifiant_compte']} <p>
-                <p> mot de passe : {$ligne['mot_de_passe_compte']} <p>
-                <p> age : {$ligne['age_compte']} ans <p>    
-                <form>
-                    <p> chnager de mot de passe </p>
+            <div class = 'barre'></div>
+            <div class = 'compte_container'>
+                <h3> vos informations </h3>
+                <div class ='compte_infos'>
+                    <p> email : {$ligne['identifiant_compte']} <p>
+                    <p> mot de passe : {$ligne['mot_de_passe_compte']} <p>
+                    <p> age : {$ligne['age_compte']} ans <p> 
+                </div> 
+                <h3> changer de mot de passe </h3>  
+                <form class ='mdp_change'>
+                    <p> Choisir un nouveau mot de passe : </p>
                     <input type ='password'>
                 </form>
+                <h3>Deconnection</h3> 
                 <form class = 'disconnect' method= 'POST' action='../../BDD/login.php'>
                     <button type='submit' name='submit_button_disconnect'>disconnect</button>
                 </form>

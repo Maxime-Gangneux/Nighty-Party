@@ -36,7 +36,7 @@
     .main {
         position: relative;
         top: 15%;
-        width: 45%;
+        width: 40%;
         max-width: 90%; /* Utiliser max-width pour s'assurer que le conteneur ne dépasse pas 90% de la largeur disponible */
         height: auto;
         margin: auto;
@@ -63,11 +63,16 @@
         position: relative;
         font-size: 2.5vw;
         margin-top: 5%;
-        margin-bottom: 10%;
+        margin-bottom: 3%;
         color: white;
     }
+    h3{
+        position: relative;
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
 
-    .compte_info {
+    .compte_container {
         position: relative;
         text-align: left;
         color: white;
@@ -75,8 +80,55 @@
         width: 90%; 
         height: auto;
         margin: auto;
+        text-align: center;
     }
+    .barre{
+        position: relative;
+        width: 90%;
+        height: 0.25vh;
+        border-radius: 1em;
+        margin: auto;
+        background-color: white;
+    }
+    .compte_infos{
 
-    .compte_info>p {
-        margin-top: 3%;
+    }
+    .compte_infos>p{
+        position: relative;
+        width: 65%;
+        height: auto;
+        margin: auto;
+        text-align: left;
+        font-size: 1.2vw;
+        color: rgb(190, 190, 190);
+        margin-top: 2%;
+    }
+    .mdp_change{
+        position: relative;
+        width: 65%;
+        height: auto;
+        margin: auto;
+        text-align: left;
+        justify-content: left;
+        font-size: 1.2vw;
+        color: rgb(190, 190, 190);
+        margin-top: 2%;
+    }
+    .mdp_change>input{
+        position: relative;
+        background-color: transparent;
+        color: white;
+        border: none;
+        border-bottom: solid 2px rgba(255, 255, 255, 0.6);
+    }
+    .mdp_change>input:focus{
+        outline: none;
+        border-bottom: solid 2px white;
+    }
+    .mdp_change>input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .mdp_change>input:-webkit-autofill{
+        -webkit-text-fill-color: white;
+        -webkit-box-shadow: 0 0 0 1000px rgb(52, 52, 52) inset;
     }
