@@ -130,7 +130,13 @@ header .mobile_menu{
 </style>
 <header>
     <a href="../home/index.php" class="logo" onclick="reset()" >Logo</a>
+<<<<<<< Updated upstream
 
+=======
+    <form method="GET">
+        <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
+    </form>
+>>>>>>> Stashed changes
     <ul>
         <form method="GET">
             <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
@@ -138,7 +144,7 @@ header .mobile_menu{
         <li><a href = "../search/index.php" class="search" onclick="ajouter_active(this, event)">Search</a></li>
         <li><a href = "../my_party/index.php" onclick="ajouter_active(this, event)">My party</a></li>
         <li><a href = "../create_party/index.php" onclick="ajouter_active(this, event)">Create party</a></li>
-        <li><a href = "../login/index.php" class = "login" onclick="ajouter_active(this, event)">Login</a></li>
+        <li><a href = "../login/index.php" class = "" onclick="ajouter_active(this, event)">Login</a></li>
     </ul>
     <img src="../../Image/menu.png" class="menu" alt="">
 </header>

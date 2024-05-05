@@ -73,7 +73,7 @@ include 'api.php';
                         <p><img src ='localisation_icon.png'> {$soiree['adresse_soiree']}</p>
                         <p>Nombre de personnes : {$soiree['nb_personne_soiree']}</p>
                         <p>Date de la soirée : {$soiree['date_soiree']}</p>
-                        <p>thème de la soirée : {$soiree['thème_soiree']}</p>
+                        <p>thème de la soirée : {$soiree['theme_soiree']}</p>
                         <p>Type de la soirée : {$soiree['type_soiree']}</p>
                         <p>Heure debut de la soirée : {$soiree['heure_min_soiree']}</p>
                         <p>Heure fin de la soirée : {$soiree['heure_max_soiree']}</p>
@@ -113,7 +113,7 @@ include 'api.php';
                         <p><img src ='localisation_icon.png'> {$resul['adresse_soiree']}</p>
                         <p>Nombre de personnes : {$resul['nb_personne_soiree']}</p>
                         <p>Date de la soirée : {$resul['date_soiree']}</p>
-                        <p>thème de la soirée : {$resul['thème_soiree']}</p>
+                        <p>thème de la soirée : {$resul['theme_soiree']}</p>
                         <p>Type de la soirée : {$resul['type_soiree']}</p>
                         <p>Heure debut de la soirée : {$resul['heure_min_soiree']}</p>
                         <p>Heure fin de la soirée : {$resul['heure_max_soiree']}</p>

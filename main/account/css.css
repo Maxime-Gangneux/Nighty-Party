@@ -1,65 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    background-image: url(../../Image/fond.jpg);    
-    background-size: cover;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: auto;
-}
-body::-webkit-scrollbar {
-    display: none;
-  }
-footer{
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 10vh;
-    color: white;       
-    align-content: center;
-    font-family: 'Great Vibes';
-    font-size: 2vw;
-}
-section{
-    height: 100vh;
-}
-.main{
-    position: relative;
-    top: 15%;
-    width: 60%;
-    height: 60vh;
-    margin: auto;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    border: solid 1px rgba(255, 255, 255, 0.5);
-    border-radius: 1em;
-}
-.disconnect{
-    position: absolute;
-    text-align: right;
-    top: 7%;
-    width: 100%;
-    background-color: aliceblue;
-    z-index: 999;
-}
-.disconnect button{
-    margin-right:8%;
-    cursor: pointer;
-}
-h1{
-    position: relative;
-    top: 5%; 
-    color: white;
-}
-.compte_info{
-    position: relative;
-    text-align: left;
-    display: flex;
-    width: 100%;
-    top: 10%;
-    margin-left: 5% ;
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-}
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-image: url(../../Image/fond.jpg);
+        background-size: cover;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin: 0;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    footer {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 10vh;
+        align-content: center;
+        color: white;
+        font-family: 'Great Vibes';
+        font-size: 2vw;
+    }
+
+    section {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .main {
+        position: relative;
+        top: 15%;
+        width: 45%;
+        max-width: 90%; /* Utiliser max-width pour s'assurer que le conteneur ne dépasse pas 90% de la largeur disponible */
+        height: auto;
+        margin: auto;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        border: solid 1px rgba(255, 255, 255, 0.5);
+        border-radius: 1em;
+    }
+
+    .disconnect {
+        position: relative;
+        text-align: center;
+        margin-top: 5%;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .disconnect button {
+        font-size: 1.5vw; /* Ajuster la taille de la police en fonction de la largeur de l'écran */
+        cursor: pointer;
+    }
+
+    h1 {
+        position: relative;
+        font-size: 2.5vw;
+        margin-top: 5%;
+        margin-bottom: 10%;
+        color: white;
+    }
+
+    .compte_info {
+        position: relative;
+        text-align: left;
+        color: white;
+        font-size: 1.5vw;
+        width: 90%; 
+        height: auto;
+        margin: auto;
+    }
+
+    .compte_info>p {
+        margin-top: 3%;
+    }

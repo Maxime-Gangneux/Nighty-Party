@@ -18,10 +18,18 @@ try {
 
     // Ajout des résultats dans la chaîne
     while ($ligne = $resultat->fetch_assoc()) {
-        echo "<h1> Bienvenue {$ligne['nom_compte']} {$ligne['prenom_compte']} </h1>
+        echo"<h1> Bienvenue {$ligne['nom_compte']} {$ligne['prenom_compte']} </h1>
             <div class = 'compte_info'>
                 <p> email : {$ligne['identifiant_compte']} <p>
-                <input type = 'text'></input>
+                <p> mot de passe : {$ligne['mot_de_passe_compte']} <p>
+                <p> age : {$ligne['age_compte']} ans <p>    
+                <form>
+                    <p> chnager de mot de passe </p>
+                    <input type ='password'>
+                </form>
+                <form class = 'disconnect' method= 'POST' action='../../BDD/login.php'>
+                    <button type='submit' name='submit_button_disconnect'>disconnect</button>
+                </form>
             </div>";
     }
 

@@ -12,38 +12,31 @@ body {
 
 /* Pied de page */
 footer {
-    position: relative;
+    position: absolute;
     background-color: rgba(11, 11, 11, 0.5);
     width: 100%;
-    margin-top: 2vh;
-    height: 5%;
+    top: 100%;
+    height: 10vh;
     color: white;       
     text-align: center;
-    justify-content: center;
+    align-content: center;
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
-form {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    display: block;
-    padding: 3%;
-    background-color: transparent;
-    backdrop-filter: blur(100px);
-    border: solid 1px rgba(255, 255, 255, 0.5);
-    border-radius: 1em;
-    z-index: 1; /* Ajoutez cette ligne */
-}
 
-/* Zone de connexion */
 .sign_in {
     position: absolute;
     top: 50%;
     left: 0;
     width: 20vw;
+    padding: 3%;
     text-align: center;
     transform: translate(-50%, -50%);
     transition: left 1s ease-in-out;
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
     z-index: 0; /* Ajoutez cette ligne */
 }
 .login {
@@ -51,9 +44,14 @@ form {
     top: 50%;
     left: 50%;
     width: 20vw;
+    padding: 3%;
     text-align: center;
     transform: translate(-50%, -50%);
     transition: left 1s ease-in-out;
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
     z-index: 1; /* Ajoutez cette ligne */
 }
 

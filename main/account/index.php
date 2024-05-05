@@ -24,9 +24,6 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
             include '../nav_barre/nav_barre.php';
         ?>
         <div class = 'main'>
-            <form class = "disconnect" method= 'POST' action='../../BDD/login.php'>
-                <button type='submit' name='submit_button_disconnect'>disconnect</button>
-            </form>
             <?php
                 include '../../BDD/get_compte.php';
             ?>

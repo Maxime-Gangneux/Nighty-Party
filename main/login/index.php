@@ -44,5 +44,8 @@ if(isset($_SESSION['connected']) && $_SESSION['connected'] == true){
     </form> 
     <div class = "fond_cote">
     </div>
+    <footer>
+        <p>Created and designed by Muller Julien & Gangneux Maxime</p>
+    </footer>
 </body>    
 </html>
