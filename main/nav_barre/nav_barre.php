@@ -130,13 +130,6 @@ header .mobile_menu{
 </style>
 <header>
     <a href="../home/index.php" class="logo" onclick="reset()" >Logo</a>
-<<<<<<< Updated upstream
-
-=======
-    <form method="GET">
-        <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
-    </form>
->>>>>>> Stashed changes
     <ul>
         <form method="GET">
             <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
