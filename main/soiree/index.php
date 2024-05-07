@@ -22,6 +22,7 @@ include '../../BDD/conexion.php';
 <body>
     <?php
         include '../nav_barre/nav_barre.php';
+
         // Se connecter à la base de données
         $connexion = connecterBaseDonnees();
 
@@ -43,6 +44,9 @@ include '../../BDD/conexion.php';
                                         <p>{$ligne['nom_soiree']}</p>
                                         <p>{$ligne['date_soiree']}</p>
                                         <p>{$ligne['description_soiree']}</p>
+                                        <form method='POST'>
+                                            ";include '../../BDD/fonction.php';echo"
+                                        </form>
                                     </div>
                                     <div class='contenue'>
                                         <div class='personnes'>"; 
