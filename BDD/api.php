@@ -138,6 +138,8 @@ if(isset($_POST['button_favorite'])) {
     }
 }
 
+
+
 $bdd = new PDO('mysql:host=localhost;dbname=nighty party', 'root', '');
 
 // Vérifier si le formulaire a été soumis et que le champ n'est pas vide
