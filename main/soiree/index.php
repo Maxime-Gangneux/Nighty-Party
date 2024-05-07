@@ -1,3 +1,14 @@
+<?php
+// Démarrez la session
+session_start();
+
+// Vérifiez si l'utilisateur est connecté
+if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
+    // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: ../login/index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,22 +21,8 @@
 <body>
     <?php
         include '../nav_barre/nav_barre.php';
+        include '../../BDD/soiree.php'
     ?>
-    <section>
-        <div class = "image"></div>
-        <div class = "info_container">
-            <div class = "infos_general">
-                <p>titre</p>
-                <p>date</p>
-                <p>description</p>
-            </div>
-            <div class = "contenue">
-                <div class ="personnes"></div>
-                <div class = "boissons"></div>
-            </div>
-        </div>
-
-    </section>
     <footer>
         <p>Created and designed by Muller Julien & Gangneux Maxime</p>
     </footer>
