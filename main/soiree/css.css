@@ -60,12 +60,18 @@ section{
 }
 .personnes{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
     width: 50%;
     height: 80%;
     background-color: blue;
 }
 .boissons{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
     width: 50%;
     height: 80%;
     background-color: green;
