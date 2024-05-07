@@ -47,76 +47,8 @@ if(isset($_SESSION['connected']) && $_SESSION['connected'] == true){
 
     <main>
     <?php 
-    // Vérifier si $allcode contient des résultats
-    if($allcode !== NULL && isset($_GET['s'])){
-        foreach($allcode as $soiree){
-            echo 
-                "<h3>Voici la soirée trouvée avec le code {$code}</h3>
-                <div class='container_soiree'>
-                <div class = 'soiree'>
-                    <span class = 'titre_soiree'>{$soiree['nom_soiree']}</span>
-                    <img class = 'image_soiree' src='../../Image/soiree.jpg'>
-    
-                    <div class = description>
-                        <h2> Description </h2> 
-                        <p> {$soiree['description_soiree']} </p>
-                    </div>
-                    <div class = 'info_complementaire'>
-                        <p><img src ='localisation_icon.png'> {$soiree['adresse_soiree']}</p>
-                        <p>Nombre de personnes : {$soiree['nb_personne_soiree']}</p>
-                        <p>Date de la soirée : {$soiree['date_soiree']}</p>
-                        <p>thème de la soirée : {$soiree['theme_soiree']}</p>
-                        <p>Type de la soirée : {$soiree['type_soiree']}</p>
-                        <p>Heure debut de la soirée : {$soiree['heure_min_soiree']}</p>
-                        <p>Heure fin de la soirée : {$soiree['heure_max_soiree']}</p>
-                    </div>
-                </div>        
-            </div>";
-        }
-    } elseif(isset($_GET['s'])) {
-        // Si le formulaire a été soumis mais aucun résultat trouvé
-        echo "<p>Aucune soirée n'a été trouvée avec votre code.</p>";
-    }
-
-    $all_soiree = verif_input_main();
-
-    if ($all_soiree !== NULL) {
-        foreach ($all_soiree as $soiree) {
-            if ($soiree['code_soiree'] !== NULL){
-                continue;
-            }
-            $date = date("l j F", strtotime($soiree['date_soiree']));
-            echo "
-            <section>
-                <div class='content'>
-                    <div class='info_soiree'>
-                        <h1>{$soiree['nom_soiree']}</h1>
-
-                        <h5>{$date}</h5>
-
-                        <div class='description'>
-                            <p>{$soiree['description_soiree']}ufgsyufhusdfudshfd</p>
-                        </div>
-    
-
-                        <form method='POST'>
-                            <button><a href='../soiree/index.php' class='link'><h4>Learn more</h4></a></button>
-                            <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                            <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
-                        </form>
-                    </div>
-                    <div class='container_image'>
-                        <img src='../../Image/soiree.jpg' alt='Image de la soirée'>
-                    </div>
-                </div>
-            </section>
-            ";
-        }
-    } else {
-        echo "<div class ='container_tendance'>Aucun résultat trouvé.</div>";
-    }
-
-?>
+        include '../../BDD/api.php'
+    ?>
 </main> 
 
 <footer>
