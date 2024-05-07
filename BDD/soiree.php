@@ -6,7 +6,7 @@ $connexion = connecterBaseDonnees();
 
 try {
     // Requête SQL
-    $requete = "SELECT * FROM soiree";
+    $requete = "SELECT * FROM soiree Where id_soiree = ?";
 
     // Exécution de la requête
     $resultat = $connexion->query($requete);
@@ -21,14 +21,7 @@ try {
         if ($ligne['code_soiree'] !== NULL){
             continue;
         }
-        echo "<div class='container_tendance'>
-                <p>{$ligne['nom_soiree']}</p>
-                <img src='../../Image/soiree.jpg' class = 'image_soiree'>
-                <div>
-                    <p>Adresse : {$ligne['adresse_soiree']}</p>
-                    <p>Date : {$ligne['date_soiree']}</p>
-                </div>
-              </div>";
+        echo "";
     }
 
 } catch (Exception $e) {
