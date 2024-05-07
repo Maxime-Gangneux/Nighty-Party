@@ -86,11 +86,12 @@ $all_soiree = verif_input_main();
                             <p>{$soiree['description_soiree']}ufgsyufhusdfudshfd</p>
                         </div>
 
-                        <button><h4>Learn more</h4></button>
+
                         
                             <form method='POST'>
+                                <button><a href='../soiree/index.php'class='link'><h4>Learn more</h4></a></button>
                                 <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                                <button  name='button_favorite'><h4>Add to favorites</h4></button>
+                                <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
                             </form>
                     </div>
                     <div class='container_image'>

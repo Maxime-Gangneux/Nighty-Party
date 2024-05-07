@@ -202,7 +202,7 @@ section .content{
     transform: scale(1.1);
 
 }
-.container_button{
+.info_soiree form{
     display: flex;
 }
 
