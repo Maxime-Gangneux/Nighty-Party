@@ -8,6 +8,11 @@ if (isset($_SESSION['connected'])){
     $requete->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
     $requete->execute();
     $resultat = $requete->get_result();
+
+    $inscrit = $connexion->prepare('SELECT id_soiree FROM invite WHERE id_compte = ?');
+    $inscrit->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
+    $inscrit->execute();
+    $resultat_inscrit = $inscrit->get_result();
 }
 
 // Vérifier si le formulaire de suppression a été soumis
