@@ -45,7 +45,7 @@ if(isset($_SESSION['connected']) && $_SESSION['connected'] == true){
         </div>
     </div>
 
-    <main>
+<main>
     <?php 
         include '../../BDD/api.php'
     ?>
