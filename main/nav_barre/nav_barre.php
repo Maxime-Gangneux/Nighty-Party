@@ -72,8 +72,9 @@ header ul li a.active{
 
 .input_soiree.active-search {
     height: 30px;
-    width: 50vw;
+    width: 30vw;
     border: solid 2px black;
+    border-radius: 1em;
 
 }
 

@@ -10,6 +10,7 @@
 <body>
     <?php
         include '../nav_barre/nav_barre.php';
+        include '../../BDD/api.php';
     ?>
     <section>
         <div class = "image"></div>
