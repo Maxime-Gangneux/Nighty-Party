@@ -6,7 +6,8 @@ $connexion = connecterBaseDonnees();
 
 try {
     // Requête SQL
-    $requete = "SELECT * FROM soiree Where id_soiree = ?";
+    $id_soiree = $_POST['id_soiree'];
+    $requete = "SELECT * FROM soiree Where id_soiree = $id_soiree";
 
     // Exécution de la requête
     $resultat = $connexion->query($requete);
