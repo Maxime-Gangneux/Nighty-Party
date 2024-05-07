@@ -85,16 +85,13 @@ $all_soiree = verif_input_main();
                         <div class='description'>
                             <p>{$soiree['description_soiree']}ufgsyufhusdfudshfd</p>
                         </div>
-                            <div class = 'container_button'>
-                                <form method='POST' action='../../BDD/soiree.php'>
-                                    <button name = 'bouton_detail'><a href='../soiree/index.php'class='link'><h4>Learn more</h4></a></button>
-                                    <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                                </form>
-                                <form methode = 'POST>
-                                    <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                                    <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
-                                </form>
-                            </div>
+
+                        <button><h4>Learn more</h4></button>
+                        
+                            <form method='POST'>
+                                <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
+                                <button  name='button_favorite'><h4>Add to favorites</h4></button>
+                            </form>
                     </div>
                     <div class='container_image'>
                         <img src='../../Image/soiree.jpg' alt='Image de la soirée'>
