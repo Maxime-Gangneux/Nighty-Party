@@ -90,7 +90,7 @@ $all_soiree = verif_input_main();
                                     <button name = 'bouton_detail'><a href='../soiree/index.php'class='link'><h4>Learn more</h4></a></button>
                                     <input type='hidden' name='id_soiree' value=' {$soiree['id_soiree']}'>
                                 </form>
-                                <form methode = 'POST action= ''>
+                                <form method = 'POST'>
                                     <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
                                     <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
                                 </form>
