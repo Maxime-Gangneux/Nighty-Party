@@ -103,15 +103,17 @@ include 'api.php';
                         <h5>{$date}</h5>
 
                         <div class='description'>
-                            <p>{$soiree['description_soiree']}ufgsyufhusdfudshfd</p>
+                            <p>{$soiree['description_soiree']}</p>
                         </div>
     
-
-                        <form method='POST'>
+                        <div class='container_button'>
                             <button><a href='../soiree/index.php' class='link'><h4>Learn more</h4></a></button>
-                            <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                            <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
-                        </form>
+                            <form method='POST'>
+
+                                <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
+                                <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
+                            </form>
+                        </div>
                     </div>
                     <div class='container_image'>
                         <img src='../../Image/soiree.jpg' alt='Image de la soirée'>

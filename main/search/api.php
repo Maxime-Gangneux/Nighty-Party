@@ -4,6 +4,7 @@ include '../../BDD/conexion.php';
 // Se connecter à la base de données
 $connexion = connecterBaseDonnees();
 
+
 function verif_input_main(){
     global $connexion;
 
