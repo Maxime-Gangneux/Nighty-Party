@@ -8,6 +8,7 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
     header("Location: ../login/index.php");
     exit();
 }
+include '../../BDD/conexion.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,46 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
 <body>
     <?php
         include '../nav_barre/nav_barre.php';
-        include '../../BDD/soiree.php'
+        // Se connecter à la base de données
+        $connexion = connecterBaseDonnees();
+
+        try {
+                $id_soiree = $_POST['id_soiree'];
+                $requete = "SELECT * FROM soiree WHERE id_soiree = $id_soiree";
+
+                // Exécution de la requête
+                $resultat = $connexion->query($requete);
+                // Vérification du résultat
+                if (!$resultat) {
+                    throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
+                } else {
+                    while ($ligne = $resultat->fetch_assoc()) {
+                        echo "<section>
+                                <div class='image'></div>
+                                <div class='info_container'>
+                                    <div class='infos_general'>
+                                        <p>{$ligne['nom_soiree']}</p>
+                                        <p>{$ligne['date_soiree']}</p>
+                                        <p>{$ligne['description_soiree']}</p>
+                                    </div>
+                                    <div class='contenue'>
+                                        <div class='personnes'></div>
+                                        <div class='boissons'></div>
+                                    </div>
+                                </div>
+                            </section>";
+                    }
+                }
+            }
+        catch (Exception $e) {
+            // Gérer l'exception (erreur)
+            echo "Erreur : " . $e->getMessage();
+        } finally {
+            // Fermer la connexion, même si une exception est survenue
+            if (isset($connexion)) {
+                $connexion->close();
+            }
+        }
     ?>
     <footer>
         <p>Created and designed by Muller Julien & Gangneux Maxime</p>
