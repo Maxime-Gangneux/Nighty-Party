@@ -34,7 +34,7 @@ include '../../BDD/conexion.php';
                 // Vérification du résultat
                 if (!$resultat) {
                     throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
-                } else {
+                }else {
                     while ($ligne = $resultat->fetch_assoc()) {
                         echo "<section>
                                 <div class='image'></div>
@@ -45,13 +45,16 @@ include '../../BDD/conexion.php';
                                         <p>{$ligne['description_soiree']}</p>
                                     </div>
                                     <div class='contenue'>
-                                        <div class='personnes'></div>
+                                        <div class='personnes'>"; 
+                                        include '../../BDD/invites.php';
+                        echo           "</div>
                                         <div class='boissons'></div>
                                     </div>
                                 </div>
                             </section>";
                     }
                 }
+                
             }
         catch (Exception $e) {
             // Gérer l'exception (erreur)
