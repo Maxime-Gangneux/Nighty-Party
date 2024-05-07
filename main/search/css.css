@@ -187,9 +187,6 @@ section .content{
 
 .info_soiree button{
     display: flex;
-    margin-top: 10%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
     border-radius: 2em;
     text-decoration: none;
     border: none;
@@ -199,13 +196,16 @@ section .content{
     transition: all 0.3s ease-in;
 }
 .info_soiree .link:hover{
-    transform: scale(1.01);
+    transform: scale(1.1);
 }
 .container_button{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 65%;
     position: relative;
     top: 10%;
+
 }
 
 .container_image img{
@@ -227,11 +227,13 @@ section .content{
 .link{
     font-weight: 500;
     text-transform: uppercase;
+    text-wrap: nowrap;
     color: black;
     padding: 5px;
     text-decoration: none;
     height: 100%;
     width: 100%;
+    padding: 10px;
 }
 
 .link::before,.link::after{
@@ -262,7 +264,7 @@ section .content{
     
 }
 
-  .link:hover{
+.link:hover{
     color: white;
   }
 
