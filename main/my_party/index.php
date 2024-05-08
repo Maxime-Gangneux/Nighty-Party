@@ -8,6 +8,11 @@ if (isset($_SESSION['connected'])){
     $requete->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
     $requete->execute();
     $resultat = $requete->get_result();
+
+    $inscrit = $connexion->prepare('SELECT id_soiree FROM invite WHERE id_compte = ?');
+    $inscrit->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
+    $inscrit->execute();
+    $resultat_inscrit = $inscrit->get_result();
 }
 
 // Vérifier si le formulaire de suppression a été soumis
@@ -39,14 +44,28 @@ if (isset($_POST['button_suprimer_favoris'])){
     <?php
         include '../nav_barre/nav_barre.php';
     ?>
-    <div class="content_liste_favoris">
+    <div class="content_liste">
+        <div class="banner">
+            <div class="txt_banner">
+                <div><h1>Mes soirée prochainement</h1></div>
+                <div><p>Les soirées ou vous etes inscrit vous permettent de voir des informations suplémentaire</p></div>
+            </div>
+        </div>
+        <ul class="liste_soiree_inscrit">
+            <?php
+                include 'soiree_inscrit.php';
+            ?>
+        </ul>
+    </div>
+
+    <div class="content_listes">
         <div class="banner">
             <div class="txt_banner">
                 <div><h1>Mes Favoris</h1></div>
                 <div><p>Les soirées dans vos favoris se suprimer dès lors la fin de la soirée</p></div>
             </div>
         </div>
-        <ul class="liste_soiree">
+        <ul class="liste_soiree_favoris">
             <?php
                 include 'soiree_favoris.php';
             ?>

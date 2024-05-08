@@ -1,8 +1,8 @@
 <?php
 if (isset($_SESSION['connected'])){
-    if ($resultat->num_rows > 0) {
+    if ($resultat_inscrit->num_rows > 0) {
         // Utilisez une boucle pour parcourir les résultats
-        while ($row = $resultat->fetch_assoc()) {
+        while ($row = $resultat_inscrit->fetch_assoc()) {
             $id_soiree = $row['id_soiree'];
             // Utilisez $id_soiree pour récupérer les autres informations de la soirée si nécessaire
             $requete_soiree = $connexion->prepare('SELECT * FROM soiree WHERE id_soiree = ?');
@@ -17,11 +17,10 @@ if (isset($_SESSION['connected'])){
                     <p>{$date}</p>
                     <p>{$soiree['nom_soiree']}</p>
                     <img src='../../Image/soiree.jpg' class = 'image_soiree'>
-                    <form method='POST'>
-                        <!-- Bouton pour suprimer des favoris -->
+                    <form method='POST' action='../soiree/index.php'>
                         <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                        <button  name='button_suprimer_favoris'>Suprimer des favoris</button>
-                    </form>
+                        <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
+                    </form>  
                     <div class='description'>
                         <h2> Description </h2> 
                         <p> {$soiree['description_soiree']} </p>
@@ -31,12 +30,10 @@ if (isset($_SESSION['connected'])){
             }
         }
     }else{
-        echo "Vous n'avez pas de favoris.";}
+        echo "Vous êtes inscrit à aucune soirée.";}
 }else{
-    echo "Veuillez vous connecter afin d'ajouter des soirées en favoris.";
+    echo "Veuillez vous connecter afin d'ajouter de vous inscrire a une soirée.";
 }
-
-
 
 
 ?>
