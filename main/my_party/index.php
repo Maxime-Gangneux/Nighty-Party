@@ -44,14 +44,28 @@ if (isset($_POST['button_suprimer_favoris'])){
     <?php
         include '../nav_barre/nav_barre.php';
     ?>
-    <div class="content_liste_favoris">
+    <div class="content_liste">
+        <div class="banner">
+            <div class="txt_banner">
+                <div><h1>Mes soirée prochainement</h1></div>
+                <div><p>Les soirées ou vous etes inscrit vous permettent de voir des informations suplémentaire</p></div>
+            </div>
+        </div>
+        <ul class="liste_soiree_inscrit">
+            <?php
+                include 'soiree_inscrit.php';
+            ?>
+        </ul>
+    </div>
+
+    <div class="content_listes">
         <div class="banner">
             <div class="txt_banner">
                 <div><h1>Mes Favoris</h1></div>
                 <div><p>Les soirées dans vos favoris se suprimer dès lors la fin de la soirée</p></div>
             </div>
         </div>
-        <ul class="liste_soiree">
+        <ul class="liste_soiree_favoris">
             <?php
                 include 'soiree_favoris.php';
             ?>

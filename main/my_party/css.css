@@ -63,7 +63,7 @@ footer{
 
 
 
-.content_liste_favoris{
+.content_liste{
 
     color: white;
     position: relative;
@@ -72,8 +72,21 @@ footer{
     margin-top: 20vh;
 }
 
+.liste_soiree_inscrit {
+    position: relative;
+    display: grid;
+    width: 100%;
+    padding: 2.5vw;
+    height: 100%;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 2vw ;
+    list-style: none; /* Supprime les puces de la liste */
+    transition: all 0.2s ease;
+}
 
-.liste_soiree {
+
+
+.liste_soiree_favoris {
     position: relative;
     display: grid;
     width: 100%;
@@ -100,33 +113,33 @@ footer{
 }
 
 .soiree img {
-    height: 350px;
+    height: 550px;
     width: 100%; /* Pour que l'image occupe toute la largeur du conteneur */
 }
 
 @media screen and (max-width: 1550px){
-    .liste_soiree {
+    .liste_soiree_favoris {
         padding-left: 1.5vw;
         padding-right: 1.5vw;
     }
 }
 
 @media screen and (max-width: 1450px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         grid-template-columns: repeat(4,1fr);
         padding: 2.5vw;
 
     }
 }
 @media screen and (max-width: 1350px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         padding-left: 1.5vw;
         padding-right: 1.5vw;    
     }
 }
 
 @media screen and (max-width: 1250px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         grid-template-columns: repeat(3,1fr);
         padding: 2.5vw;
 
@@ -134,13 +147,13 @@ footer{
 }
 
 @media screen and (max-width: 1150px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         padding-left: 1.5vw;
         padding-right: 1.5vw;    
     }
 }
 @media screen and (max-width: 1050px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         grid-template-columns: repeat(2,1fr);
         padding: 2.5vw;
         grid-gap: 6vw ;
@@ -150,7 +163,7 @@ footer{
 
 /* Pour les appareils de taille moyenne */
 @media screen and (max-width: 900px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         padding-left: 1.5vw;
         padding-right: 1.5vw;    
     }
@@ -169,14 +182,14 @@ footer{
 }
 
 @media screen and (max-width: 800px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         grid-gap: 4vw ;
     }
 }
 
 /* Pour les appareils mobiles */
 @media screen and (max-width: 480px) {
-    .liste_soiree {
+    .liste_soiree_favoris {
         grid-gap: 0vw ;
         padding-left: 0vw;
         padding-right: 0vw; 

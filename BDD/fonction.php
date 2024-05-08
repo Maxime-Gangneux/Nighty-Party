@@ -5,12 +5,21 @@ $statu_soiree = $ligne['statu_soiree'];
 $id_soiree = $ligne['id_soiree'];
 if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
     if ($statu_soiree > 0){
-        echo"<button name='join_public' class='join_public'>Join the party</button>";
+        echo"
+        <form method='POST'>
+            <button name='join_public' class='join_public'>Join the party</button>
+        <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+        </form>";
     }else{
-        echo"<button name='join_private' class='join_private'>Join the party</button>";
+        echo"
+        <form method='POST'>
+            <button name='join_private' class='join_private'>Join the party</button>
+            <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+        </form>";
     }  
     if (isset($_POST['join_public']) || isset($_POST['join_private']) ){
         echo"Vous devez etre connecter pour pouvoir vous inscrire";
+    
     }
 }else{
     $id_compte = $_SESSION['id_compte'];
@@ -25,8 +34,8 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
             <input type='hidden' name='id_soiree' value='{$id_soiree}'>
         </form>";
         if (isset($_POST['exit_party'])){
-            $requete_exit = $connexion->prepare('DELETE FROM invite WHERE id_compte = ?');
-            $requete_exit->bind_param("i", $id_compte);
+            $requete_exit = $connexion->prepare('DELETE FROM invite WHERE id_compte = ? AND id_soiree = ? ');
+            $requete_exit->bind_param("ii", $id_compte, $id_soiree);
             if ($requete_exit->execute()){
                 echo"Vous avez quitter la soirée";
             } else {

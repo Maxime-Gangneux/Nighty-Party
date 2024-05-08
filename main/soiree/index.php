@@ -2,12 +2,7 @@
 // Démarrez la session
 session_start();
 
-// Vérifiez si l'utilisateur est connecté
-if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
-    // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
-    header("Location: ../login/index.php");
-    exit();
-}
+
 include '../../BDD/conexion.php';
 ?>
 <!DOCTYPE html>
@@ -63,11 +58,6 @@ include '../../BDD/conexion.php';
         catch (Exception $e) {
             // Gérer l'exception (erreur)
             echo "Erreur : " . $e->getMessage();
-        } finally {
-            // Fermer la connexion, même si une exception est survenue
-            if (isset($connexion)) {
-                $connexion->close();
-            }
         }
     ?>
     <footer>
