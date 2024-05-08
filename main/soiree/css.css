@@ -67,6 +67,24 @@ section{
     height: 80%;
     background-color: blue;
 }
+.personne{
+    position: relative;
+    display: flex;
+    height: 15%;
+    border: solid 2px gray;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+}
+.personne p{
+    align-self: center;
+}
+.personne p:first-child{
+    margin-left: 5%;
+}
+.personne p:last-child{
+    margin-right: 5%;
+}
 .boissons{
     position: relative;
     display: flex;

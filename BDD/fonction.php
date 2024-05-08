@@ -6,8 +6,8 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
     }else{
         echo"<button name='join_private' class='join_private'>Join the party</button>";
     }  
-    if (isset('join_public') || isset('join_private') ){
-        echo"Vous devez etre connecter pour pouvoir vous inscrire"
+    if (isset($_POST['join_public']) || isset($_POST['join_private']) ){
+        echo"Vous devez etre connecter pour pouvoir vous inscrire";
     }
 }else{
     

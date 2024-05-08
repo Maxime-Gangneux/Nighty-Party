@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $id_soiree = $_GET['id_soiree'];
+    $id_soiree = $_POST['id_soiree'];
 
     $requete = "SELECT compte.nom_compte, compte.prenom_compte, compte.age_compte
                 FROM compte
