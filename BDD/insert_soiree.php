@@ -1,6 +1,5 @@
 <?php
 include 'conexion.php';
-session_start();
 $connexion = connecterBaseDonnees();
 session_start();
 if(isset($_POST['submit_button'])){
@@ -26,22 +25,16 @@ if(isset($_POST['submit_button'])){
     } else {
         // Préparation de la requête SQL
         $sql = "INSERT INTO soiree (nom_soiree, description_soiree, adresse_soiree, date_soiree, heure_min_soiree, heure_max_soiree, nb_personne_soiree, theme_soiree, type_soiree, statu_soiree) VALUES ('$nom_soiree', '$description_soiree', '$adresse_soiree', '$date_soiree', '$heure_min_soiree', '$heure_max_soiree', '$nb_personne_soiree', '$theme_soiree', '$type_soiree', '$statu_soiree')";
-        $id_compte = $_SESSION['id_compte'];
-        $id_soiree = $connexion->insert_id;
-        $id_editeur = 1; // Valeur fixe pour id_editeur
-        $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree, id_editeur) VALUES (?, ?, ?)');
-        $requete->bind_param("iii", $id_compte, $id_soiree, $id_editeur);
-        $requete->execute();
-        
 
         // Exécution de la requête
         if ($connexion->query($sql) === TRUE) {
             // Récupération de l'ID de la soirée nouvellement créée
             $id_soiree = $connexion->insert_id;
+            $id_editeur = 1;
 
             // Préparation de la requête SQL pour inscrire le compte créateur à la soirée
-            $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree) VALUES (?, ?)');
-            $requete->bind_param("ii", $id_compte, $id_soiree);
+            $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree, id_editeur) VALUES (?, ?, ?)');
+            $requete->bind_param("iii", $id_compte, $id_soiree, $id_editeur);
 
             // Exécution de la requête pour inscrire le compte créateur à la soirée
             if ($requete->execute() === TRUE) {

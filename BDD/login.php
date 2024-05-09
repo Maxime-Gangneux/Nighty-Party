@@ -13,7 +13,7 @@ if(isset($_POST['submit_button_login'])){
     $password = $_POST['password'];
 
     // Requête pour vérifier les informations d'identification dans la base de données
-    $sql = "SELECT mot_de_passe_compte, nom_compte, prenom_compte FROM compte WHERE identifiant_compte = '$email'";
+    $sql = "SELECT id_compte, mot_de_passe_compte, nom_compte, prenom_compte FROM compte WHERE identifiant_compte = '$email'";
     
     // Exécuter la requête
     $result = $connexion->query($sql);
@@ -26,6 +26,8 @@ if(isset($_POST['submit_button_login'])){
             $_SESSION['email'] = $email;
             $_SESSION['nom'] = $row['nom_compte'];
             $_SESSION['prenom'] = $row['prenom_compte'];
+        
+            $_SESSION['id_compte'] = $row['id_compte'];
             // Redirection vers la page de profil ou une autre page protégée
             header("Location: ../main/login/index.php");
             exit();
@@ -40,10 +42,7 @@ if(isset($_POST['submit_button_login'])){
 }
 if(isset($_POST['submit_button_disconnect'])){
     // Supprimez les éléments de session spécifiques
-    unset($_SESSION['connected']);
-    unset($_SESSION['email']);
-    unset($_SESSION['nom']);
-    unset($_SESSION['prenom']);
+    session_destroy();
     
     header("Location: ../main/login/index.php");
     exit();
