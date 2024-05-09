@@ -2,6 +2,10 @@
 // Démarrez la session
 session_start();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id_soiree = $_POST['id_soiree'];
+    $_SESSION['id_soiree'] = $id_soiree;
+}
 
 include '../../BDD/conexion.php';
 ?>
@@ -22,8 +26,8 @@ include '../../BDD/conexion.php';
         $connexion = connecterBaseDonnees();
 
         try {
-                $id_soiree = $_POST['id_soiree'];
-                $requete = "SELECT * FROM soiree WHERE id_soiree = $id_soiree";
+            
+                $requete = "SELECT * FROM soiree WHERE id_soiree = '{$_SESSION['id_soiree']}'";
 
                 // Exécution de la requête
                 $resultat = $connexion->query($requete);

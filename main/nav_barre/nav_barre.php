@@ -209,8 +209,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (link.textContent === curent_page) {
             ajouter_active(link);
         }
-    
-    
     });
 });
 

@@ -1,12 +1,11 @@
 <?php
 
 try {
-    $id_soiree = $_POST['id_soiree'];
 
     $requete = "SELECT compte.nom_compte, compte.prenom_compte, compte.age_compte
                 FROM compte
                 INNER JOIN invite ON compte.id_compte = invite.id_compte
-                WHERE invite.id_soiree = $id_soiree;";
+                WHERE invite.id_soiree = '{$_SESSION['id_soiree']}'";
 
     $resultat = $connexion->query($requete);
 

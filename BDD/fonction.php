@@ -37,6 +37,7 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
             $requete_exit->bind_param("ii", $id_compte, $id_soiree);
             if ($requete_exit->execute()){
                 echo"Vous avez quitter la soirée";
+                echo"<script> window.location.href = window.location.href ;</script>";
             } else {
                 echo "Erreur lors de la suppression : " . $requete_suppression->error;
             }    
@@ -58,6 +59,7 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
 
             if($requete) {
                 echo "Vous etes dès à présent inscrit à cette soirée vous pouvez la retrouvez dans my party.";
+                echo"<script> window.location.href = window.location.href ;</script>";
             } else {
                 echo "Erreur lors de l'insertion : " . $requete->errorInfo();
             }
