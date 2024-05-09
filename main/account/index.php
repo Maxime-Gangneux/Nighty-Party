@@ -14,7 +14,7 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nighty Party</title>
+    <title>Login</title>
     <link rel="stylesheet" href="css.css">
     <script src="app.js"></script>
 </head>

@@ -133,12 +133,12 @@ header .mobile_menu{
     <a href="../home/index.php" class="logo" onclick="reset()" >Logo</a>
     <ul>
         <form method="GET">
-            <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="Rechercher une soirée" oninput = "verif_input_main()">
+            <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="recherchez une soiree" oninput = "verif_input_main()">
         </form>
-        <li><a href = "../search/index.php" class="search" onclick="ajouter_active(this, event)">Search</a></li>
-        <li><a href = "../my_party/index.php" onclick="ajouter_active(this, event)">My party</a></li>
-        <li><a href = "../create_party/index.php" onclick="ajouter_active(this, event)">Create party</a></li>
-        <li><a href = "../login/index.php" class = "" onclick="ajouter_active(this, event)">Login</a></li>
+        <li><a href = "../search/index.php" class="search" >Search</a></li>
+        <li><a href = "../my_party/index.php" >My Party</a></li>
+        <li><a href = "../create_party/index.php" >Create Party</a></li>
+        <li><a href = "../login/index.php" >Login</a></li>
     </ul>
     <img src="../../Image/menu.png" class="menu" alt="">
 </header>
@@ -173,39 +173,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const inputSoireeActive = localStorage.getItem("inputSoireeActive");
 
-
     if (inputSoireeActive === "true") {
         document.getElementById("input_soiree").classList.add("active-search");
     }
 });
 
-function ajouter_active(link, event) {
-    event.preventDefault();
-    
-    // Supprimer la classe "active" de tous les liens
+document.addEventListener("DOMContentLoaded", function() {
+    reset();
+    var curent_page = document.title;
+    console.log(curent_page);
     const links = document.querySelectorAll("header ul li a");
-    links.forEach(link => {
-        link.classList.remove("active");
-    });
 
-    // Ajouter la classe "active" au lien sur lequel on a cliqué
-    link.classList.add("active");
+    function ajouter_active(link) {
+        // Supprimer la classe "active" de tous les liens
+        links.forEach(link => {
+            link.classList.remove("active");
+        });
 
-    const inputSoiree = document.getElementById("input_soiree");
-    if (link.classList.contains("search")) {
-        inputSoiree.classList.add("active-search");
-        localStorage.setItem("inputSoireeActive", "true"); 
-    } else {
-        inputSoiree.classList.remove("active-search");
-        localStorage.removeItem("inputSoireeActive"); 
+        // Ajouter la classe "active" au lien sur lequel on a cliqué
+        link.classList.add("active");
+
+        const inputSoiree = document.getElementById("input_soiree");
+        if (link.classList.contains("search")) {
+            inputSoiree.classList.add("active-search");
+            localStorage.setItem("inputSoireeActive", "true");
+        } else {
+            inputSoiree.classList.remove("active-search");
+            localStorage.removeItem("inputSoireeActive");
+        }
+
+        localStorage.setItem("activeLink", link.getAttribute("href"));
     }
 
-    localStorage.setItem("activeLink", link.getAttribute("href"));
+    links.forEach(link => {
+        if (link.textContent === curent_page) {
+            ajouter_active(link);
+        }
+    
+    
+    });
+});
 
-    setTimeout(() => {
-        window.location.href = link.getAttribute("href");
-    }, 100);
-}
+
 
 // Récupérer le lien actif du stockage local et le rétablir
 document.addEventListener("DOMContentLoaded", function() {

@@ -142,6 +142,7 @@ section div{
     text-align: center;
     font-size: 1.5vw;
     margin-top: 2vh;
+    margin-bottom: 5vh;
     color: rgb(161, 161, 161);
 }
 
@@ -162,5 +163,18 @@ main{
 .texte p{
     font-family:"Roboto",sans-serif;
     font-size: 1.5em;
+}
+.bouton_redirection{
+    position: relative;
+    text-decoration: none;
+    color: rgb(161, 161, 161);
+    border: solid 2px rgb(161, 161, 161);
+    border-radius: 1em;
+    padding: 0.5vw;
+    margin-top: 10vh;
+}
+.bouton_redirection:hover{
+    border-color: white;
+    color: white;
 }
 

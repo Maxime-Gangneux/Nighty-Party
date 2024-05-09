@@ -14,7 +14,7 @@ if(isset($_SESSION['connected']) && $_SESSION['connected'] == true){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Titre de la page -->
-    <title>Nighty Party</title>
+    <title>Search</title>
     <!-- Lien vers la feuille de style CSS -->
     <link rel="stylesheet" href="css.css">
     <!-- Script JavaScript -->
