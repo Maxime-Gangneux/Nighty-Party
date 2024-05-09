@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+session_start();
 $connexion = connecterBaseDonnees();
 if(isset($_POST['submit_button'])){
     $nom_soiree = trim($_POST['nom_soiree']);
@@ -23,6 +24,13 @@ if(isset($_POST['submit_button'])){
     } else {
         // Préparation de la requête SQL
         $sql = "INSERT INTO soiree (nom_soiree, description_soiree, adresse_soiree, date_soiree, heure_min_soiree, heure_max_soiree, nb_personne_soiree, theme_soiree, type_soiree, statu_soiree) VALUES ('$nom_soiree', '$description_soiree', '$adresse_soiree', '$date_soiree', '$heure_min_soiree', '$heure_max_soiree', '$nb_personne_soiree', '$theme_soiree', '$type_soiree', '$statu_soiree')";
+        $id_compte = $_SESSION['id_compte'];
+        $id_soiree = $connexion->insert_id;
+        $id_editeur = 1; // Valeur fixe pour id_editeur
+        $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree, id_editeur) VALUES (?, ?, ?)');
+        $requete->bind_param("iii", $id_compte, $id_soiree, $id_editeur);
+        $requete->execute();
+        
 
         // Exécution de la requête
         if ($connexion->query($sql) === TRUE) {
