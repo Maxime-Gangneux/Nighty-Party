@@ -1,23 +1,32 @@
 <?php
 $statu_soiree = $ligne['statu_soiree'];
 $id_soiree = $ligne['id_soiree'];
+
 if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
     $result_verif_editeur = 0;
-}else{
+} else {
     $id_compte = $_SESSION['id_compte'];
 
     // Requête pour vérifier si l'utilisateur actuel est l'éditeur de la soirée
     $requete_verif_editeur = $connexion->prepare('SELECT id_editeur FROM invite WHERE id_compte = ? AND id_soiree = ? AND id_editeur = 1');
     $requete_verif_editeur->bind_param("ii", $id_compte, $id_soiree);
     $requete_verif_editeur->execute();
+    
+    // Récupérer le résultat de la requête
     $result_verif_editeur = $requete_verif_editeur->get_result();
-    echo"{$result_verif_editeur}";
+
+    // Vérifier s'il y a des résultats
+    if ($result_verif_editeur->num_rows > 0) {
+        // Si oui, l'utilisateur est l'éditeur de la soirée
+        $result_verif_editeur = 1;
+    } else {
+        // Sinon, l'utilisateur n'est pas l'éditeur de la soirée
+        $result_verif_editeur = 0;
+    }
 }
 
 
-
-
-if ($result_verif_editeur = 1 && isset($_SESSION['connected'])) {
+if ($result_verif_editeur == 1 && isset($_SESSION['connected'])) {
     echo"vous ete l'editeur de la soirée";
 }else{
     if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
