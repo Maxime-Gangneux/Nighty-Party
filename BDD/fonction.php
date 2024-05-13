@@ -7,6 +7,7 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
 } else {
     $id_compte = $_SESSION['id_compte'];
 
+<<<<<<< Updated upstream
     // Requête pour vérifier si l'utilisateur actuel est l'éditeur de la soirée
     $requete_verif_editeur = $connexion->prepare('SELECT id_editeur FROM invite WHERE id_compte = ? AND id_soiree = ? AND id_editeur = 1');
     $requete_verif_editeur->bind_param("ii", $id_compte, $id_soiree);
@@ -27,6 +28,17 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
 
 
 if ($result_verif_editeur == 1 && isset($_SESSION['connected'])) {
+=======
+    $requete_verif_editeur = "SELECT id_editeur FROM invite WHERE id_compte = $id_compte AND id_soiree = $id_soiree AND id_editeur = 1";
+    $result_verif_editeur = $connexion->query($requete_verif_editeur);
+    $row = $result_verif_editeur->fetch_assoc();
+    $id_editeur = $row['id_editeur'];
+}
+
+
+
+if ($id_editeur == 1 && isset($_SESSION['connected'])) {
+>>>>>>> Stashed changes
     echo"vous ete l'editeur de la soirée";
 }else{
     if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
@@ -77,8 +89,9 @@ if ($result_verif_editeur == 1 && isset($_SESSION['connected'])) {
                 </form>";
             }
             if (isset($_POST['join_public'])){
-                $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree) VALUES (?, ?)');
-                $requete->bind_param("ii", $id_compte, $id_soiree);
+                $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree, id_editeur) VALUES (?, ?, ?)');
+                $zero = 0;
+                $requete->bind_param("iii", $id_compte, $id_soiree, $zero);
                 $requete->execute();
 
                 if($requete) {
