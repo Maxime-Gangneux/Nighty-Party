@@ -31,7 +31,7 @@ include '../../BDD/conexion.php';
 
                 // Exécution de la requête
                 $resultat = $connexion->query($requete);
-                // Vérification du résultat
+                // Vérification du résultar
                 if (!$resultat) {
                     throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
                 }else {
@@ -39,6 +39,7 @@ include '../../BDD/conexion.php';
                         $nom_soiree = htmlspecialchars($ligne['nom_soiree']);
                         $date_soiree = htmlspecialchars($ligne['date_soiree']);
                         $description = utf8_encode($ligne['description_soiree']);
+                        $statu_soiree = $ligne['statu_soiree'];
                         echo "<section>
                                 <div class='image'></div>
                                 <div class='info_container'>
@@ -52,9 +53,13 @@ include '../../BDD/conexion.php';
                                     </div>
                                     <div class='contenue'>
                                         <div class='personnes'>"; 
-                                        include '../../BDD/invites.php';
+                                            include '../../BDD/invites.php';
                         echo           "</div>
-                                        <div class='boissons'></div>
+                                        <div class='boissons'>
+                                            <button>apptorer du glouglou</button>";
+                                            include '../../BDD/boissons.php';
+                        echo           "</div>
+                                        </div>
                                     </div>
                                 </div>
                             </section>";

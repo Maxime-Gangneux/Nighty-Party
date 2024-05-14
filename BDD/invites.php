@@ -23,11 +23,5 @@ try {
     }
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
-} finally {
-    // Fermeture de la connexion à la base de données
-    if (isset($connexion)) {
-        $connexion->close();
-    }
-}
-
+} 
 ?>

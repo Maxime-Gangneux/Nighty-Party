@@ -3,9 +3,9 @@ include 'conexion.php';
 $connexion = connecterBaseDonnees();
 session_start();
 if(isset($_POST['submit_button'])){
-    $nom_soiree = trim($_POST['nom_soiree']);
-    $description_soiree = trim($_POST['description_soiree']);
-    $adresse_soiree = trim($_POST['adresse_soiree']);
+    $nom_soiree = utf8_decode($_POST['nom_soiree']);
+    $description_soiree = utf8_decode($_POST['description_soiree']);
+    $adresse_soiree = utf8_decode($_POST['adresse_soiree']);
     // Formatage de la date au format YYYY-MM-DD
     $date_soiree = date("Y-m-d", strtotime(trim($_POST['date_soiree'])));
     // Formatage de l'heure minimale au format HH:MM:SS
@@ -15,8 +15,8 @@ if(isset($_POST['submit_button'])){
     $nb_personne_soiree = trim($_POST['nb_personne_soiree']);
     // Utilisation de la fonction addslashes pour échapper les caractères spéciaux
     $theme_soiree = addslashes(trim($_POST['theme_soiree']));
-    $type_soiree = trim($_POST['type_soiree']);
-    $statu_soiree = trim($_POST['statu_soiree']);
+    $type_soiree = utf8_decode($_POST['type_soiree']);
+    $statu_soiree = utf8_decode($_POST['statu_soiree']);
     $id_compte = $_SESSION['id_compte'];
 
     // Vérification si tous les champs sont remplis
@@ -30,11 +30,10 @@ if(isset($_POST['submit_button'])){
         if ($connexion->query($sql) === TRUE) {
             // Récupération de l'ID de la soirée nouvellement créée
             $id_soiree = $connexion->insert_id;
-            $id_editeur = 1;
 
             // Préparation de la requête SQL pour inscrire le compte créateur à la soirée
-            $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree, id_editeur) VALUES (?, ?, ?)');
-            $requete->bind_param("iii", $id_compte, $id_soiree, $id_editeur);
+            $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree) VALUES (?, ?)');
+            $requete->bind_param("ii", $id_compte, $id_soiree);
 
             // Exécution de la requête pour inscrire le compte créateur à la soirée
             if ($requete->execute() === TRUE) {
