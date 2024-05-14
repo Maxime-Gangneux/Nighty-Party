@@ -1,0 +1,205 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    background-size: contain;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: auto;
+    background-color: #0e0011;
+    color: white;
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+footer{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    margin-top: 2vh;
+    height: 5%;
+    color: white;       
+    text-align: center;
+    justify-content: center;
+    font-family: 'Great Vibes';
+    font-size: 2vw;
+}
+.txt{
+    color: white;
+    background-color: #0e0011;
+}
+
+
+.banner{
+    position: relative;
+
+    color: white;
+    height: 7vh;
+    width: 95vw;
+    margin: 0 2.5vw 0 2.5vw;
+    border-bottom: solid 3px white;
+    letter-spacing: 0.1rem;
+}
+
+.txt_banner{
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+/* Par défaut */
+.txt_banner h1 {
+    font-size: 2.25rem; /* Taille de la police adaptée aux grands écrans */
+    
+}
+
+.txt_banner p {
+    font-size: 1.2rem; /* Taille de la police adaptée aux grands écrans */
+    font-weight: 500;
+}
+
+
+
+.content_liste{
+
+    color: white;
+    position: relative;
+    width: 100vw;
+    height: auto;
+    margin-top: 20vh;
+}
+
+.liste_soiree_inscrit {
+    position: relative;
+    display: grid;
+    width: 100%;
+    padding: 2.5vw;
+    height: 100%;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 2vw ;
+    list-style: none; /* Supprime les puces de la liste */
+    transition: all 0.2s ease;
+}
+
+
+
+.liste_soiree_favoris {
+    position: relative;
+    display: grid;
+    width: 100%;
+    padding: 2.5vw;
+    height: 100%;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 2vw ;
+    list-style: none; /* Supprime les puces de la liste */
+    transition: all 0.2s ease;
+}
+
+
+.soiree {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    color: white;
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    margin-top: 30px;
+
+}
+
+.soiree img {
+    height: 550px;
+    width: 100%; /* Pour que l'image occupe toute la largeur du conteneur */
+}
+
+@media screen and (max-width: 1550px){
+    .liste_soiree_favoris {
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .liste_soiree_favoris {
+        grid-template-columns: repeat(4,1fr);
+        padding: 2.5vw;
+
+    }
+}
+@media screen and (max-width: 1350px) {
+    .liste_soiree_favoris {
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;    
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .liste_soiree_favoris {
+        grid-template-columns: repeat(3,1fr);
+        padding: 2.5vw;
+
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .liste_soiree_favoris {
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;    
+    }
+}
+@media screen and (max-width: 1050px) {
+    .liste_soiree_favoris {
+        grid-template-columns: repeat(2,1fr);
+        padding: 2.5vw;
+        grid-gap: 6vw ;
+    }
+}
+
+
+/* Pour les appareils de taille moyenne */
+@media screen and (max-width: 900px) {
+    .liste_soiree_favoris {
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;    
+    }
+
+    .banner{
+        width: 100vw;
+        margin: 0;
+    }
+    .txt_banner h1 {
+        font-size: 2rem; /* Taille de la police plus grande pour les appareils de taille moyenne */
+    }
+
+    .txt_banner p {
+        font-size: 1rem; /* Taille de la police plus grande pour les appareils de taille moyenne */
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .liste_soiree_favoris {
+        grid-gap: 4vw ;
+    }
+}
+
+/* Pour les appareils mobiles */
+@media screen and (max-width: 480px) {
+    .liste_soiree_favoris {
+        grid-gap: 0vw ;
+        padding-left: 0vw;
+        padding-right: 0vw; 
+    }
+    .txt_banner h1 {
+        margin-left: 4vw;
+        font-size: 1.25rem; /* Taille de la police plus grande pour les appareils mobiles */
+    }
+
+    .txt_banner p {
+        display: none;
+    }
+}

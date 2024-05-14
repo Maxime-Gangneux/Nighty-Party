@@ -28,6 +28,7 @@ footer{
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
+
 /*Stylisation du titre principale */
 .title_home{
     position: relative;
@@ -40,6 +41,7 @@ footer{
     margin: 0;
     width: 100vw;
 }
+
 .container{
     background-color: black;
     color: white;

@@ -136,8 +136,8 @@ header .mobile_menu{
             <input type="input" name="main_search" id="input_soiree" class="input_soiree" placeholder="recherchez une soiree" oninput = "verif_input_main()">
         </form>
         <li><a href = "../search/index.php" class="search" >Search</a></li>
+        <li><a href = "../my_favorite/index.php" >My Favorite</a></li>
         <li><a href = "../my_party/index.php" >My Party</a></li>
-        <li><a href = "../create_party/index.php" >Create Party</a></li>
         <li><a href = "../login/index.php" >Login</a></li>
     </ul>
     <img src="../../Image/menu.png" class="menu" alt="">

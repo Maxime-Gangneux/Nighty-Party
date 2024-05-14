@@ -1,15 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-color: black;
-    background-size: contain;
+    background-image: url(../../Image/fond.jpg);
+    background-size: cover;
     overflow-y: scroll;
     overflow-x: hidden;
     margin: auto;
-    background-color: #0e0011;
-    color: white;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -26,180 +25,126 @@ footer{
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
-.txt{
-    color: white;
-    background-color: #0e0011;
-}
-
-
-.banner{
+.container {
     position: relative;
-
-    color: white;
-    height: 7vh;
-    width: 95vw;
-    margin: 0 2.5vw 0 2.5vw;
-    border-bottom: solid 3px white;
-    letter-spacing: 0.1rem;
-}
-
-.txt_banner{
-    height: 100%;
     display: flex;
-    align-items:center;
     justify-content: space-between;
-}
-
-/* Par défaut */
-.txt_banner h1 {
-    font-size: 2.25rem; /* Taille de la police adaptée aux grands écrans */
-    
-}
-
-.txt_banner p {
-    font-size: 1.2rem; /* Taille de la police adaptée aux grands écrans */
-    font-weight: 500;
-}
-
-
-
-.content_liste{
-
-    color: white;
-    position: relative;
     width: 100vw;
-    height: auto;
-    margin-top: 20vh;
+    height: 100vh;
+    margin-top: 10vh;
+    align-items: center;
 }
-
-.liste_soiree_inscrit {
-    position: relative;
-    display: grid;
-    width: 100%;
-    padding: 2.5vw;
-    height: 100%;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 2vw ;
-    list-style: none; /* Supprime les puces de la liste */
-    transition: all 0.2s ease;
-}
-
-
-
-.liste_soiree_favoris {
-    position: relative;
-    display: grid;
-    width: 100%;
-    padding: 2.5vw;
-    height: 100%;
-    grid-template-columns: repeat(5,1fr);
-    grid-gap: 2vw ;
-    list-style: none; /* Supprime les puces de la liste */
-    transition: all 0.2s ease;
-}
-
-
-.soiree {
+.preview{
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 1em;
-    color: white;
-    overflow: hidden;
+    width: 45%;
+    height: 50vh;
+    text-align: center;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.container_input{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
     height: auto;
+    text-align: left;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+input {
+    position: relative;
+    margin-top: 4vh;
+    margin-left: 3vw;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid rgba(255, 255, 255, 0.6);
+    color: white;
+    transition: border-bottom 0.3s ease;
+    padding-left: 0;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: solid white;
+}
+main{
+    margin-top: 100px;
+}
+
+
+.container_link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65%;
+    position: relative;
+    top: 10%;
+}
+.link,.link::after {
+    position: relative;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+
+.link{
+    font-weight: 500;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    height: 100%;
     width: 100%;
-    margin-top: 30px;
-
+    padding: 10px;
 }
 
-.soiree img {
-    height: 550px;
-    width: 100%; /* Pour que l'image occupe toute la largeur du conteneur */
+.link::before,.link::after{
+    content: "";
+    background: #0e0011;
+    position: absolute;
+    z-index: -1;
 }
 
-@media screen and (max-width: 1550px){
-    .liste_soiree_favoris {
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;
-    }
+ 
+.link::after {
+    content: "";
+    background: #0e0011;
+    position: absolute;
+    z-index: -1;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    border-radius: 2em;
 }
 
-@media screen and (max-width: 1450px) {
-    .liste_soiree_favoris {
-        grid-template-columns: repeat(4,1fr);
-        padding: 2.5vw;
-
-    }
-}
-@media screen and (max-width: 1350px) {
-    .liste_soiree_favoris {
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;    
-    }
+.link:hover::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    
 }
 
-@media screen and (max-width: 1250px) {
-    .liste_soiree_favoris {
-        grid-template-columns: repeat(3,1fr);
-        padding: 2.5vw;
+.link:hover{
+    color: white;
+    transform: scale(1.1);
+  }
 
-    }
-}
-
-@media screen and (max-width: 1150px) {
-    .liste_soiree_favoris {
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;    
-    }
-}
-@media screen and (max-width: 1050px) {
-    .liste_soiree_favoris {
-        grid-template-columns: repeat(2,1fr);
-        padding: 2.5vw;
-        grid-gap: 6vw ;
-    }
-}
-
-
-/* Pour les appareils de taille moyenne */
-@media screen and (max-width: 900px) {
-    .liste_soiree_favoris {
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;    
-    }
-
-    .banner{
-        width: 100vw;
-        margin: 0;
-    }
-    .txt_banner h1 {
-        font-size: 2rem; /* Taille de la police plus grande pour les appareils de taille moyenne */
-    }
-
-    .txt_banner p {
-        font-size: 1rem; /* Taille de la police plus grande pour les appareils de taille moyenne */
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .liste_soiree_favoris {
-        grid-gap: 4vw ;
-    }
-}
-
-/* Pour les appareils mobiles */
-@media screen and (max-width: 480px) {
-    .liste_soiree_favoris {
-        grid-gap: 0vw ;
-        padding-left: 0vw;
-        padding-right: 0vw; 
-    }
-    .txt_banner h1 {
-        margin-left: 4vw;
-        font-size: 1.25rem; /* Taille de la police plus grande pour les appareils mobiles */
-    }
-
-    .txt_banner p {
-        display: none;
-    }
+button{
+    display: flex;
+    border-radius: 2em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid black;
+    transition: all 0.3s ease-in;
 }
