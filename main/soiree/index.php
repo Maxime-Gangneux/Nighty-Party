@@ -36,13 +36,16 @@ include '../../BDD/conexion.php';
                     throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
                 }else {
                     while ($ligne = $resultat->fetch_assoc()) {
+                        $nom_soiree = htmlspecialchars($ligne['nom_soiree']);
+                        $date_soiree = htmlspecialchars($ligne['date_soiree']);
+                        $description = utf8_encode($ligne['description_soiree']);
                         echo "<section>
                                 <div class='image'></div>
                                 <div class='info_container'>
                                     <div class='infos_general'>
-                                        <p>{$ligne['nom_soiree']}</p>
-                                        <p>{$ligne['date_soiree']}</p>
-                                        <p>{$ligne['description_soiree']}</p>
+                                        <p>{$nom_soiree}</p>
+                                        <p>{$date_soiree}</p>
+                                        <p>{$description}</p>
                                         <form method='POST'>
                                             ";include '../../BDD/fonction.php';echo"
                                         </form>
