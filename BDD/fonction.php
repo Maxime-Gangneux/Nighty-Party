@@ -13,13 +13,18 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] !== true) {
 
     // Exécution de la requête
     $result_verif_editeur = $connexion->query($requete_verif_editeur);
+    $statu_soiree = $ligne['statu_soiree'];
 
     if($result_verif_editeur){
         $row = $result_verif_editeur->fetch_assoc();
     }
 
-    if ($row["is_editeur"] && isset($_SESSION['connected'])) {
-        echo "Vous êtes l'éditeur de la soirée";
+    if ($row["is_editeur"] === 1 && isset($_SESSION['connected'])) {
+        if ($statu_soiree > 0) {
+            echo "Vous êtes l'éditeur de la soirée publique";
+        }else {
+            echo "Vous êtes l'éditeur de la soirée privée";
+        }
     } else {
         if (!isset($_SESSION['connected']) || $_SESSION['connected'] !== true) {
             if ($statu_soiree > 0) {
@@ -69,9 +74,8 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] !== true) {
                     </form>";
                 }
                 if (isset($_POST['join_public'])) {
-                    $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree, id_editeur) VALUES (?, ?, ?)');
-                    $zero = 0;
-                    $requete->bind_param("iii", $id_compte, $id_soiree, $zero);
+                    $requete = $connexion->prepare('INSERT INTO invite (id_compte, id_soiree) VALUES (?, ?)');
+                    $requete->bind_param("ii", $id_compte, $id_soiree);
                     $requete->execute();
 
                     if ($requete) {
