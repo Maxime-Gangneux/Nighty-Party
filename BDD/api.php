@@ -73,17 +73,19 @@ $all_soiree = verif_input_main();
             if ($soiree['code_soiree'] !== NULL){
                 continue;
             }
+            $soiree_nom = utf8_encode($soiree['nom_soiree']);
+            $soiree_description = utf8_encode($soiree['description_soiree']);
             $date = date("l j F", strtotime($soiree['date_soiree']));
             echo "
             <section>
                 <div class='content'>
                     <div class='info_soiree'>
-                        <h1>{$soiree['nom_soiree']}</h1>
+                        <h1>{$soiree_nom}</h1>
 
                         <h5>{$date}</h5>
 
                         <div class='description'>
-                            <p>{$soiree['description_soiree']}ufgsyufhusdfudshfd</p>
+                            <p>{$soiree_description}ufgsyufhusdfudshfd</p>
                         </div>
                             <div class = 'container_button'>
                                 <form method='POST' action='../soiree/index.php'>
