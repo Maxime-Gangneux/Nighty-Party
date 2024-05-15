@@ -16,7 +16,6 @@ include '../../BDD/conexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>soiree</title>
     <link rel="stylesheet" href="css.css">
-    <script src="app.js"></script>
 </head>
 <body>
     <?php
@@ -32,7 +31,7 @@ include '../../BDD/conexion.php';
                 // Exécution de la requête
                 $resultat = $connexion->query($requete);
                 // Vérification du résultar
-                if (!$resultat) {
+                if ($resultat === false) {
                     throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
                 }else {
                     while ($ligne = $resultat->fetch_assoc()) {

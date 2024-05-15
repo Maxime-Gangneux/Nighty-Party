@@ -94,3 +94,11 @@ section{
     height: 80%;
     background-color: green;
 }
+.boisson{
+    position: relative;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+}
