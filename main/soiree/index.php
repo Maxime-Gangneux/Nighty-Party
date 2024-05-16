@@ -25,54 +25,51 @@ include '../../BDD/conexion.php';
         $connexion = connecterBaseDonnees();
 
         try {
-            
-                $requete = "SELECT * FROM soiree WHERE id_soiree = '{$_SESSION['id_soiree']}'";
+            $requete = "SELECT * FROM soiree WHERE id_soiree = '{$_SESSION['id_soiree']}'";
 
-                // Exécution de la requête
-                $resultat = $connexion->query($requete);
-                // Vérification du résultar
-                if ($resultat === false) {
-                    throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
-                }else {
-                    while ($ligne = $resultat->fetch_assoc()) {
-                        $nom_soiree = htmlspecialchars($ligne['nom_soiree']);
-                        $date_soiree = htmlspecialchars($ligne['date_soiree']);
-                        $description = utf8_encode($ligne['description_soiree']);
-                        $statu_soiree = $ligne['statu_soiree'];
-                        echo "<section>
-                                <div class='image'></div>
-                                <div class='info_container'>
-                                    <div class='infos_general'>
-                                        <p>{$nom_soiree}</p>
-                                        <p>{$date_soiree}</p>
-                                        <p>{$description}</p>
-                                        <form method='POST'>
-                                            ";include '../../BDD/fonction.php';echo"
-                                        </form>
-                                    </div>
-                                    <div class='contenue'>
-                                        <div class='personnes'>"; 
-                                            include '../../BDD/invites.php';
-                        echo           "</div>
-                                        <div class='boissons'>
-                                            <button>apptorer du glouglou</button>";
-                                            include '../../BDD/boissons.php';
-                        echo           "</div>
-                                        </div>
-                                    </div>
+            // Exécution de la requête
+            $resultat = $connexion->query($requete);
+            
+            // Vérification du résultat
+            if ($resultat) {
+                while ($ligne = $resultat->fetch_assoc()) {
+                    $nom_soiree = htmlspecialchars($ligne['nom_soiree']);
+                    $date_soiree = htmlspecialchars($ligne['date_soiree']);
+                    $description = utf8_encode($ligne['description_soiree']);
+                    $statu_soiree = $ligne['statu_soiree'];
+                    echo "<section>
+                            <div class='image'></div>
+                            <div class='info_container'>
+                                <div class='infos_general'>
+                                    <p>{$nom_soiree}</p>
+                                    <p>{$date_soiree}</p>
+                                    <p>{$description}</p>
+                                    <form method='POST'>";
+                                        include '../../BDD/fonction.php';
+                    echo "          </form>
                                 </div>
-                            </section>";
-                    }
+                                <div class='contenue'>
+                                    <div class='personnes'>";
+                                        include '../../BDD/invites.php';
+                    echo "          </div>
+                                    <div class='boissons'>
+                                        <button>Apporter du glouglou</button>";
+                                        include '../../BDD/boissons.php';
+                    echo "          </div>
+                                </div>
+                            </div>
+                        </section>";
                 }
-                
-            }
-        catch (Exception $e) {
+            } else {
+                throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
+            }  
+        } catch (Exception $e) {
             // Gérer l'exception (erreur)
             echo "Erreur : " . $e->getMessage();
         }
     ?>
     <footer>
-        <p>Created and designed by Muller Julien & Gangneux Maxime</p>
+        <p>Créé et conçu par Muller Julien & Gangneux Maxime</p>
     </footer>
 </body>    
 </html>

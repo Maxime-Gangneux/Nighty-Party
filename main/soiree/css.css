@@ -88,17 +88,20 @@ section{
 .boissons{
     position: relative;
     display: flex;
+    text-align: center;
     flex-direction: column;
     overflow-y: scroll;
     width: 50%;
     height: 80%;
     background-color: green;
+    color: white;
 }
 .boisson{
     position: relative;
     width: 80%;
+    height: auto;
     margin: auto;
+    margin-bottom: 5%;
     display: flex;
-    text-align: left;
     justify-content: space-between;
 }
