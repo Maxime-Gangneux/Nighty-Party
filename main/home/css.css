@@ -10,7 +10,7 @@ body {
     background-size: contain;
     overflow-y: scroll;
     overflow-x: hidden;
-    margin: auto;
+    margin: 0;
     background-color: #0e0011;
 }
 body::-webkit-scrollbar {
@@ -20,7 +20,6 @@ footer{
     position: relative;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
-    margin-top: 2vh;
     height: 5%;
     color: white;       
     text-align: center;
@@ -32,7 +31,6 @@ footer{
 /*Stylisation du titre principale */
 .container_title{
     position: relative;
-    margin-bottom: -8vh;
     display: flex;
     flex-direction: row;
 }
@@ -59,69 +57,6 @@ h1{
         transform: translateY(0px);
     }
 }
-
-.container{
-    background-color: black;
-    color: white;
-    position: relative;
-    display: grid;
-    width: 94%;
-    height: 100%;
-    margin-top: 4vh;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 1.5vw;
-    column-gap: 2vw;
-}
-.container_tendance{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 55vh; /* Hauteur des carrés */
-    border-radius: 1em; 
-    color: white;
-    overflow: hidden;
-}
-.container_tendance div{
-    position: absolute;
-    display: block;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    line-height: 0.5vh;
-    justify-content: left;
-}
-.container_tendance p{
-    font-size: 1.3vw;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 1vw;
-}
-.container_tendance p:nth-child(1){
-    color: white;
-    z-index: 1;
-    font-weight: bold;
-}
-.container_tendance p:nth-child(2){
-    color: rgb(185, 185, 185);
-}
-.container_tendance p:nth-child(3){
-    color: white;
-}
-.image_soiree{
-    position: absolute;
-    object-fit: cover;
-    top: 0;
-    border-radius: 1em;
-    width: 100%;
-    height: 45vh;
-}
-
-.container_tendance:last-child{
-    margin-right: 0;
-}
-
 section img{
     position: relative;
     height: auto;
@@ -130,10 +65,9 @@ section img{
 }
 section{
     position: relative;
-    display: flex;
+    display: block;
     width: 100vw;
     height: 100vh;
-    margin-bottom: 50px;
 }
 section::before{
     content: '';
@@ -157,11 +91,13 @@ section div{
     transform: translate(-50%,-50%);
     z-index: 1;
 }
+.text_presentation_container{
+}
 .text_presentation{
     position: relative;
+    text-wrap: nowrap;
     text-align: center;
     font-size: 1.5vw;
-    margin-bottom: 5vh;
     color: rgb(161, 161, 161);
 }
 
@@ -184,33 +120,43 @@ main{
     font-size: 1.5em;
 }
 .bouton_redirection{
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    transform: translateX(50%, -50%);
-    height: 100px;
-    width: 10vw;
+    position: relative;
+    padding: 1vw;
     text-decoration: none;
     color: rgb(161, 161, 161);
     border-radius: 0.3em;
-    margin-top: 10vh;
 }
 .bouton_redirection::after{
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    height: 99%;
+    width: 99%;
     border-left: 1px solid white;
-    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    transition: all,1s;
     content: "";
 }
 .bouton_redirection::before{
     position: absolute;
-    height: 100%;
-    width: 100%;
+    bottom: 0;
+    right: 0;
+    height: 99%;
+    width: 99%;
     border-right: 1px solid white;
-    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    transition: all,1s;
     content: "";
+}
+.bouton_redirection:hover{
+    color: white;
+}
+.bouton_redirection:hover::after{
+    height: 40%;
+    width: 20%;
+}
+.bouton_redirection:hover::before{
+    height: 40%;
+    width: 20%;
 }
 

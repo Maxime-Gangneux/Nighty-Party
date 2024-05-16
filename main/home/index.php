@@ -26,7 +26,7 @@
                 <h1 style = "--i:10;">t</h1>
                 <h1 style = "--i:11;">y</h1>
             </div>
-            <p class="text_presentation">Rejoint toutes les soirées près de chez toi en cliquant sur le bouton en dessous.</p>
+            <div class = "text_presentation_container"><p class="text_presentation">Rejoint toutes les soirées près de chez toi en cliquant sur le bouton en dessous.</p></div>
             <a class = "bouton_redirection" href = "../search/index.php">Trouver une soirée</a>
         </div>
         <img src="../../Image/fond_soiree.png" alt="">
