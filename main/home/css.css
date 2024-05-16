@@ -30,16 +30,34 @@ footer{
 }
 
 /*Stylisation du titre principale */
-.title_home{
+.container_title{
+    position: relative;
+    margin-bottom: -8vh;
+    display: flex;
+    flex-direction: row;
+}
+h1{
     position: relative;
     font-family: 'Playfair Display';
     font-style: italic;
     color: white;
     font-weight: 700;
-    text-shadow: 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.753);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     font-size: 10vw;
     margin: 0;
-    width: 100vw;
+    animation: saut 2s  ease-in-out infinite ;
+    animation-delay: calc(0.1s * var(--i));
+}
+@keyframes saut {
+    0%{
+        transform: translateY(0px);
+    }
+    20%{
+        transform: translateY(-20px);
+    }
+    40%,100%{
+        transform: translateY(0px);
+    }
 }
 
 .container{
@@ -143,7 +161,6 @@ section div{
     position: relative;
     text-align: center;
     font-size: 1.5vw;
-    margin-top: 2vh;
     margin-bottom: 5vh;
     color: rgb(161, 161, 161);
 }
@@ -167,16 +184,33 @@ main{
     font-size: 1.5em;
 }
 .bouton_redirection{
-    position: relative;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translateX(50%, -50%);
+    height: 100px;
+    width: 10vw;
     text-decoration: none;
     color: rgb(161, 161, 161);
-    border: solid 2px rgb(161, 161, 161);
-    border-radius: 1em;
-    padding: 0.5vw;
+    border-radius: 0.3em;
     margin-top: 10vh;
 }
-.bouton_redirection:hover{
-    border-color: white;
-    color: white;
+.bouton_redirection::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    content: "";
+}
+.bouton_redirection::before{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    content: "";
 }
 

@@ -13,9 +13,21 @@
     ?>
     <section>
         <div>
-            <h2 class="title_home">Nighty Party</h2>
-            <p class="text_presentation">Rejoint toutes les soireés près de chez toi en cliquant sur le bouton en dessous.</p>
-            <a class = "bouton_redirection" href = "../search/index.php">trouver une soireés</a>
+            <div class = 'container_title'>
+                <h1 style = "--i:0;">N</h1>
+                <h1 style = "--i:1;">i</h1>
+                <h1 style = "--i:2;">g</h1>
+                <h1 style = "--i:3;">h</h1>
+                <h1 style = "--i:4;">t</h1>
+                <h1 style = "--i:5;">y</h1> 
+                <h1 style = "--i:6;">P</h1>
+                <h1 style = "--i:7;">a</h1>
+                <h1 style = "--i:8;">r</h1>
+                <h1 style = "--i:10;">t</h1>
+                <h1 style = "--i:11;">y</h1>
+            </div>
+            <p class="text_presentation">Rejoint toutes les soirées près de chez toi en cliquant sur le bouton en dessous.</p>
+            <a class = "bouton_redirection" href = "../search/index.php">Trouver une soirée</a>
         </div>
         <img src="../../Image/fond_soiree.png" alt="">
     </section>
