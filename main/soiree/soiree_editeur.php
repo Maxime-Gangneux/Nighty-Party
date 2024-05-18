@@ -41,12 +41,11 @@ include '../../BDD/conexion.php';
                             <div class='image'></div>
                             <div class='info_container'>
                                 <div class='infos_general'>
+                                    <h1>Ceci est la page de modification de soirées</h1>
                                     <p>{$nom_soiree}</p>
                                     <p>{$date_soiree}</p>
                                     <p>{$description}</p>
-                                    <form method='POST'>";
-                                        include '../../BDD/fonction.php';
-                    echo "          </form>
+                                    <App/>
                                 </div>
                                 <div class='contenue'>
                                     <div class='personnes'>";
@@ -74,3 +73,4 @@ include '../../BDD/conexion.php';
     </footer>
 </body>    
 </html>
+

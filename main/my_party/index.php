@@ -4,41 +4,10 @@ $connexion = connecterBaseDonnees();
 session_start();
 if (isset($_SESSION['connected'])){
     $id_compte = $_SESSION['id_compte'];
-    $requete = $connexion->prepare('SELECT id_soiree FROM favoris WHERE id_compte = ?');
-    $requete->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
-    $requete->execute();
-    $resultat = $requete->get_result();
-
-    $inscrit = $connexion->prepare('SELECT id_soiree FROM invite WHERE id_compte = ?');
-    $inscrit->bind_param('i', $id_compte); // 'i' indique que $id_compte est un entier
-    $inscrit->execute();
-    $resultat_inscrit = $inscrit->get_result();
-
-    // Requête pour obtenir l'ID de l'invité de la soirée
-    $id_invite_soiree = $connexion->prepare('SELECT id_invite FROM soiree WHERE id_soiree = ?');
-    $id_invite_soiree->bind_param("i", $id_soiree);
-    $id_invite_soiree->execute();
-    $result_invite_soiree = $id_invite_soiree->get_result();
-    $row_invite_soiree = $result_invite_soiree->fetch_assoc();
-    $id_invite_soiree_value = $row_invite_soiree['id_invite'];
-
-    // Requête pour vérifier si l'utilisateur est l'invité de la soirée
-    $id_invite = $connexion->prepare('SELECT id_invite FROM invite WHERE id_compte = ? AND id_soiree = ?');
-    $id_invite->bind_param("ii", $id_compte, $id_soiree);
-    $id_invite->execute();
-    $result_invite = $id_invite->get_result();
-    $row_invite = $result_invite->fetch_assoc();
-    $id_invite_value = $row_invite['id_invite'];
-
-    // Comparaison des résultats pour déterminer si l'utilisateur est l'éditeur de la soirée
-    if ($id_invite_value == $id_invite_soiree_value) {
-        $result_verif_editeur = 1;
-    }else{
-        $result_verif_editeur = 0;
-    }
-    if ($result_verif_editeur == 1){
-        
-    }
+    $all_soiree_editeur = $connexion->prepare('SELECT id_soiree FROM soiree WHERE id_invite IN (SELECT id_invite FROM invite WHERE id_compte = ?)');
+    $all_soiree_editeur->bind_param("i",$id_compte);
+    $all_soiree_editeur->execute();
+    $all_soiree_editeur = $all_soiree_editeur->get_result();
 }
 
 ?>
@@ -55,14 +24,55 @@ if (isset($_SESSION['connected'])){
     <?php
         include '../nav_barre/nav_barre.php';
     ?>
-    <main>
-        <div class="container_link">
-        <form action='create.php'>
-            <button class='link'><h4>create party </h4></button>
-        </form> 
-        </div>
-    </main>
+    <main>         
+        <h1>My Party - Gérez vos événements avec implicité</h1>
+        <p>Bienvenue dans <strong>My Party</strong>, votre espace personnel sur Nighty Party pour organiser et gérer toutes vos soirées. Retrouvez ici toutes les soirées que vous avez créées et personnalisez-les selon vos envies pour des événements mémorables.</p>
 
+        <div class="content_liste">
+            <div class='banner'>
+                <div class='txt_banner'>
+                    <div><h1>Vos Soirées </h1></div>
+                    <div><p>Créer vos propres soirée</p></div>
+                </div>
+            </div>
+            <ul class="liste_soiree_editeur">
+                <?php
+                    include 'all_soiree_editeur.php';
+                ?>
+            </ul>
+        </div>
+
+            <div class='container_link'>
+            <form action='create.php'>
+                <button class='link'><h4>create party </h4></button>
+            </form> 
+            </div>
+        <p>Nighty party le site de l'organisation</p>
+        <div class='container_txt'>
+
+
+            <h2>Vos soirées créées</h2>
+            <ul>
+                <li><strong>Visualisez et modifiez :</strong> Consultez la liste de toutes les soirées que vous avez organisées. Modifiez les détails de chaque soirée, y compris le nom, la description, la date, le lieu, le nombre de participants, et bien plus encore.</li>
+                <li><strong>Gestion des invités :</strong> Ajoutez ou supprimez des invités, envoyez des invitations et gérez les réponses directement depuis le site.</li>
+                <li><strong>Coordination des apports :</strong> Indiquez ce que chaque invité doit apporter (boissons, nourriture, etc.) et suivez en temps réel qui apporte quoi pour éviter les doublons.</li>
+                <li><strong>Tarifs d'entrée :</strong> Fixez un prix d'entrée pour couvrir les frais de l'événement si nécessaire.</li>
+                <li><strong>Options avancées :</strong> Ajoutez des informations supplémentaires comme des photos, le matériel disponible (enceintes, éclairage, etc.), et l'emplacement exact (salle, maison, parc, etc.).</li>
+                <li><strong>Visibilité de la soirée :</strong> Gérez la visibilité de vos soirées : choisissez entre une soirée publique, visible par tout le monde, ou une soirée privée, accessible uniquement avec un code d'invitation.</li>
+                <li><strong>Communication centralisée :</strong> Utilisez notre système de messagerie intégré pour communiquer avec vos invités avant, pendant et après la soirée.</li>
+                <li><strong>Planification collaborative :</strong> Permettez à vos amis de participer à l'organisation en leur assignant des rôles spécifiques comme DJ, responsable des boissons, etc.</li>
+                <li><strong>Suivi des RSVPs :</strong> Suivez facilement qui a confirmé sa présence et qui est encore en attente de réponse.</li>
+                <li><strong>Cartes et directions :</strong> Fournissez des cartes détaillées et des directions pour que vos invités trouvent facilement le lieu de la soirée.</li>
+                <li><strong>Sécurité et confidentialité :</strong> Protégez vos événements avec des options de sécurité, telles que la validation des invités à l'entrée et la gestion des listes d'invités privées.</li>
+            </ul>
+
+            <h2>Créer une nouvelle soirée</h2>
+            <p>Prêt à organiser une nouvelle soirée ? Utilisez le bouton ci-dessous pour accéder à notre page de création de soirée. En quelques étapes simples, planifiez votre prochain événement inoubliable :</p>
+
+            <p>Rejoignez <strong>Nighty Party</strong> dès aujourd'hui et faites de chaque soirée un événement inoubliable !</p>
+        </div>
+        
+    </main>
 </body>
 </html
 

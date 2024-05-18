@@ -4,11 +4,12 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-image: url(../../Image/fond.jpg);
-    background-size: cover;
+    background-color: black;
     overflow-y: scroll;
     overflow-x: hidden;
     margin: auto;
+    color: whitesmoke;
+    
 }
 body::-webkit-scrollbar {
     display: none;
@@ -148,3 +149,137 @@ button{
     border: 2px solid black;
     transition: all 0.3s ease-in;
 }
+
+
+.content_liste {
+    color: white;
+    position: relative;
+    width: 100vw;
+    height: auto;
+    margin-top: 20px;
+}
+
+.banner {
+    position: relative;
+    color: white;
+    height: 7vh;
+    width: 95vw;
+    margin: 0 2.5vw 0 2.5vw;
+    border-bottom: solid 3px white;
+    letter-spacing: 0.1rem;
+}
+
+.txt_banner {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.txt_banner h1 {
+    font-size: 2.25rem; /* Taille de la police adaptée aux grands écrans */
+}
+
+.txt_banner p {
+    font-size: 1.2rem; /* Taille de la police adaptée aux grands écrans */
+    font-weight: 500;
+}
+
+
+.liste_soiree_editeur {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0 2.5vw;
+    height: 100%;
+    overflow-x: auto;
+    list-style: none; /* Supprime les puces de la liste */
+    transition: all 0.2s ease;
+}
+
+.soiree {
+    color: white;
+    height: auto;
+    width: calc(33.33% - 1.5vw); /* Ajuste la largeur des éléments pour en afficher 3 */
+    margin-right: 1.5vw;
+    flex: 0 0 calc(33.33% - 1.5vw); /* Ajuste la largeur des éléments pour en afficher 3 */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3vh;
+}
+
+.soiree:last-child {
+    margin-right: 0; /* Pas de marge pour le dernier élément */
+}
+
+.soiree img {
+    border-radius: 15px;
+    width: 100%; /* Pour que l'image occupe toute la largeur du conteneur */
+    height: auto;
+}
+
+.soiree .date {
+    margin-top: 20px;
+    width: 100%;
+    border-bottom: 3px solid white;
+    color: #F31260;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.container_titre {
+    position: absolute;
+    top: 15%;
+    width: 30%;
+}
+.soiree .container_titre .titre{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.5em;
+    color: #338EF7;
+}
+
+.soiree .description {
+    margin-top: 10px;
+}
+
+.soiree .description h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.container_txt {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(241, 241, 241, 0.459);
+    border-radius: 8px;
+}
+
+/* Styles pour la barre de défilement */
+.liste_soiree_editeur::-webkit-scrollbar {
+    width: 12px; /* Largeur de la barre de défilement */
+}
+
+/* Bouton de défilement */
+.liste_soiree_editeur::-webkit-scrollbar-button {
+    display: none; /* Masque le bouton de défilement */
+}
+
+/* Track (la "rail" sur laquelle se déplace le thumb) */
+.liste_soiree_editeur::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Couleur de fond de la rail */
+}
+
+/* Thumb (la poignée de la barre de défilement) */
+.liste_soiree_editeur::-webkit-scrollbar-thumb {
+    background: #db1d5c; /* Couleur de la poignée */
+}
+
+
