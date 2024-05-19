@@ -33,6 +33,9 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
                     <input type="text" name="adresse_soiree" placeholder="Adresse de la soirée">
                 </div>
                 <div>
+                    <input type="text" name="ville_soiree" placeholder="Ville de la soirée">
+                </div>
+                <div>
                     <input type="date" name="date_soiree" placeholder="Date">
                 </div>
                 <div>

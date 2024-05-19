@@ -1,5 +1,6 @@
 /* Définition des polices */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 
 /* Corps de la page */
 body {
@@ -104,4 +105,70 @@ section{
     margin-bottom: 5%;
     display: flex;
     justify-content: space-between;
+}
+
+.calendar_link ,.location_link{
+    display:flex;
+    text-decoration: none;
+    padding: 10px;
+    width: 45%;
+    border-radius: 8px;
+}
+.calendar_link:hover ,.location_link:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(241, 241, 241, 0.4);
+}
+
+.calendar_link div, .location_link div{
+    margin-right: 30px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(213, 224, 233, 0.466);
+    width: 15%;
+    border-radius: 8px;
+}
+.container_calendar ,.container_location{
+    color: black;
+}
+
+.container_calendar .heure ,.container_location .adresse{
+    margin-top: 5px;
+    color: #333; 
+}
+
+.container_titre_soiree {
+    display: flex;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.titre_soiree{
+    font-size: 2em;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+  
+
+textarea {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid rgba(255, 255, 255, 0.6);
+    color: white;
+    transition: border-bottom 0.3s ease;
+    padding-left: 0;
+}
+
+textarea:focus {
+    outline: none;
+    border-bottom: solid white;
+    text-decoration: none
+}
+
+input{
+    margin-top: 2.5%;
 }

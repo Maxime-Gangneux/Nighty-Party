@@ -32,7 +32,7 @@ if (isset($_SESSION['connected'])){
             <div class='banner'>
                 <div class='txt_banner'>
                     <div><h1>Vos Soirées </h1></div>
-                    <div><p>Créer vos propres soirée</p></div>
+                    <div><p>Créer vos propres soirée selon vos désirs</p></div>
                 </div>
             </div>
             <ul class="liste_soiree_editeur">
