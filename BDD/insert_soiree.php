@@ -7,7 +7,7 @@ if(isset($_POST['submit_button'])){
     $nom_soiree = utf8_decode($_POST['nom_soiree']);
     $description_soiree = utf8_decode($_POST['description_soiree']);
     $adresse_soiree = utf8_decode($_POST['adresse_soiree']);
-    $ville_soiree utf8_decode($_POST['ville_soiree']);
+    $ville_soiree = $_POST['ville_soiree'];
     // Formatage de la date au format YYYY-MM-DD
     $date_soiree = date("Y-m-d", strtotime(trim($_POST['date_soiree'])));
     // Formatage de l'heure minimale au format HH:MM:SS
@@ -29,7 +29,7 @@ if(isset($_POST['submit_button'])){
         $sql = "INSERT INTO soiree (nom_soiree, description_soiree, adresse_soiree, ville_soiree, date_soiree, heure_min_soiree, heure_max_soiree, nb_personne_soiree, theme_soiree, type_soiree, statu_soiree) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $connexion->prepare($sql);
-        $stmt->bind_param("ssssssisss", $nom_soiree, $description_soiree, $adresse_soiree, $ville_soiree, $date_soiree, $heure_min_soiree, $heure_max_soiree, $nb_personne_soiree, $theme_soiree, $type_soiree, $statu_soiree);
+        $stmt->bind_param("sssssssisss", $nom_soiree, $description_soiree, $adresse_soiree, $ville_soiree, $date_soiree, $heure_min_soiree, $heure_max_soiree, $nb_personne_soiree, $theme_soiree, $type_soiree, $statu_soiree);
 
         // Exécution de la requête
         if ($stmt->execute()) {
