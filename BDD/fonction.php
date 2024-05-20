@@ -31,7 +31,11 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] !== true) {
 
 
 if ($result_verif_editeur == 1) {
-    echo "Vous êtes l'éditeur de la soirée";
+    echo "Vous êtes l'éditeur de la soirée
+    <form method='POST' action='soiree_editeur.php'>
+        <a href='soiree_editeur.php'>modifier</a>
+    </form>  
+    ";
 } else {
     if (!isset($_SESSION['connected']) || $_SESSION['connected'] !== true) {
         if ($statu_soiree > 0) {

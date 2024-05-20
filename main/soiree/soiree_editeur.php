@@ -2,19 +2,37 @@
 // Démarrez la session
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_soiree = $_POST['id_soiree'];
-    $_SESSION['id_soiree'] = $id_soiree;
-}
-
 include '../../BDD/conexion.php';
+
+// Se connecter à la base de données
+$connexion = connecterBaseDonnees();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['id_soiree'])) {
+        $id_soiree = $_POST['id_soiree'];
+        $_SESSION['id_soiree'] = $id_soiree;
+    }
+    
+    if (isset($_POST['description_soiree'])) {
+        $new_description = $_POST['description_soiree'];
+        $update_requete = "UPDATE soiree SET description_soiree = ? WHERE id_soiree = ?";
+        $stmt = $connexion->prepare($update_requete);
+        $stmt->bind_param('si', $new_description, $_SESSION['id_soiree']);
+        $stmt->execute();
+        $stmt->close();
+        
+        // Mettre à jour la variable de session
+        $description_soiree = $new_description;
+        echo "Description mise à jour avec succès.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soirée</title>
+    <title>Modifier la Description de la Soirée</title>
     <link rel="stylesheet" href="css.css">
     <script src="app.js"></script>
 </head>
@@ -22,17 +40,13 @@ include '../../BDD/conexion.php';
     <?php
         include '../nav_barre/nav_barre.php';
 
-        // Se connecter à la base de données
-        $connexion = connecterBaseDonnees();
-        
-
         try {
-            $requete = "SELECT * FROM soiree WHERE id_soiree = '{$_SESSION['id_soiree']}'";
-
-            // Exécution de la requête
-            $resultat = $connexion->query($requete);
+            $requete = "SELECT * FROM soiree WHERE id_soiree = ?";
+            $stmt = $connexion->prepare($requete);
+            $stmt->bind_param('i', $_SESSION['id_soiree']);
+            $stmt->execute();
+            $resultat = $stmt->get_result();
             
-            // Vérification du résultat
             if ($resultat) {
                 while ($ligne = $resultat->fetch_assoc()) {
                     $nom_soiree = htmlspecialchars($ligne['nom_soiree']);
@@ -43,7 +57,6 @@ include '../../BDD/conexion.php';
                     $statu_soiree = htmlspecialchars($ligne['statu_soiree']);
                     $heure_min_soiree = (new DateTime($ligne['heure_min_soiree']))->format('H:i');
                     $heure_max_soiree = (new DateTime($ligne['heure_max_soiree']))->format('H:i');
-                    
                     echo "<section>
                             <div class='image'></div>
                             <div class='info_container'>
@@ -63,13 +76,14 @@ include '../../BDD/conexion.php';
                                             <p class='adresse'><i>{$adresse_soiree}</i></p>
                                         </div>
                                     </a>
-                                    <div class='container_description'>
+                                    <form method='POST' action='' class='container_description'>
                                         <strong><h3>Description</h3></strong><br>
-                                        <div class='description'><p>{$description_soiree}</p></div><br>
-                                    </div>
-                                    <form method='POST'>";
-                                        include '../../BDD/fonction.php';
-                    echo "          </form>
+                                        <textarea id='description_soiree' name='description_soiree' class='description' rows='4' cols='50'>{$description_soiree}</textarea><br>
+                                        <input type='submit' value='Mettre à jour'>
+                                    </form>
+                                    <form method='POST' action='index.php'>
+                                        <a href='index.php'>Apercu</a>
+                                    </form>  
                                 </div>
                                 <div class='contenue'>
                                     <div class='personnes'>";
@@ -86,7 +100,7 @@ include '../../BDD/conexion.php';
                 }
             } else {
                 throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);
-            }  
+            }
         } catch (Exception $e) {
             // Gérer l'exception (erreur)
             echo "Erreur : " . $e->getMessage();
@@ -95,5 +109,5 @@ include '../../BDD/conexion.php';
     <footer>
         <p>Créé et conçu par Muller Julien & Gangneux Maxime</p>
     </footer>
-</body>    
+</body>
 </html>

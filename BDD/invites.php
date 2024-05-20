@@ -12,7 +12,7 @@ try {
     if ($resultat === false) {
         throw new Exception("Erreur lors de l'exécution de la requête.");
     }
-
+    $nombre_de_personne = 0;
     while ($personne = $resultat->fetch_assoc()) {
         echo '
             <div class="personne">
@@ -20,6 +20,7 @@ try {
                 <p class="prenom">' . $personne["prenom_compte"] . '</p>
                 <p class="age">' . $personne["age_compte"] . '</p>
             </div>';
+        $nombre_de_personne++;
     }
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
