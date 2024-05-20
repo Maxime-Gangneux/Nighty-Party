@@ -33,7 +33,7 @@
     </section>
     <main>
     <div class="texte">
-        <h2>Découvrez Nighty Party</h2><br>
+        <div><h2>Découvrez Nighty Party</h2></div><br>
         <p>
             Que vous cherchiez à organiser une petite fête entre amis ou à participer à une grande soirée publique, Nighty Party vous offre tout ce dont vous avez besoin.
             <br><br>
