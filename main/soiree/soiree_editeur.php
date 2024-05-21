@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 while ($ligne = $resultat->fetch_assoc()) {
                     $nom_soiree = htmlspecialchars($ligne['nom_soiree']);
                     $date_soiree = date("l j F", strtotime($ligne['date_soiree']));
-                    $description_soiree = htmlspecialchars($ligne['description_soiree']);
+                    $description_soiree = $ligne['description_soiree'];
                     $adresse_soiree = htmlspecialchars($ligne['adresse_soiree']);
                     $ville_soiree = htmlspecialchars($ligne['ville_soiree']);
                     $statu_soiree = htmlspecialchars($ligne['statu_soiree']);

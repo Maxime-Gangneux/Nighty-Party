@@ -47,6 +47,7 @@ section{
 }
 .infos_general{
     position: relative;
+    display: inline-block;
     width: 100%;
     height: 50%;
     background-color: violet;
