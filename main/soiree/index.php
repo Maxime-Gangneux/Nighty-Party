@@ -49,20 +49,22 @@ include '../../BDD/conexion.php';
                             <div class='info_container'>
                                 <div class='infos_general'>
                                     <div class='container_titre_soiree'><span class='titre_soiree'>{$nom_soiree}</span></div>
-                                    <a href='#' class='calendar_link' onclick='openCalendar(\"{$nom_soiree}\", \"{$adresse_soiree}\", \"{$date_soiree}\", \"{$heure_min_soiree}\", \"{$heure_max_soiree}\")'>
-                                        <div class='logo'><img src ='../../image/icon_calendar.svg'></div>
-                                        <div class='container_calendar'>
-                                            <strong><p>{$date_soiree}</p></strong>
-                                            <p class='heure'><i>de {$heure_min_soiree} à {$heure_max_soiree}</i></p>
-                                        </div>
-                                    </a>
-                                    <a href='#' class='location_link' onclick='openMap(\"{$adresse_soiree}\")'>
-                                        <div class='logo'><img src ='../../image/icon_location.svg'></div>
-                                        <div class='container_location'>
-                                            <strong><p>{$ville_soiree}</p></strong>
-                                            <p class='adresse'><i>{$adresse_soiree}</i></p>
-                                        </div>
-                                    </a>
+                                    <div class = 'adresse_date_container'>
+                                        <a href='#' class='calendar_link' onclick='openCalendar(\"{$nom_soiree}\", \"{$adresse_soiree}\", \"{$date_soiree}\", \"{$heure_min_soiree}\", \"{$heure_max_soiree}\")'>
+                                            <div class='logo'><img src ='../../image/icon_calendar.svg'></div>
+                                            <div class='container_calendar'>
+                                                <strong><p>{$date_soiree}</p></strong>
+                                                <p class='heure'><i>de {$heure_min_soiree} à {$heure_max_soiree}</i></p>
+                                            </div>
+                                        </a>
+                                        <a href='#' class='location_link' onclick='openMap(\"{$adresse_soiree}\")'>
+                                            <div class='logo'><img src ='../../image/icon_location.svg'></div>
+                                            <div class='container_location'>
+                                                <strong><p>{$ville_soiree}</p></strong>
+                                                <p class='adresse'><i>{$adresse_soiree}</i></p>
+                                            </div>
+                                        </a>
+                                    </div>
                                     <div class='container_description'>
                                         <strong><h3>Description</h3></strong><br>
                                         <div class='description'><p>{$description_soiree}</p></div><br>
@@ -76,11 +78,20 @@ include '../../BDD/conexion.php';
                                         include '../../BDD/invites.php';
                     echo "          </div>
                                     <div class='boissons'>
-                                        <button>Apporter du glouglou</button>";
+                                        <button onclick = 'showPopUp()'>Apporter du glouglou</button>";
                                         include '../../BDD/boissons.php';
                     echo "          </div>
                                 </div>
                                 <p>Nombre de personnes à la soirée: {$nombre_de_personne}</p>
+                            </div>
+                            <div class = 'pop_up_boisson' id = 'pop_up_boisson' onclick = 'hidePopUp()'>
+                                <div class = 'pop_up'>
+                                    <div class = 'quit' onclick = 'hidePopUp()'>
+                                        <div class = 'barre gauche'></div>
+                                        <div class = 'barre droite'></div>
+                                    </div>                                       
+                                    <button onclick = 'hidePopUp()'>fermer le pop up</button>
+                                </div>
                             </div>
                         </section>";
                 }

@@ -34,4 +34,9 @@ function openMap(location) {
         window.open(url, '_blank');
     }
 }
-
+function showPopUp() {
+    document.getElementById('pop_up_boisson').style.display = "block";
+}
+function hidePopUp() {
+    document.getElementById('pop_up_boisson').style.display = "none";
+}
