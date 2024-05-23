@@ -77,46 +77,54 @@ $all_soiree = verif_input_main();
             $id_soiree = $soiree['id_soiree'];
             $images = getSoireeImages($id_soiree);
 
-            $soiree_nom = utf8_encode($soiree['nom_soiree']);
-            $soiree_description = utf8_encode($soiree['description_soiree']);
+            $nom_soiree = $soiree['nom_soiree'];
+            $description_soiree= $soiree['description_soiree'];
             $date = date("l j F", strtotime($soiree['date_soiree']));
 
             echo "
-            <section>
-                <div class='content'>
-                    <div class='info_soiree'>
-                        <h1>{$soiree_nom}</h1>
-
-                        <h5>{$date}</h5>
-
-                        <div class='description'>
-                            <p>{$soiree_description}ufgsyufhusdfudshfd</p>
-                        </div>
-                            <div class = 'container_button'>
-                                <form method='POST' action='../soiree/index.php'>
-                                    <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                                    <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
-                                </form>                        
-                                <form method = 'POST'>
-                                    <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                                    <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
-                                </form>
-                            </div>
-                    </div>";
+            <section class='soiree'>
+                <div class='container_image'>";
                     if ($images){
                         foreach ($images as $image) {
                             echo"
-                        <div class='container_image'>
                             <img src='data:" . htmlspecialchars($image['image_type']) . ";base64," . base64_encode($image['image_data']) . "' alt='" . htmlspecialchars($image['image_name']) . "'>
-                        </div>";}
+                            ";
+                        }
                     }else{
                         echo"
-                        <div class='container_image'>
-                            <img src='../../Image/logo.png'>
-                        </div>
+                        <img src='../../Image/logo.png'>
                         ";
                     }
-                    echo"
+                    echo "
+                    <div class='border_image'>
+                        <span class='line_top'></span>
+                        <span class='line_bottom_right'></span>
+                        <span class='line_bottom'></span>
+                        <span class='line_top_left'></span>
+                    </div>
+                </div>
+                <div class='conainer_info_soiree'>
+                    <div class='info_soiree'>
+                        <div class='info'>
+                            <h1>{$nom_soiree}</h1>
+                            <h5>{$date}</h5>
+
+                        </div>
+
+                        <div class='description'>
+                            <p>{$description_soiree}</p>
+                        </div>
+                            <div class = 'container_button'>
+                                <form method='POST' action='../soiree/index.php'>
+                                    <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+                                    <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
+                                </form>                        
+                                <form method = 'POST'>
+                                    <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+                                    <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
+                                </form>
+                            </div>
+                    </div>
                 </div>
             </section>
             ";
