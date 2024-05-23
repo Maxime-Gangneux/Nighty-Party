@@ -47,17 +47,13 @@ if(isset($_SESSION['connected']) && $_SESSION['connected'] == true){
 
 <main>
     <div class="wrapper">
-        <div class="container_soiree">
             <?php 
                 include '../../BDD/api.php';
             ?>
-        </div>
     </div>
 </main> 
-
+</body>
 <footer>
     <p>Created and designed by Muller Julien & Gangneux Maxime</p>
 </footer>
-
-</body>
 </html>

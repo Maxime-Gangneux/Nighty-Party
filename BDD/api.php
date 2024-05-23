@@ -104,26 +104,22 @@ $all_soiree = verif_input_main();
                     </div>
                 </div>
                 <div class='conainer_info_soiree'>
-                    <div class='info_soiree'>
-                        <div class='info'>
-                            <h1>{$nom_soiree}</h1>
-                            <h5>{$date}</h5>
-
-                        </div>
-
-                        <div class='description'>
-                            <p>{$description_soiree}</p>
-                        </div>
-                            <div class = 'container_button'>
-                                <form method='POST' action='../soiree/index.php'>
-                                    <input type='hidden' name='id_soiree' value='{$id_soiree}'>
-                                    <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
-                                </form>                        
-                                <form method = 'POST'>
-                                    <input type='hidden' name='id_soiree' value='{$id_soiree}'>
-                                    <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
-                                </form>
-                            </div>
+                    <div class='info'>
+                        <h1>{$nom_soiree}</h1>
+                        <h5>{$date}</h5>
+                    </div>
+                    <div class='description'>
+                        <p>{$description_soiree}</p>
+                    </div>
+                    <div class = 'container_button'>
+                        <form method='POST' action='../soiree/index.php'>
+                            <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+                            <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
+                        </form>                        
+                        <form method = 'POST'>
+                            <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+                            <button  name='button_favorite' class='link'><h4>Add to favorites</h4></button>
+                        </form>
                     </div>
                 </div>
             </section>

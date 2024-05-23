@@ -4,6 +4,7 @@
 /* Style général du corps de la page */
 body {
     display: flex;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -14,6 +15,10 @@ body {
     margin: auto;
     background-color: #0e0011;
     color: white;
+}
+main{
+    position: relative;
+    height: 100%;
 }
 
 *{
@@ -108,31 +113,25 @@ main{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-left: 100px;
-    margin-right: 100px;
-    width: calc(100% -200px);   
-}
-
-.container_soiree{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-    width: 100%;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    width: calc(100% -8vw);
+    height: 220vh;
 }
 
 .soiree{
+    position: relative;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    width: calc(25% - 30px);
-    margin: 15px 15px 50px 15px;
+    width: calc(25% - 3%);
+    height: 45%;
+    margin: 1% 1% 5% 1%;
 }
 
 .container_image{
     width: 100%;
-    height: 70%;
+    height: 60%;
     position: relative;
     overflow: hidden;
 }
@@ -149,7 +148,7 @@ main{
     transform: scale(1.2);
 }
 .border_image{
-    z-index: 1000;
+    z-index: 100;
     position: absolute;
     top: 18px;
     right: 18px;
@@ -200,31 +199,35 @@ main{
 }
 
 .soiree:hover .line_bottom, .soiree:hover .line_top{
-    width: 0;
+    width: 10%;
 }
 .soiree:hover .line_bottom_right, .soiree:hover .line_top_left{
-    height: 0;
+    height: 10%;
 }
 
-.container_info_soiree{
-    height: 30%;
-    padding: 18px;
+.conainer_info_soiree{
+    position: relative;
+    height: 40%;
+    width: 80%;
+    margin: auto;
     display: flex;
-    justify-content: center;
-    flex: 1;
     flex-direction: column;
 }
 
 .info{
+    position: relative;
     display: flex;
+    text-align: left;
+    top: 0;
+    height: 30%;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
-.info_soiree .info h1{
-    font-size: 1.7em;
+.conainer_info_soiree .info h1{
+    font-size: 1.8vw;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     text-transform: capitalize;
@@ -234,24 +237,25 @@ main{
 
 
 .description {
-
-    margin-right: 2.5%;
-    max-height: 30%;
     position: relative;
-    display: block;
-    margin-top: 7.5%;
-
+    height: 40%;
+    width: 100%;
+    position: relative;
+    display: flex;
 }
 
 .description p {
-    font-size: 1.4em;
+    font-size: 1.2vw;
+    line-height: 4vh;
+    margin-top: 2vh;
+    text-align: left;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-style: italic;
     word-wrap: break-word; 
 }
 
-.info_soiree button{
+.conainer_info_soiree button{
     display: flex;
     border-radius: 2em;
     text-decoration: none;
@@ -261,16 +265,16 @@ main{
     border: 2px solid black;
     transition: all 0.3s ease-in;
 }
-.info_soiree .link:hover{
+.conainer_info_soiree .link:hover{
     transform: scale(1.1);
 }
 .container_button{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 65%;
+    justify-content: space-around;
+    width: 100%;
+    height: 30%;
     position: relative;
-    top: 10%;
 }
 
 .link,.link::after {
@@ -286,11 +290,13 @@ main{
     text-transform: uppercase;
     text-wrap: nowrap;
     color: black;
-    padding: 5px;
     text-decoration: none;
     height: 100%;
     width: 100%;
     padding: 10px;
+}
+.link h4{
+    font-size: 0.8vw;
 }
 
 .link::before,.link::after{
