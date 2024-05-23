@@ -22,12 +22,15 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== true){
 <?php include '../nav_barre/nav_barre.php'; ?>
     <div class="container">
         <div class='container_input'>
-            <form method="POST" action="../../BDD/insert_soiree.php">
+            <form method="POST" action="../../BDD/insert_soiree.php" enctype="multipart/form-data">
                 <div>
                     <input type="text" name="nom_soiree" placeholder="Nom de la soirée">
                 </div>
                 <div>
                     <input type="text" name="description_soiree" placeholder="Description de la soirée">
+                </div>
+                <div>
+                    <input type="file" name="image">
                 </div>
                 <div>
                     <input type="text" name="adresse_soiree" placeholder="Adresse de la soirée">

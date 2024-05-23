@@ -1,5 +1,6 @@
 <?php
 include '../../BDD/conexion.php';
+include 'get_images.php';
 
 // Se connecter à la base de données
 $connexion = connecterBaseDonnees();
@@ -73,9 +74,13 @@ $all_soiree = verif_input_main();
             if ($soiree['code_soiree'] !== NULL){
                 continue;
             }
+            $id_soiree = $soiree['id_soiree'];
+            $images = getSoireeImages($id_soiree);
+
             $soiree_nom = utf8_encode($soiree['nom_soiree']);
             $soiree_description = utf8_encode($soiree['description_soiree']);
             $date = date("l j F", strtotime($soiree['date_soiree']));
+
             echo "
             <section>
                 <div class='content'>
@@ -97,10 +102,21 @@ $all_soiree = verif_input_main();
                                     <button  name='button_favorite'><a class='link'><h4>Add to favorites</h4></a></button>
                                 </form>
                             </div>
-                    </div>
-                    <div class='container_image'>
-                        <img src='../../Image/soiree.jpg' alt='Image de la soirée'>
-                    </div>
+                    </div>";
+                    if ($images){
+                        foreach ($images as $image) {
+                            echo"
+                        <div class='container_image'>
+                            <img src='data:" . htmlspecialchars($image['image_type']) . ";base64," . base64_encode($image['image_data']) . "' alt='" . htmlspecialchars($image['image_name']) . "'>
+                        </div>";}
+                    }else{
+                        echo"
+                        <div class='container_image'>
+                            <img src='../../Image/logo.png'>
+                        </div>
+                        ";
+                    }
+                    echo"
                 </div>
             </section>
             ";

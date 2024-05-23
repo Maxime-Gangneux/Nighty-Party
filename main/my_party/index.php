@@ -51,7 +51,7 @@ if (isset($_SESSION['connected'])){
         <div class='container_txt'>
 
 
-            <h2>Vos soirées créées</h2>
+            <h2>Que pouvez-vous faire ? </h2>
             <ul>
                 <li><strong>Visualisez et modifiez :</strong> Consultez la liste de toutes les soirées que vous avez organisées. Modifiez les détails de chaque soirée, y compris le nom, la description, la date, le lieu, le nombre de participants, et bien plus encore.</li>
                 <li><strong>Gestion des invités :</strong> Ajoutez ou supprimez des invités, envoyez des invitations et gérez les réponses directement depuis le site.</li>

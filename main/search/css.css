@@ -137,7 +137,7 @@ section .content{
 }
 
 .container_image{
-    background-color: rgb(228, 21, 21);
+    background-color: rgba(0, 0, 0, 0.516);
     width: 30%;
     height: 70%;
     border-radius: 2rem;
