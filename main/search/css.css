@@ -8,12 +8,11 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-color: black;
     background-size: contain;
     overflow-y: scroll;
     overflow-x: hidden;
     margin: auto;
-    background-color: #0e0011;
+    background-color: #151515;
     color: white;
 }
 main{
@@ -32,6 +31,7 @@ body::-webkit-scrollbar {
   }
 footer{
     position: relative;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     margin-top: 2vh;
@@ -54,7 +54,6 @@ main{
     margin-left: 4vw;
     margin-right: 4vw;
     width: calc(100% -8vw);
-    height: 220vh;
 }
 
 .soiree{
@@ -63,7 +62,7 @@ main{
     flex-direction: column;
     box-sizing: border-box;
     width: calc(25% - 3%);
-    height: 45%;
+    height: 600px;
     margin: 1% 1% 5% 1%;
 }
 
@@ -80,7 +79,7 @@ main{
     width: 100%;
     transition: all 1000ms 300ms ease-in-out;
 }
-.container_image:hover img{
+.container_image:hover img:first-child{
     transform: scale(1.2);
 }
 .container_image:hover{
@@ -266,4 +265,44 @@ main{
 .link:hover{
     color: white;
   }
+
+@media (min-width: 0px) and (max-width: 480px){
+    .soiree{
+        width: calc(100% - 3%);
+        }
+    .description p{
+        font-size: 1.4vh;
+    }
+    .conainer_info_soiree .info h1{
+        font-size: 4.8vw;
+    }
+    .link h4{
+        font-size: 1.2vh;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1024px){
+    .soiree{
+        width: calc(50% - 3%);
+        }
+    .description p{
+        font-size: 1.2vh;
+    }
+    .conainer_info_soiree .info h1{
+        font-size: 2vh;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .soiree{
+        width: calc(33% - 3%);
+        }
+}
+
+@media (min-width: 1281px) and (max-width: 10000px) {
+    .soiree{
+        width: calc(25% - 3%);
+        }
+}
+
 
