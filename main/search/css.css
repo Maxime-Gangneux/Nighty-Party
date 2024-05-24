@@ -80,13 +80,14 @@ main{
     width: 100%;
     transition: all 1000ms 300ms ease-in-out;
 }
-
-
 .container_image:hover img{
     transform: scale(1.2);
 }
+.container_image:hover{
+    cursor: pointer;
+}
 .border_image{
-    z-index: 100;
+    z-index: 2;
     position: absolute;
     top: 18px;
     right: 18px;
@@ -163,7 +164,6 @@ main{
     align-items: center;
     border-bottom: 1px solid rgb(255, 255, 255);
 }
-
 .conainer_info_soiree .info h1{
     font-size: 1.8vw;
     font-family: "Poppins", sans-serif;
@@ -172,8 +172,6 @@ main{
     letter-spacing: 2px;
 
 }
-
-
 .description {
     position: relative;
     height: 40%;

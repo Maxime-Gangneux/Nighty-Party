@@ -2,7 +2,11 @@
 // Démarrez la session
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Récupérer l'ID de la soirée à partir des paramètres de l'URL
+if (isset($_GET['id_soiree'])) {
+    $id_soiree = $_GET['id_soiree'];
+    $_SESSION['id_soiree'] = $id_soiree;
+} elseif (isset($_POST['id_soiree'])) {
     $id_soiree = $_POST['id_soiree'];
     $_SESSION['id_soiree'] = $id_soiree;
 }
@@ -48,10 +52,40 @@ include '../../BDD/get_images.php';
                     $id_soiree = $ligne['id_soiree'];
                     $images = getSoireeImages($id_soiree);
                     
-                    echo "<section>
+                    echo "
+                    <main>
+                        <section>
+                            <div class='container_button_back'>
+                                <button class='button_back' onclick='Back()'><img src='../../Image/icon_back.svg'>Retour</button>
+                            </div>
                             <div class='container_image'>";
                                 if ($images){
-                                    foreach ($images as $image) {
+                                    $nbr_image = count($images);
+                                    if ($nbr_image > 1){
+                                        $image_actuelle = 0;
+                                        echo"
+                                        <a class='prev' onclick='plusSlide(-1)'>&#10094;</a>
+                                        <div class='slide_container'>";
+                                            foreach ($images as $image) {
+                                                $image_actuelle += 1;
+                                                echo"
+                                                <div class='mySlides fade'>
+                                                    <div class='numbertext'>{$image_actuelle}/{$nbr_image}</div>
+                                                    <img src='data:" . htmlspecialchars($image['image_type']) . ";base64," . base64_encode($image['image_data']) . "' alt='" . htmlspecialchars($image['image_name']) . "'>
+                                                </div>
+                                                ";
+                                            }
+                                            echo "<div class='container_dot' style='text-align: center'>";
+                                            for ($i = 1; $i <= $nbr_image; $i++) {
+                                                echo "<span class='dot' onclick='currentSlide({$i})'></span>";
+                                            }
+                                            echo "</div>";
+                                            echo "</div>
+                                            <a class='next' onclick='plusSlide(1)'>&#10095;</a>
+                                            ";
+
+                                    }else{
+                                        $image = $images[0];
                                         echo"
                                         <img src='data:" . htmlspecialchars($image['image_type']) . ";base64," . base64_encode($image['image_data']) . "' alt='" . htmlspecialchars($image['image_name']) . "'>
                                         ";
@@ -116,7 +150,8 @@ include '../../BDD/get_images.php';
                                     <button onclick = 'hidePopUp()'>fermer le pop up</button>
                                 </div>
                             </div>
-                        </section>";
+                        </section>
+                    </main>";
                 }
             } else {
                 throw new Exception("Erreur lors de l'exécution de la requête : " . $connexion->error);

@@ -5,10 +5,14 @@
 /* Corps de la page */
 body {
     margin: auto;
-    background-image: url(../../Image/fond.jpg);
-    background-size: cover;
+    background-color: black;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Pied de page */
@@ -24,25 +28,185 @@ footer {
     font-family: 'Great Vibes';
     font-size: 2vw;
 }
+main{
+    margin-top: 100px;
+}
 section{
     position: relative;
     display: flex;
     height: 85vh;
-    margin-top: 15vh;
     background-color: aqua;
+}
+.container_button_back{
+    position: absolute;
+    top: 20px;
+    left: 2.5%;
+}
+.button_back{
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    border: white 2px solid;
+    cursor: pointer;
+    padding: 5px 15px;
 }
 .container_image{
     position: relative;
-    height: 80%;
+    height: 70%;
     width: 40%;
     margin: auto 5vw auto 5vh;
-    background-color: aliceblue;
+    background-color: rgb(50, 140, 218);
+}
+
+.slide_container{
+    height: 100%;
+}
+.mySlides{
+    height: 100%;
+}
+.fade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s ;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@-webkit-keyframes fade{
+    from{opacity: .4;}
+    to{opacity: 1;}
+}
+@keyframes fade {
+    from{opacity: .4;}
+    to{opacity: 1;}
 }
 .container_image img{
     object-fit: cover;
     height: 100%;
     width: 100%;
     transition: all 1000ms 300ms ease-in-out;
+}
+
+/* Masquer les images de manière invisible, sauf pour la première */
+.mySlides {
+    display: none;
+    height: 100%; /* Assurez-vous que le conteneur prend toute la hauteur disponible */
+}
+
+.mySlides:first-child {
+    display: block; /* Utiliser block au lieu de inline-block pour éviter les espaces blancs */
+}
+
+.prev, .next{
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+}
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover , .next:hover{
+    background-color: rgb(0 , 0 ,0 ,0.8);
+}
+
+.numbertext{
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    padding: 8px 12px ;
+    top: 0;
+}
+.container_dot{
+    position: absolute;
+    width: 100%;
+    bottom: -30px;
+    text-align: center;
+}
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb ;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6 ease;
+}
+.active, .dot:hover{
+    background-color: #717171;
+}
+
+.container_prev{
+    position: absolute;
+    top: 0;
+    color: #0e0011;
+    z-index: 100;
+}
+.border_image{
+    z-index: 100;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    left: 18px;
+    bottom: 18px;
+    box-sizing: border-box;
+    color: #0e0011;
+}
+.border_image span{
+    background-color: #ffffff;
+    position: absolute;
+    display: flex;
+    opacity: 1;
+}
+
+.line_top{
+    width: 120px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.line_bottom_right{
+    height: 120px;
+    width: 1px;
+    right: 0;
+    bottom: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.line_bottom{
+    width: 120px;
+    height: 1px;
+    right: 0;
+    bottom: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.line_top_left{
+    height: 120px;
+    width: 1px;
+    top: 0;
+    left: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.container_image:hover .line_bottom, .container_image:hover .line_top{
+    width: 0;
+}
+.container_image:hover .line_bottom_right, .container_image:hover .line_top_left{
+    height: 0;
 }
 .info_container{
     position: relative;
@@ -152,15 +316,12 @@ section{
     margin-top: 2.5%;
     margin-bottom: 2.5%;
 }
-
 .titre_soiree{
     font-size: 2em;
     font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     text-transform: uppercase;
 }
-  
-
 textarea {
     position: relative;
     background-color: transparent;
