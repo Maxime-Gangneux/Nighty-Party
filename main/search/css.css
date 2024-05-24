@@ -137,10 +137,10 @@ main{
 }
 
 .soiree:hover .line_bottom, .soiree:hover .line_top{
-    width: 10%;
+    width: 0;
 }
 .soiree:hover .line_bottom_right, .soiree:hover .line_top_left{
-    height: 10%;
+    height: 0;
 }
 
 .conainer_info_soiree{
