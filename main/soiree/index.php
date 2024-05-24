@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 include '../../BDD/conexion.php';
+include '../../BDD/get_images.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,9 +44,31 @@ include '../../BDD/conexion.php';
                     $statu_soiree = htmlspecialchars($ligne['statu_soiree']);
                     $heure_min_soiree = (new DateTime($ligne['heure_min_soiree']))->format('H:i');
                     $heure_max_soiree = (new DateTime($ligne['heure_max_soiree']))->format('H:i');
+
+                    $id_soiree = $ligne['id_soiree'];
+                    $images = getSoireeImages($id_soiree);
                     
                     echo "<section>
-                            <div class='image'></div>
+                            <div class='container_image'>";
+                                if ($images){
+                                    foreach ($images as $image) {
+                                        echo"
+                                        <img src='data:" . htmlspecialchars($image['image_type']) . ";base64," . base64_encode($image['image_data']) . "' alt='" . htmlspecialchars($image['image_name']) . "'>
+                                        ";
+                                    }
+                                }else{
+                                    echo"
+                                    <img src='../../Image/logo.png'>
+                                    ";
+                                }
+                                echo "
+                                <div class='border_image'>
+                                    <span class='line_top'></span>
+                                    <span class='line_bottom_right'></span>
+                                    <span class='line_bottom'></span>
+                                    <span class='line_top_left'></span>
+                                </div>
+                            </div>
                             <div class='info_container'>
                                 <div class='infos_general'>
                                     <div class='container_titre_soiree'><span class='titre_soiree'>{$nom_soiree}</span></div>

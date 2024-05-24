@@ -31,12 +31,18 @@ section{
     margin-top: 15vh;
     background-color: aqua;
 }
-.image{
+.container_image{
     position: relative;
-    height: 80vh;
-    width: 40vw;
+    height: 80%;
+    width: 40%;
     margin: auto 5vw auto 5vh;
     background-color: aliceblue;
+}
+.container_image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: all 1000ms 300ms ease-in-out;
 }
 .info_container{
     position: relative;
