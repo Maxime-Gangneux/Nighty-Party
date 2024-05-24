@@ -13,20 +13,43 @@ if (isset($_SESSION['connected'])){
                 $soiree = $resultat_soiree->fetch_assoc();
                 $date = date("l j F", strtotime($soiree['date_soiree']));
                 echo"
-                <li class='soiree'>
-                    <p>{$date}</p>
-                    <p>{$soiree['nom_soiree']}</p>
-                    <img src='../../Image/soiree.jpg' class = 'image_soiree'>
-                    <form method='POST'>
-                        <!-- Bouton pour suprimer des favoris -->
-                        <input type='hidden' name='id_soiree' value='{$soiree['id_soiree']}'>
-                        <button  name='button_suprimer_favoris'>Suprimer des favoris</button>
-                    </form>
-                    <div class='description'>
-                        <h2> Description </h2> 
-                        <p> {$soiree['description_soiree']} </p>
+                <section class='soiree'>
+                <div class='container_image'>";
+                    if ($images){
+                        foreach ($images as $image) {
+                            echo"
+                            <img src='data:" . htmlspecialchars($image['image_type']) . ";base64," . base64_encode($image['image_data']) . "' alt='" . htmlspecialchars($image['image_name']) . "'>
+                            ";
+                        }
+                    }else{
+                        echo"
+                        <img src='../../Image/logo.png'>
+                        ";
+                    }
+                    echo "
+                    <div class='border_image'>
+                        <span class='line_top'></span>
+                        <span class='line_bottom_right'></span>
+                        <span class='line_bottom'></span>
+                        <span class='line_top_left'></span>
                     </div>
-                </li>
+                </div>
+                <div class='conainer_info_soiree'>
+                    <div class='info'>
+                        <h1>{$soiree['nom_soiree']}</h1>
+                        <h5>{$date}</h5>
+                    </div>
+                    <div class='description'>
+                        <p>{$soiree['description_soiree']}</p>
+                    </div>
+                    <div class = 'container_button'>
+                        <form method='POST' action='../soiree/index.php'>
+                            <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+                            <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
+                        </form>                        
+                    </div>
+                </div>
+            </section>
                 ";
             }
         }

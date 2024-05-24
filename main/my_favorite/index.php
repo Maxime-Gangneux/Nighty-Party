@@ -51,11 +51,11 @@ if (isset($_POST['button_suprimer_favoris'])){
                 <div><p>Les soirées ou vous etes inscrit vous permettent de voir des informations suplémentaire</p></div>
             </div>
         </div>
-        <ul class="liste_soiree_inscrit">
+        <div class="wrapper">
             <?php
                 include 'soiree_inscrit.php';
             ?>
-        </ul>
+        </div>
     </div>
 
     <div class="content_listes">
@@ -65,11 +65,11 @@ if (isset($_POST['button_suprimer_favoris'])){
                 <div><p>Les soirées dans vos favoris se suprimer dès lors la fin de la soirée</p></div>
             </div>
         </div>
-        <ul class="liste_soiree_favoris">
+        <div class="wrapper">
             <?php
                 include 'soiree_favoris.php';
             ?>
-        </ul>
+        </div>
     </div>
 
     <footer>

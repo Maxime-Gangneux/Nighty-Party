@@ -3,12 +3,11 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-color: black;
     background-size: contain;
     overflow-y: scroll;
     overflow-x: hidden;
     margin: auto;
-    background-color: #0e0011;
+    background-color: #151515;
     color: white;
 }
 body::-webkit-scrollbar {
@@ -201,3 +200,224 @@ footer{
         display: none;
     }
 }
+.wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    width: calc(100% -8vw);
+}
+
+.soiree{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: calc(33% - 3%);
+    height: 600px;
+    margin: 1% 1% 5% 1%;
+}
+
+.container_image{
+    width: 100%;
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.container_image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+
+.container_image:hover img{
+    transform: scale(1.2);
+}
+.border_image{
+    z-index: 100;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    left: 18px;
+    bottom: 18px;
+    box-sizing: border-box;
+    color: #0e0011;
+}
+
+
+.border_image span{
+    position: absolute;
+    display: flex;
+    opacity: 1;
+}
+
+.line_top{
+    width: 120px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.line_bottom_right{
+    height: 120px;
+    width: 1px;
+    right: 0;
+    bottom: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.line_bottom{
+    width: 120px;
+    height: 1px;
+    right: 0;
+    bottom: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.line_top_left{
+    height: 120px;
+    width: 1px;
+    top: 0;
+    left: 0;
+    transition: all 1000ms 300ms ease-in-out;
+}
+
+.soiree:hover .line_bottom, .soiree:hover .line_top{
+    width: 0;
+}
+.soiree:hover .line_bottom_right, .soiree:hover .line_top_left{
+    height: 0;
+}
+ 
+.conainer_info_soiree{
+    position: relative;
+    height: 40%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.info{
+    position: relative;
+    display: flex;
+    text-align: left;
+    top: 0;
+    height: 30%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.conainer_info_soiree .info h1{
+    font-size: 1.8vw;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+
+}
+
+
+.description {
+    position: relative;
+    height: 40%;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.description p {
+    font-size: 1.2vw;
+    line-height: 4vh;
+    margin-top: 2vh;
+    text-align: left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    word-wrap: break-word; 
+}
+
+.conainer_info_soiree button{
+    display: flex;
+    border-radius: 2em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid black;
+    transition: all 0.3s ease-in;
+}
+.conainer_info_soiree .link:hover{
+    transform: scale(1.1);
+}
+.container_button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 30%;
+    position: relative;
+}
+
+.link,.link::after {
+    position: relative;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+
+.link{
+    font-weight: 500;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    color: black;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+.link h4{
+    font-size: 0.8vw;
+}
+
+.link::before,.link::after{
+    content: "";
+    background: #0e0011;
+    position: absolute;
+    z-index: -1;
+}
+
+ 
+.link::after {
+    content: "";
+    background: #0e0011;
+    position: absolute;
+    z-index: -1;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    border-radius: 2em;
+}
+
+.link:hover::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    
+}
+
+.link:hover{
+    color: white;
+  }
+
