@@ -12,6 +12,7 @@ if (isset($_SESSION['connected'])){
             if ($resultat_soiree->num_rows > 0) {
                 $soiree = $resultat_soiree->fetch_assoc();
                 $date = date("l j F", strtotime($soiree['date_soiree']));
+                $images = getSoireeImages($id_soiree);
                 echo"
                 <section class='soiree'>
                 <div class='container_image'>";
@@ -46,7 +47,11 @@ if (isset($_SESSION['connected'])){
                         <form method='POST' action='../soiree/index.php'>
                             <input type='hidden' name='id_soiree' value='{$id_soiree}'>
                             <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
-                        </form>                        
+                        </form>
+                        <form method='POST'>
+                            <input type='hidden' name='id_soiree' value='{$id_soiree}'>
+                            <button name='button_suprimer_favoris' type='submit' class='link'><h4>surppimer favorirs</h4></button>
+                        </form>                         
                     </div>
                 </div>
             </section>

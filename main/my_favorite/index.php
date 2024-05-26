@@ -1,5 +1,6 @@
 <?php
 include '../../BDD/conexion.php';
+include '../../BDD/get_images.php';
 $connexion = connecterBaseDonnees();
 session_start();
 if (isset($_SESSION['connected'])){

@@ -1,5 +1,4 @@
 <?php
-include '../../BDD/get_images.php';
 if (isset($_SESSION['connected'])){
     if ($resultat_inscrit->num_rows > 0) {
         // Utilisez une boucle pour parcourir les résultats
