@@ -100,7 +100,6 @@ footer{
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 1em;
     color: white;
     overflow: hidden;
     height: auto;
@@ -145,12 +144,12 @@ footer{
     object-fit: cover;
     height: 100%;
     width: 100%;
-    transition: all 1000ms 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
 
 
 .container_image:hover img{
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 .border_image{
     z-index: 100;
@@ -213,7 +212,7 @@ footer{
 .conainer_info_soiree{
     position: relative;
     height: 40%;
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
