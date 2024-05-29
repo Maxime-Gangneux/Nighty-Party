@@ -416,7 +416,8 @@ input {
 
 input:focus {
     outline: none;
-    border-bottom: solid white;}
+    border-bottom: solid white;
+}
 .pop_up_main{
     position: relative;
     display: block;

@@ -71,13 +71,14 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
-function redirection_js(){
-    
+
+function showPopUp(){
+    document.getElementById('pop_up_boisson').style.display = "block";
 }
 
-
-
-
+function hidePopUp(){
+    document.getElementById('pop_up_boisson').style.display = "none";
+}
     // Récupérer l'input file
     var fileInput = document.getElementById('file-input');
 
