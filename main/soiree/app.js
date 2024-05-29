@@ -71,6 +71,12 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
+function redirection_js(){
+    
+}
+
+
+
 
     // Récupérer l'input file
     var fileInput = document.getElementById('file-input');
