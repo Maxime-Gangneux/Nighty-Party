@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description_soiree = $new_description;
         echo "Description mise à jour avec succès.";
     }
+
     if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
         $imageName = $_FILES['image']['name'];
         $imageType = $_FILES['image']['type'];
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "Error preparing the association statement: " . $connexion->error;
                         exit();
                     } else {
-                        $stmt_assoc->bind_param("ii", $id_soiree, $imageId);
+                        $stmt_assoc->bind_param("ii", $_SESSION['id_soiree'], $imageId);
 
                         if ($stmt_assoc->execute()) {
                             echo "Image uploaded and associated with the soirée successfully!";
@@ -74,11 +75,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Unsupported image type: " . $imageType;
         }
     } else {
-        echo "Image not uploaded. Error code: " . $_FILES['image']['error'];
+        if ($_FILES['image']['error'] != UPLOAD_ERR_NO_FILE) {
+            echo "Image not uploaded. Error code: " . $_FILES['image']['error'];
+        }
     }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,6 +90,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Modifier la Description de la Soirée</title>
     <link rel="stylesheet" href="css.css">
     <script src="app.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var fileInputs = document.querySelectorAll('.add_image_input');
+
+            fileInputs.forEach(function(input) {
+                input.addEventListener('change', function() {
+                    var form = input.closest('form');
+                    form.submit();
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <?php
@@ -137,9 +152,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             echo "
                                             <div class='mySlides fade'>
                                                 <div class='numbertext'>{$i}/5</div>
-                                                    <form method='POST'>
-                                                        <input class = 'add_image_input''id='file-input' type='file' image='image'/>
+                                                <div class='add_image'>
+                                                    <form id='uploadForm{$i}' method='POST' enctype='multipart/form-data'>
+                                                        <input class='add_image_input' type='file' name='image'>
                                                     </form>
+                                                </div>
                                             </div>";
                                         }
                                         echo "
@@ -154,7 +171,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         echo "
                                         <div class='mySlides fade'>
                                             <div class='numbertext'>{$i}/5</div>
-                                            <div class='placeholder_add_image' onclick='openAddImagePopup()'><input type='file' name='image'></div>
+                                            <div class='add_image'>
+                                                <form id='uploadForm{$i}' method='POST' enctype='multipart/form-data'>
+                                                    <input class='add_image_input' type='file' name='image'>
+                                                </form>
+                                            </div>
                                         </div>";
                                     }
                                     echo "
