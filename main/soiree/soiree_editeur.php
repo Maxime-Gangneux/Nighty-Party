@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class='mySlides fade'>
                                                 <div class='numbertext'>{$i}/5</div>
                                                     <form method='POST'>
-                                                        <input id='file-input' type='file' image='image'/>
+                                                        <input class = 'add_image_input''id='file-input' type='file' image='image'/>
                                                     </form>
                                             </div>";
                                         }
