@@ -59,6 +59,9 @@ function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
+    if (slides.length === 0) {
+        return; // Si aucun slide, ne rien faire
+    }
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
@@ -70,6 +73,8 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
+// Auto Slide 
+
 
 
 function showPopUp(){
@@ -79,11 +84,44 @@ function showPopUp(){
 function hidePopUp(){
     document.getElementById('pop_up_boisson').style.display = "none";
 }
-    // Récupérer l'input file
-    var fileInput = document.getElementById('file-input');
 
-    // Écouter l'événement de changement (change) de l'input file
-    fileInput.addEventListener('change', function() {
-        // Soumettre automatiquement le formulaire lorsque des fichiers sont sélectionnés
-        this.form.submit();
+document.addEventListener("DOMContentLoaded", function() {
+    var fileInputs = document.querySelectorAll('.add_image_input');
+
+    fileInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+            var form = input.closest('form');
+            form.submit();
+        });
     });
+});
+
+function editElement(idelement) {
+    const element = document.getElementById(idelement);
+    const contenu = element.innerText;
+
+    // Création du textarea
+    const textarea = document.createElement("textarea");
+    textarea.value = contenu;
+    textarea.name = idelement;
+    textarea.className = idelement;
+    textarea.rows = 4; // Ajustez le nombre de lignes selon vos besoins
+    textarea.cols = 50; // Ajustez le nombre de colonnes selon vos besoins
+
+    // Remplacer l'élément par le textarea
+    element.style.display = 'none'; // Masquer l'élément original
+    element.parentNode.insertBefore(textarea, element);
+
+    // Quand le textarea perd le focus, le remplacer par le texte original
+    textarea.addEventListener('blur', function() {
+        element.innerText = textarea.value; // Revenir au texte original lors du blur
+        element.style.display = 'block'; // Afficher l'élément original
+        element.parentNode.removeChild(textarea); // Supprimer le textarea
+    });
+
+    // Focus sur le nouveau textarea
+    textarea.focus();
+}
+
+
+
