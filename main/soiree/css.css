@@ -175,7 +175,7 @@ section{
     height: 1px;
     top: 0;
     left: 0;
-    transition: all 1000ms 300ms ease-in-out;
+    transition: all 1000ms;
 }
 
 .line_bottom_right{
@@ -183,7 +183,7 @@ section{
     width: 1px;
     right: 0;
     bottom: 0;
-    transition: all 1000ms 300ms ease-in-out;
+    transition: all 1000ms;
 }
 
 .line_bottom{
@@ -191,7 +191,7 @@ section{
     height: 1px;
     right: 0;
     bottom: 0;
-    transition: all 1000ms 300ms ease-in-out;
+    transition: all 1000ms;
 }
 
 .line_top_left{
@@ -199,7 +199,7 @@ section{
     width: 1px;
     top: 0;
     left: 0;
-    transition: all 1000ms 300ms ease-in-out;
+    transition: all 1000ms ;
 }
 
 .container_image:hover .line_bottom, .container_image:hover .line_top{
