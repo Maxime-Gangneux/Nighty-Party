@@ -15,7 +15,7 @@ if (isset($_SESSION['connected'])){
                 $images = getSoireeImages($id_soiree);
                 echo"
                 <section class='soiree'>
-                <div class='container_image'>";
+                <div class='container_image' data-id='{$id_soiree}' onclick='RedirectPageSoiree(this)'>";
                     if ($images){
                         foreach ($images as $image) {
                             echo"

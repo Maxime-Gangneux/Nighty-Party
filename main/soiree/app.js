@@ -39,12 +39,9 @@ function openMap(location) {
     }
 }
 
-function showPopUp() {
-    document.getElementById('pop_up_boisson').style.display = "block";
-}
-
-function hidePopUp() {
-    document.getElementById('pop_up_boisson').style.display = "none";
+function openAddImagePopup() {
+    // Logique pour ouvrir une fenêtre contextuelle pour ajouter une nouvelle image
+    alert("Ajouter une nouvelle image");
 }
 
 let slideIndex = 1;
@@ -73,3 +70,13 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
+
+
+    // Récupérer l'input file
+    var fileInput = document.getElementById('file-input');
+
+    // Écouter l'événement de changement (change) de l'input file
+    fileInput.addEventListener('change', function() {
+        // Soumettre automatiquement le formulaire lorsque des fichiers sont sélectionnés
+        this.form.submit();
+    });

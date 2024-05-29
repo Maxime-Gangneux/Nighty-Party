@@ -138,6 +138,7 @@ footer{
     height: 60%;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .container_image img{

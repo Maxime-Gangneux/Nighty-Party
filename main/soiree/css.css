@@ -330,6 +330,7 @@ textarea {
     color: white;
     transition: border-bottom 0.3s ease;
     padding-left: 0;
+    width: 100%;
 }
 
 textarea:focus {
@@ -387,4 +388,30 @@ input{
 }
 .droite{
     transform: rotate(-45deg);
+}
+
+.add_image{
+    height: 50%;
+    border: white solid 3px;
+    background-color: rgba(0, 0, 0, 0.566);
+    z-index: 100;
+    position: absolute;
+}
+input {
+    cursor: pointer;
+    z-index: 1000;
+    position: absolute;
+    margin-top: 4vh;
+    margin-left: 3vw;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid rgba(255, 255, 255, 0.6);
+    color: white;
+    transition: border-bottom 0.3s ease;
+    padding-left: 0;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: solid white;
 }
