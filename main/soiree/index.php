@@ -141,7 +141,7 @@ include '../../BDD/get_images.php';
                                 </div>
                                 <p>Nombre de personnes à la soirée: {$nombre_de_personne}</p>
                             </div>
-                            <div class = 'pop_up_boisson' id = 'pop_up_boisson'>
+                            <div class = 'pop_up_boisson' id = 'pop_up_boisson' onclick = 'hidePopUp()'>
                                 <div class = 'pop_up'>
                                     <div class = 'quit' onclick = 'hidePopUp()'>
                                         <div class = 'barre gauche'></div>
@@ -154,6 +154,8 @@ include '../../BDD/get_images.php';
                                         </form>";
                                         include '../../BDD/boisson_apporte.php';
                     echo "          </div>                                     
+                                    </div>                                       
+                                    <button onclick = 'hidePopUp()'>fermer le pop up</button>
                                 </div>
                             </div>
                         </section>

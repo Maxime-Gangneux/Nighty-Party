@@ -146,7 +146,25 @@ section{
 .active, .dot:hover{
     background-color: #717171;
 }
-
+.page_editeur .container_dot{
+    display: flex;
+    bottom: -20%;
+    justify-content: center;
+    height: 20%;
+}
+.page_editeur .dot{
+    height: 100%;
+    width: 15%;
+    border-radius: 0;
+}
+.container_button_del_img{
+    position: absolute;
+    z-index: 1000;
+}
+.button_del_img{
+    position: absolute;
+    z-index: 100;
+}
 .container_prev{
     position: absolute;
     top: 0;
@@ -154,7 +172,7 @@ section{
     z-index: 100;
 }
 .border_image{
-    z-index: 10;
+    z-index: 2;
     position: absolute;
     top: 18px;
     right: 18px;
