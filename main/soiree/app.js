@@ -86,7 +86,20 @@ function showPopUp() {
 function hidePopUp() {
 
     document.getElementById('pop_up_boisson').style.display = "none";
+
+    localStorage.setItem('popUpState', 'hidden');
 }
+
+window.onload = function() {
+    console.log('oui');
+    var popUpState = localStorage.getItem('popUpState');
+    if (popUpState === 'visible') {
+        showPopUp();
+    } else {
+        hidePopUp();
+    }
+};
+
 
 document.addEventListener("DOMContentLoaded", function() {
     var fileInputs = document.querySelectorAll('.add_image_input');
@@ -125,23 +138,6 @@ function editElement(idelement) {
     // Focus sur le nouveau textarea
     textarea.focus();
 }
-
-
-
-
-
-    localStorage.setItem('popUpState', 'hidden');
-}
-
-window.onload = function() {
-    console.log('oui');
-    var popUpState = localStorage.getItem('popUpState');
-    if (popUpState === 'visible') {
-        showPopUp();
-    } else {
-        hidePopUp();
-    }
-};
 
     var fileInput = document.getElementById('file-input');
 
