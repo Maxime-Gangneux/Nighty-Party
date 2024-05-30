@@ -150,7 +150,7 @@ include '../../BDD/get_images.php';
                                     <div class = 'pop_up_title'>Apportez des boissons</div>
                                     <div class = 'pop_up_main'>
                                         <form method='GET'>
-                                            <input name = 'input_boisson' class = 'input_boisson' placeholder = 'recherchez une boisson' oninput = 'redirection_js()'></input>
+                                            <input id ='input_boisson'name = 'input_boisson' class = 'input_boisson' placeholder = 'recherchez une boisson' oninput = 'redirection_js()'></input>
                                         </form>";
                                         include '../../BDD/boisson_apporte.php';
                     echo "          </div>                                     

@@ -71,15 +71,30 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
+function showPopUp() {
 
-function showPopUp(){
     document.getElementById('pop_up_boisson').style.display = "block";
+    console.log('chut');
+    localStorage.setItem('popUpState', 'visible');
 }
 
-function hidePopUp(){
+function hidePopUp() {
+
     document.getElementById('pop_up_boisson').style.display = "none";
+
+    localStorage.setItem('popUpState', 'hidden');
 }
-    // Récupérer l'input file
+
+window.onload = function() {
+    console.log('oui');
+    var popUpState = localStorage.getItem('popUpState');
+    if (popUpState === 'visible') {
+        showPopUp();
+    } else {
+        hidePopUp();
+    }
+};
+
     var fileInput = document.getElementById('file-input');
 
     // Écouter l'événement de changement (change) de l'input file
@@ -87,3 +102,21 @@ function hidePopUp(){
         // Soumettre automatiquement le formulaire lorsque des fichiers sont sélectionnés
         this.form.submit();
     });
+
+function redirection_js(){
+    var inputBoisson = document.getElementById('inputBoisson').value;
+
+    // Utilisation de jQuery pour la requête AJAX
+    $.ajax({
+        url: '../../BDD/boisson_apporte.php', // Le fichier PHP qui va traiter la requête
+        type: 'GET',
+        data: { input_boisson: inputBoisson },
+        success: function(response) {
+            // Optionnel : Vous pouvez ajouter du code ici si vous souhaitez traiter la réponse du serveur
+            console.log("Requête envoyée avec succès");
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr);
+        }
+    });
+}

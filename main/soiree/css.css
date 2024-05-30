@@ -339,9 +339,6 @@ textarea:focus {
     text-decoration: none
 }
 
-input{
-    margin-top: 2.5%;
-}
 .adresse_date_container{
     position: relative;
     display: flex;
@@ -355,6 +352,7 @@ input{
     z-index: 10;
     background-color: rgba(0, 0, 0, 0.4);
 }
+
 .pop_up{
     position: fixed;
     display: block;
