@@ -22,18 +22,23 @@ function del_img($id_image, $connexion){
 }
 
 
-// Fonction pour mettre à jour la description de la soirée
-function update_description($new_description, $id_soiree, $connexion){
-    $update_requete = "UPDATE soiree SET description_soiree = ? WHERE id_soiree = ?";
+// Fonction pour mettre à jour un champ de la table soiree
+function update_field($column_name, $new_value, $id_soiree, $connexion){
+    $update_requete = "UPDATE soiree SET {$column_name} = ? WHERE id_soiree = ?";
     $stmt = $connexion->prepare($update_requete);
-    $stmt->bind_param('si', $new_description, $id_soiree);
+    if ($stmt === false) {
+        echo "Erreur lors de la préparation de la requête : " . $connexion->error;
+        return false;
+    }
+    $stmt->bind_param('si', $new_value, $id_soiree);
     if ($stmt->execute()) {
-        echo "Description mise à jour avec succès.";
+        echo ucfirst($column_name) . " mis à jour avec succès.";
     } else {
-        echo "Erreur lors de la mise à jour de la description de la soirée: " . $stmt->error;
+        echo "Erreur lors de la mise à jour de " . $column_name . " : " . $stmt->error;
     }
     $stmt->close();
 }
+
 
 // Fonction pour télécharger une image
 function upload_image($imageName, $imageType, $imageSize, $imageData, $id_soiree, $connexion){
@@ -87,14 +92,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['id_soiree'] = $id_soiree;
     }
 
-    if (isset($_POST['mettre_a_jour'])) {
-        if (isset($_POST['description_soiree'])) {
-            $new_description = $_POST['description_soiree'];
-            update_description($new_description, $_SESSION['id_soiree'], $connexion);
-        } else {
-            echo "Erreur : la description de la soirée n'est pas définie.";
+    if (isset($_POST['mettre_a_jour_complete'])) {
+        // Assurez-vous que le champ caché du nom de la soirée est soumis avec le formulaire
+        if (isset($_POST['nom_soiree'])) {
+            $nom_soiree = $_POST['nom_soiree'];
+            // Mettez à jour le champ correspondant dans la base de données
+            update_field('nom_soiree', $nom_soiree, $_SESSION['id_soiree'], $connexion);
+        }
+        
+        // Mettez à jour les autres champs
+        foreach ($_POST as $key => $value) {
+            if (in_array($key, ['description_soiree', 'adresse_soiree', 'ville_soiree', 'statu_soiree'])) {
+                // Mettez à jour les champs correspondants dans la base de données
+                update_field($key, $value, $_SESSION['id_soiree'], $connexion);
+            }
         }
     }
+
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
         upload_image($_FILES['image']['name'], $_FILES['image']['type'], $_FILES['image']['size'], file_get_contents($_FILES['image']['tmp_name']), $_SESSION['id_soiree'], $connexion);
@@ -131,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <?php
-
+    include '../nav_barre/nav_barre.php';
 
     try {
         if (isset($_SESSION['id_soiree'])) {
@@ -238,8 +252,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a class='next' onclick='plusSlide(1)'>&#10095;</a>
                     </div>
                     <div class='info_container'>
-                        <div class='infos_general'>
-                            <div class='container_titre_soiree'><span class='titre_soiree'>{$nom_soiree}</span></div>
+                            <div class='infos_general'>
+                            <form method='POST' class='container_titre_soiree'>
+                                <span id='nom_soiree' class='nom_soiree'>{$nom_soiree}</span>
+                                <button type='button' id='button_edit_input' class='button_edit' onclick='editElement_input(\"nom_soiree\")'>Éditer</button>
+                                
+                            </form>                        
                             <div class = 'adresse_date_container'>
                                 <a href='#' class='calendar_link' onclick='openCalendar(\"{$nom_soiree}\", \"{$adresse_soiree}\", \"{$date_soiree}\", \"{$heure_min_soiree}\", \"{$heure_max_soiree}\")'>
                                     <div class='logo'><img src ='../../image/icon_calendar.svg'></div>
@@ -248,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <p class='heure'><i>de {$heure_min_soiree} à {$heure_max_soiree}</i></p>
                                     </div>
                                 </a>
-                                <a href='#' class='location_link' onclick='openMap(\"{$adresse_soiree}\")'>
+                                <a href='#' class='location_link' onclick='openMap(\"{$adresse_soiree}\", \"{$ville_soiree}\")'>
                                     <div class='logo'><img src ='../../image/icon_location.svg'></div>
                                     <div class='container_location'>
                                         <strong><p>{$ville_soiree}</p></strong>
@@ -257,19 +275,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </a>
                             </div>
                             <form method='POST' action='' class='container_description'>
-                                <div class='header_description'>
-                                    <h3><strong>Description</strong></h3>
-                                    <button type='button' class='button_edit' onclick='editElement(\"description_soiree\")'>Éditer</button>
-                                </div>
-                                <div id='description_soiree' class='description' >{$description_soiree}</div>
-                                <input type='hidden' id='hidden_description' name='description_soiree' value='<?= htmlspecialchars($description_soiree) ?>'>
-
-                                <input type='submit' name='mettre_a_jour' value='Mettre à jour'>
-                            </form>
-                            <form method='POST' action='index.php'>
-                                <a href='index.php'>Apercu</a>
-                            </form>  
+                            <div class='header_description'>
+                                <h3><strong>Description</strong></h3>
+                                <button type='button' id='button_edit_textarea' class='button_edit' onclick='editElement_textarea(\"description_soiree\")'>Éditer</button>
+                            </div>
+                            <div id='description_soiree' class='description'>{$description_soiree}</div>
+                            
+                        </form> 
+                        <form method='POST' class='container_mise_a_jour_complete'>
+                            <input type='hidden' id='hidden_nom_soiree' name='nom_soiree' value='<?= htmlspecialchars($nom_soiree) ?>'>
+                            <input type='hidden' id='hidden_description' name='description_soiree' value='<?= htmlspecialchars($description_soiree) ?>'>
+                            <!-- Ajoutez d'autres champs si nécessaire -->
+                            <input type='submit' name='mettre_a_jour_complete' value='Mettre à jour tout'>
+                        </form>                    
                         </div>
+                
                         <div class='contenue'>
                             <div class='personnes'>";
                                 include '../../BDD/invites.php';

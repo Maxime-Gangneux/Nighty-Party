@@ -266,7 +266,7 @@ section{
 .button_edit{
     visibility: hidden;
 }
-.container_description:hover .button_edit{
+.container_description:hover .button_edit, .container_titre_soiree:hover .button_edit{
     visibility: visible;
 }
 .contenue{
@@ -363,7 +363,7 @@ section{
     margin-top: 2.5%;
     margin-bottom: 2.5%;
 }
-.titre_soiree{
+.nom_soiree{
     font-size: 2em;
     font-family: "Poetsen One", sans-serif;
     font-weight: 400;

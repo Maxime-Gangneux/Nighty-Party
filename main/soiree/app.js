@@ -21,28 +21,25 @@ function openCalendar(title, location, date, startTime, endTime) {
     }
 }
 
-function openMap(location) {
+function openMap(location, ville) {
     const encodedLocation = encodeURIComponent(location);
+    const encodedVille = encodeURIComponent(ville);
 
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
         // Apple Maps
-        window.location.href = `http://maps.apple.com/?q=${encodedLocation}`;
+        window.location.href = `http://maps.apple.com/?q=${encodedLocation},${encodedVille}`;
     } else if (/android/i.test(userAgent)) {
         // Google Maps
-        window.location.href = `geo:0,0?q=${encodedLocation}`;
+        window.location.href = `geo:0,0?q=${encodedLocation},${encodedVille}`;
     } else {
         // Web-based fallback for desktop (Google Maps)
-        const url = `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
+        const url = `https://www.google.com/maps/search/?api=1&query=${encodedLocation},${encodedVille}`;
         window.open(url, '_blank');
     }
 }
 
-function openAddImagePopup() {
-    // Logique pour ouvrir une fenêtre contextuelle pour ajouter une nouvelle image
-    alert("Ajouter une nouvelle image");
-}
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -111,13 +108,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    document.querySelector("form.container_description").addEventListener("submit", function(event) {
+    document.querySelector("form.container_mise_a_jour_complete").addEventListener("submit", function(event) {
+        // Récupérer la nouvelle valeur de la description et la mettre à jour dans le champ caché
         document.getElementById("hidden_description").value = document.getElementById("description_soiree").innerText;
+        document.getElementById("hidden_nom_soiree").value = document.getElementById("nom_soiree").innerText;
     });
-});
+    
 
-function editElement(idelement) {
+    
+}); 
+
+
+
+
+function editElement_textarea(idelement) {
     const element = document.getElementById(idelement);
+    const button_edit_textarea = document.getElementById("button_edit_textarea");
     const contenu = element.innerText;
 
     // Création du textarea
@@ -130,17 +136,46 @@ function editElement(idelement) {
 
     // Remplacer l'élément par le textarea
     element.style.display = 'none'; // Masquer l'élément original
+    button_edit_textarea.style.display = 'none';
     element.parentNode.insertBefore(textarea, element);
 
     // Quand le textarea perd le focus, le remplacer par le texte original
     textarea.addEventListener('blur', function() {
         element.innerText = textarea.value; // Revenir au texte original lors du blur
         element.style.display = 'block'; // Afficher l'élément original
+        button_edit_textarea.style.display = 'block';
         element.parentNode.removeChild(textarea); // Supprimer le textarea
     });
 
     // Focus sur le nouveau textarea
     textarea.focus();
+}
+
+function editElement_input(idelement) {
+    const element = document.getElementById(idelement);
+    const button_edit_input = document.getElementById("button_edit_input");
+    const contenu = element.innerText;
+
+    // Création du input
+    const input = document.createElement("input");
+    input.value = contenu;
+    input.name = idelement;
+    input.className = idelement;
+    // Remplacer l'élément par le input
+    element.style.display = 'none'; // Masquer l'élément original
+    button_edit_input.style.display = 'none';
+    element.parentNode.insertBefore(input, element);
+
+    // Quand le input perd le focus, le remplacer par le texte original
+    input.addEventListener('blur', function() {
+        element.innerText = input.value; // Revenir au texte original lors du blur
+        element.style.display = 'block'; // Afficher l'élément original
+        button_edit_input.style.display = 'block';
+        element.parentNode.removeChild(input); // Supprimer le input
+    });
+
+    // Focus sur le nouveau input
+    input.focus();
 }
 
 
