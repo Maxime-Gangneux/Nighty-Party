@@ -87,9 +87,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['id_soiree'] = $id_soiree;
     }
 
-    if (isset($_POST['description_soiree'])) {
-        $new_description = $_POST['description_soiree'];
-        update_description($new_description, $_SESSION['id_soiree'], $connexion);
+    if (isset($_POST['mettre_a_jour'])) {
+        if (isset($_POST['description_soiree'])) {
+            $new_description = $_POST['description_soiree'];
+            update_description($new_description, $_SESSION['id_soiree'], $connexion);
+        } else {
+            echo "Erreur : la description de la soirée n'est pas définie.";
+        }
     }
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
@@ -127,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <?php
-    include '../nav_barre/nav_barre.php';
+
 
     try {
         if (isset($_SESSION['id_soiree'])) {
@@ -257,8 +261,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <h3><strong>Description</strong></h3>
                                     <button type='button' class='button_edit' onclick='editElement(\"description_soiree\")'>Éditer</button>
                                 </div>
-                                <div id='description_soiree' class='description'>{$description_soiree}</div>
-                                <input type='submit' value='Mettre à jour'>
+                                <div id='description_soiree' class='description' >{$description_soiree}</div>
+                                <input type='hidden' id='hidden_description' name='description_soiree' value='<?= htmlspecialchars($description_soiree) ?>'>
+
+                                <input type='submit' name='mettre_a_jour' value='Mettre à jour'>
                             </form>
                             <form method='POST' action='index.php'>
                                 <a href='index.php'>Apercu</a>

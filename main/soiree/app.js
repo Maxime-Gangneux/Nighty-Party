@@ -110,6 +110,10 @@ document.addEventListener("DOMContentLoaded", function() {
             form.submit();
         });
     });
+
+    document.querySelector("form.container_description").addEventListener("submit", function(event) {
+        document.getElementById("hidden_description").value = document.getElementById("description_soiree").innerText;
+    });
 });
 
 function editElement(idelement) {
@@ -139,13 +143,9 @@ function editElement(idelement) {
     textarea.focus();
 }
 
-    var fileInput = document.getElementById('file-input');
 
-    // Écouter l'événement de changement (change) de l'input file
-    fileInput.addEventListener('change', function() {
-        // Soumettre automatiquement le formulaire lorsque des fichiers sont sélectionnés
-        this.form.submit();
-    });
+
+
 
 function redirection_js(){
     var inputBoisson = document.getElementById('inputBoisson').value;
