@@ -31,8 +31,9 @@ if (!isset($_SESSION['connected']) || $_SESSION['connected'] !== true) {
 
 
 if ($result_verif_editeur == 1) {
-    echo "Vous êtes l'éditeur de la soirée
-    <form method='POST' action='soiree_editeur.php'>
+    echo "
+    <form method='POST' action='soiree_editeur.php' class=''>
+        Vous êtes l'éditeur de la soirée
         <a href='soiree_editeur.php'>modifier</a>
     </form>  
     ";

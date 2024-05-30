@@ -156,8 +156,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <main>
                         <section class='page_editeur'>
                             <div class='container_button_back'>
-                            <button class='button_back' onclick='Back()'><img src='../../Image/icon_back.svg'>Retour</button>
-                        </div>
+                                <button class='button_back' onclick='Back()'><img src='../../Image/icon_back.svg'>Retour</button>
+                            </div>
                         <div class='container_image'>";
                             $nbr_image = count($images);
                             $image_actuelle = 0;
@@ -253,9 +253,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </a>
                             </div>
                             <form method='POST' action='' class='container_description'>
-                                <strong><h3>Description</h3></strong><br>
-                                <div id='description_soiree' class='description'><p>{$description_soiree}</p></div><br>
-                                <button type='button' onclick='editElement(\"description_soiree\")'>Éditer</button>
+                                <div class='header_description'>
+                                    <h3><strong>Description</strong></h3>
+                                    <button type='button' class='button_edit' onclick='editElement(\"description_soiree\")'>Éditer</button>
+                                </div>
+                                <div id='description_soiree' class='description'>{$description_soiree}</div>
                                 <input type='submit' value='Mettre à jour'>
                             </form>
                             <form method='POST' action='index.php'>

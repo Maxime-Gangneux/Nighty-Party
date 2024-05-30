@@ -123,8 +123,10 @@ include '../../BDD/get_images.php';
                                         </a>
                                     </div>
                                     <div class='container_description'>
-                                        <strong><h3>Description</h3></strong><br>
-                                        <div class='description'><p>{$description_soiree}</p></div><br>
+                                        <div class='header_description'>
+                                            <h3><strong>Description</strong></h3>
+                                        </div>
+                                        <div class='description'>{$description_soiree}</div>
                                     </div>
                                     <form method='POST'>";
                                         include '../../BDD/fonction.php';
