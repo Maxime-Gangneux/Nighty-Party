@@ -110,11 +110,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.querySelector("form.container_mise_a_jour_complete").addEventListener("submit", function(event) {
         // Récupérer la nouvelle valeur de la description et la mettre à jour dans le champ caché
-        document.getElementById("hidden_description").value = document.getElementById("description_soiree").innerText;
         document.getElementById("hidden_nom_soiree").value = document.getElementById("nom_soiree").innerText;
+        document.getElementById("hidden_date_soiree").value = document.getElementById("date_soiree").innerText;
+        document.getElementById("hidden_heure_min_soiree").value = document.getElementById("heure_min_soiree").innerText;
+        document.getElementById("hidden_heure_max_soiree").value = document.getElementById("heure_max_soiree").innerText;
+        document.getElementById("hidden_ville_soiree").value = document.getElementById("ville_soiree").innerText;
+        document.getElementById("hidden_adresse_soiree").value = document.getElementById("adresse_soiree").innerText;
+        document.getElementById("hidden_description").value = document.getElementById("description_soiree").innerText;
     });
-    
-
     
 }); 
 
@@ -151,13 +154,14 @@ function editElement_textarea(idelement) {
     textarea.focus();
 }
 
-function editElement_input(idelement) {
+function editElement_input(idelement, idbutton_edit, type='text') {
     const element = document.getElementById(idelement);
-    const button_edit_input = document.getElementById("button_edit_input");
+    const button_edit_input = document.getElementById(idbutton_edit);
     const contenu = element.innerText;
 
     // Création du input
     const input = document.createElement("input");
+    input.type = type;
     input.value = contenu;
     input.name = idelement;
     input.className = idelement;
@@ -176,6 +180,57 @@ function editElement_input(idelement) {
 
     // Focus sur le nouveau input
     input.focus();
+}
+
+function editHeures(minId, maxId, buttonEditId) {
+    const heureMinElement = document.getElementById(minId);
+    const heureMaxElement = document.getElementById(maxId);
+    const buttonEdit = document.getElementById(buttonEditId);
+
+    // Création des inputs pour les heures
+    const inputMin = document.createElement("input");
+    inputMin.value = heureMinElement.innerText.trim();
+    inputMin.name = minId;
+    inputMin.className = minId;
+    inputMin.type = 'time';
+
+    const inputMax = document.createElement("input");
+    inputMax.value = heureMaxElement.innerText.trim();
+    inputMax.name = maxId;
+    inputMax.className = maxId;
+    inputMax.type = 'time';
+
+    // Remplacer les éléments par les inputs
+    heureMinElement.style.display = 'none';
+    heureMaxElement.style.display = 'none';
+    buttonEdit.style.display = 'none';
+
+    heureMinElement.parentNode.insertBefore(inputMin, heureMinElement);
+    heureMaxElement.parentNode.insertBefore(inputMax, heureMaxElement);
+
+    let blurTimeout;
+    
+    const onBlurHandler = function(event) {
+        clearTimeout(blurTimeout);
+        blurTimeout = setTimeout(function() {
+            if (document.activeElement !== inputMin && document.activeElement !== inputMax) {
+                heureMinElement.innerText = inputMin.value;
+                heureMaxElement.innerText = inputMax.value;
+
+                heureMinElement.style.display = 'block';
+                heureMaxElement.style.display = 'block';
+                inputMin.parentNode.removeChild(inputMin);
+                inputMax.parentNode.removeChild(inputMax);
+                buttonEdit.style.display = 'block';
+            }
+        }, 100); // Un petit délai pour permettre le focus entre les champs
+    };
+
+    inputMin.addEventListener('blur', onBlurHandler);
+    inputMax.addEventListener('blur', onBlurHandler);
+
+    // Focus sur le premier input
+    inputMin.focus();
 }
 
 

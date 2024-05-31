@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Mettez à jour les autres champs
         foreach ($_POST as $key => $value) {
-            if (in_array($key, ['description_soiree', 'adresse_soiree', 'ville_soiree', 'statu_soiree'])) {
+            if (in_array($key, ['date_soiree','heure_min_soiree','heure_max_soiree','ville_soiree','adresse_soiree','description_soiree'])) {
                 // Mettez à jour les champs correspondants dans la base de données
                 update_field($key, $value, $_SESSION['id_soiree'], $connexion);
             }
@@ -155,8 +155,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($resultat) {
                 while ($ligne = $resultat->fetch_assoc()) {
                     $nom_soiree = htmlspecialchars($ligne['nom_soiree']);
-                    $date_soiree = date("l j F", strtotime($ligne['date_soiree']));
-                    $description_soiree = $ligne['description_soiree'];
+                    $date_soiree = htmlspecialchars($ligne['date_soiree']);
+                    $description_soiree = htmlspecialchars($ligne['description_soiree']);
                     $adresse_soiree = htmlspecialchars($ligne['adresse_soiree']);
                     $ville_soiree = htmlspecialchars($ligne['ville_soiree']);
                     $statu_soiree = htmlspecialchars($ligne['statu_soiree']);
@@ -249,27 +249,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class='info_container'>
                                 <div class='infos_general'>
                                     <form method='POST' class='container_titre_soiree'>
-                                        <span id='nom_soiree' class='nom_soiree'>{$nom_soiree}</span>
-                                        <button type='button' id='button_edit_input' class='button_edit' onclick='editElement_input(\"nom_soiree\")'>Éditer</button>
+                                        <span id='nom_soiree' class='nom_soiree' onclick='editElement_input(\"nom_soiree\", \"button_edit_input_nom_soiree\")'>{$nom_soiree}</span>
+                                        <button type='button' id='button_edit_input_nom_soiree' class='button_edit' onclick='editElement_input(\"nom_soiree\", \"button_edit_input_nom_soiree\")'>Éditer</button>
                                     </form>                        
                                     <div class='adresse_date_container'>
                                         <a href='#' class='calendar_link'>
                                             <div class='logo'><img src ='../../image/icon_calendar.svg'></div>
                                             <form class='container_calendar'>
                                                 <div class='container_edit'>
-                                                    <span id='date_soiree'><strong><p>{$date_soiree}</p></strong></span>
-                                                    <button type='button' id='button_edit_input' class='button_edit' onclick='editElement_input(\"date_soiree\")'>Éditer</button>
+                                                    <span id='date_soiree'><strong>{$date_soiree}</strong></span>
+                                                    <button type='button' id='button_edit_input_date_soiree' class='button_edit' onclick='editElement_input(\"date_soiree\", \"button_edit_input_date_soiree\", \"date\")'>Éditer</button>
                                                 </div>
-                
-                                                <p class='heure'><i>de {$heure_min_soiree} à {$heure_max_soiree}</i></p>
+                                                <div class='container_edit'>
+                                                    <p class='heure'>
+                                                        de  
+                                                        <span id='heure_min_soiree'> {$heure_min_soiree}</span> à 
+                                                        <span id='heure_max_soiree'>{$heure_max_soiree}</span> 
+                                                    </p>
+                                                    <button type='button' id='button_edit_input_heure_soiree' class='button_edit' onclick='editHeures(\"heure_min_soiree\",\"heure_max_soiree\",\"button_edit_input_heure_soiree\")' >Éditer</button>
+                                                </div>
                                             </form>
                                         </a>
-                                        <a href='#' class='location_link' onclick='openMap(\"{$adresse_soiree}\", \"{$ville_soiree}\")'>
+                                        <a href='#' class='location_link'>
                                             <div class='logo'><img src ='../../image/icon_location.svg'></div>
-                                            <div class='container_location'>
-                                                <strong><p>{$ville_soiree}</p></strong>
-                                                <p class='adresse'><i>{$adresse_soiree}</i></p>
-                                            </div>
+                                            <form class='container_location'>
+                                                <div class='container_edit'>
+                                                    <span id='ville_soiree'><strong>{$ville_soiree}</strong></span>
+                                                    <button type='button' id='button_edit_input_ville_soiree' class='button_edit' onclick='editElement_input(\"ville_soiree\", \"button_edit_input_ville_soiree\")'>Éditer</button>
+                                                </div>
+                                                <div class='container_edit'>
+                                                    <span id='adresse_soiree' class='adresse'><i>{$adresse_soiree}</i></span>
+                                                    <button type='button' id='button_edit_input_adresse_soiree' class='button_edit' onclick='editElement_input(\"adresse_soiree\", \"button_edit_input_adresse_soiree\")'>Éditer</button>
+                                                </div>
+                                            </form>
                                         </a>
                                     </div>
                                     <form method='POST' action='' class='container_description'>
@@ -281,6 +293,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </form> 
                                     <form method='POST' class='container_mise_a_jour_complete'>
                                         <input type='hidden' id='hidden_nom_soiree' name='nom_soiree' value='<?= htmlspecialchars($nom_soiree) ?>'>
+                                        <input type='hidden' id='hidden_date_soiree' name='date_soiree' value='<?= htmlspecialchars($date_soiree) ?>'>
+                                        <input type='hidden' id='hidden_heure_min_soiree' name='heure_min_soiree' value='<?= htmlspecialchars($heure_min_soiree) ?>'>
+                                        <input type='hidden' id='hidden_heure_max_soiree' name='heure_max_soiree' value='<?= htmlspecialchars($heure_max_soiree) ?>'>
+                                        <input type='hidden' id='hidden_ville_soiree' name='ville_soiree' value='<?= htmlspecialchars($ville_soiree) ?>'>
+                                        <input type='hidden' id='hidden_adresse_soiree' name='adresse_soiree' value='<?= htmlspecialchars($adresse_soiree) ?>'>
                                         <input type='hidden' id='hidden_description' name='description_soiree' value='<?= htmlspecialchars($description_soiree) ?>'>
                                         <input type='submit' name='mettre_a_jour_complete' value='Mettre à jour tout'>
                                     </form>  

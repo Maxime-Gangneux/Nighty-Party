@@ -269,14 +269,13 @@ section{
 .button_edit{
     visibility: hidden;
 }
-.container_description:hover .button_edit, .container_titre_soiree:hover .button_edit, .container_calendar:hover .button_edit{
+.container_description:hover .button_edit, .container_titre_soiree:hover .button_edit, .container_edit:hover .button_edit{
     visibility: visible;
 }
 .container_edit{
     display: flex;
     width: 100%;
     justify-content: space-between;
-    background-color: #717171;
 }
 
 .container_mise_a_jour_complete{
@@ -365,11 +364,23 @@ section{
 }
 .container_calendar ,.container_location{
     color: black;
+    width: 100%;
 }
 
 .container_calendar .heure ,.container_location .adresse{
     margin-top: 5px;
     color: #333; 
+    font-style: italic;
+}
+.heure_min_soiree, .heure_max_soiree{
+    width: 70px;
+}
+.heure{
+    display: flex;
+}
+.heure span{
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .container_titre_soiree {
