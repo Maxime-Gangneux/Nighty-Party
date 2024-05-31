@@ -311,8 +311,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erreur : " . $e->getMessage();
     }
     ?>
-    <footer>
-        <p>Créé et conçu par Muller Julien & Gangneux Maxime</p>
-    </footer>
 </body>
 </html>
