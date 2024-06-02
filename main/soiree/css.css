@@ -1,20 +1,21 @@
 /* Définition des polices */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Corps de la page */
 body {
     margin: auto;
-    background-color: black;
+    background-color: #1C1C1C;
     overflow-y: scroll;
     overflow-x: hidden;
+    color: #FFFFFF;
 }
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 /* Pied de page */
 footer {
     position: relative;
@@ -35,7 +36,6 @@ section{
     position: relative;
     display: flex;
     height: 90vh;
-    background-color: aqua;
 }
 .container_button_back{
     position: absolute;
@@ -230,10 +230,9 @@ section{
 }
 .info_container{
     position: relative;
-    height: 100%;
+    height: 90%;
     width: 40vw;
     margin: auto 5vw auto 5vh;
-    background-color: brown;
 }
 .infos_general{
     position: relative;
@@ -247,6 +246,7 @@ section{
     width: 100%;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
+    border-bottom: 3px solid #FFFFF0;;
 }
 .header_description{
     display: flex;
@@ -259,6 +259,9 @@ section{
 .description{  
     height: 75%;
     width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
 }
 .description_soiree{
     min-width: 75%;
@@ -288,7 +291,7 @@ section{
     align-items: center;
     width: 100%;
     height: 40%;
-    background-color: red;
+
 }
 .personnes{
     position: relative;
@@ -345,10 +348,12 @@ section{
     padding: 10px;
     width: 50%;
     border-radius: 8px;
+    transition: transform 300ms ease;
 }
 .calendar_link:hover ,.location_link:hover{
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 0 10px rgba(241, 241, 241, 0.4);
+    transform: scale(1.05);
 }
 
 .calendar_link div, .location_link div{
@@ -363,7 +368,7 @@ section{
     border-radius: 8px;
 }
 .container_calendar ,.container_location{
-    color: black;
+    color: white;
     width: 100%;
 }
 
