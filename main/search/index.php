@@ -14,7 +14,7 @@ session_start();
     <!-- Lien vers la feuille de style CSS -->
     <link rel="stylesheet" href="css.css">
     <!-- Script JavaScript -->
-    <script src="app.js"></script>
+
 </head>
 <body>
     <!-- Inclusion de la barre de navigation -->
@@ -25,6 +25,7 @@ session_start();
                     include '../../BDD/api.php';
                 ?>
         </div>
+        <script src="app.js"></script>
     </main> 
 </body>
 <footer>

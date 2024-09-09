@@ -142,6 +142,21 @@ include '../../BDD/get_images.php';
                     echo "          </div>
                                 </div>
                                 <p>Nombre de personnes à la soirée: {$nombre_de_personne}</p>
+                                <button class='delete'>
+                                    <div class='trash'>
+                                        <div class='top'>
+                                            <div class='paper'></div>
+                                        </div>
+
+                                        <div class='box'></div>
+
+                                        <div class='check'>
+                                            <svg viewBox='0 0 8 6'>
+                                                <polyline points='1 3.4 2.71428571 5 7 1'></polyline>
+                                            </svg>
+                                        </div>
+                                    </div> <span>Delete Party</span>
+                                </button>
                             </div>
                             <div class = 'pop_up_boisson' id = 'pop_up_boisson'>
                                 <div class = 'pop_up'>
@@ -170,8 +185,6 @@ include '../../BDD/get_images.php';
             echo "Erreur : " . $e->getMessage();
         }
     ?>
-    <footer>
-        <p>Créé et conçu par Muller Julien & Gangneux Maxime</p>
-    </footer>
+
 </body>    
 </html>

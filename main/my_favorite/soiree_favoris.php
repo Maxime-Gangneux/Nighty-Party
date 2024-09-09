@@ -13,6 +13,7 @@ if (isset($_SESSION['connected'])){
                 $soiree = $resultat_soiree->fetch_assoc();
                 $date = date("l j F", strtotime($soiree['date_soiree']));
                 $images = getSoireeImages($id_soiree);
+                $isFavorite = true;
                 echo"
                 <section class='soiree'>
                 <div class='container_image' data-id='{$id_soiree}' onclick='RedirectPageSoiree(this)'>";
@@ -48,10 +49,9 @@ if (isset($_SESSION['connected'])){
                             <input type='hidden' name='id_soiree' value='{$id_soiree}'>
                             <button name='bouton_detail' type='submit' class='link'><h4>Learn more</h4></button>
                         </form>
-                        <form method='POST'>
-                            <input type='hidden' name='id_soiree' value='{$id_soiree}'>
-                            <button name='button_suprimer_favoris' type='submit' class='link'><h4>surppimer favorirs</h4></button>
-                        </form>                         
+                    <form method='POST'>
+                        <div data-id-soiree='{$id_soiree}' class='like " . ($isFavorite ? 'liked' : '') . "' data-user-id='" . ($id_compte ? $id_compte : '') . "'></div>
+                    </form>                       
                     </div>
                 </div>
             </section>
